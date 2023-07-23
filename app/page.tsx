@@ -8,7 +8,7 @@ export default function Page() {
       <div className="flex w-full justify-between px-12">
         <div>
 
-          <h1 className="text-4xl font-inter">MindJournal</h1>
+          <h1 className="text-4xl">MindJournal</h1>
           <p>{
             new Date().toLocaleString('en-US', {
               weekday: 'long',
