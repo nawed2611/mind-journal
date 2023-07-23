@@ -4,19 +4,14 @@ const nextConfig = {
     return [
       {
         source: "/github",
-        destination: "https://github.com/steven-tey/novel",
+        destination: "https://github.com/nawed2611/stemist-hacks",
         permanent: true,
       },
       {
         source: "/feedback",
-        destination: "https://github.com/steven-tey/novel/issues",
+        destination: "https://github.com/nawed2611/stemist-hacks/issues",
         permanent: true,
-      },
-      {
-        source: "/deploy",
-        destination: "https://vercel.com/templates/next.js/novel",
-        permanent: true,
-      },
+      }
     ];
   },
 };
