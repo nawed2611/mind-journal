@@ -46,7 +46,7 @@ export default function Menu() {
 
   return (
     <Popover>
-      <PopoverTrigger className="absolute bottom-5 right-5 z-10 flex h-8 w-8 items-center justify-center rounded-lg transition-colors duration-200 hover:bg-stone-100 active:bg-stone-200 sm:bottom-auto sm:top-5">
+      <PopoverTrigger className="z-10 flex h-8 w-8 items-center justify-center rounded-lg transition-colors duration-200 hover:bg-stone-100 active:bg-stone-200 sm:bottom-auto sm:top-5">
         <MenuIcon className="text-stone-600" width={16} />
       </PopoverTrigger>
       <PopoverContent className="w-52 divide-y divide-stone-200" align="end">
