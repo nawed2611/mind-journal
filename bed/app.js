@@ -17,8 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 try {
   const connection = mysql.createConnection(process.env.DATABASE_URL);
   connection.connect();
-}
-catch (err) {
+} catch (err) {
   console.log(err);
 }
 
