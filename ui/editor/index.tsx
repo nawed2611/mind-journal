@@ -142,6 +142,7 @@ export default function Editor() {
       </div>
       {editor && <EditorBubbleMenu editor={editor} />}
       <EditorContent editor={editor} />
+      <button className="absolute right-5 bottom-5 rounded-lg bg-stone-100 px-2 py-1 text-sm text-stone-400 hover:bg-stone-50 hover:scale-105 transition-all" onClick={() => { complete(editor?.getText() || ""); }}>That's it for today!</button>
     </div>
   );
 }

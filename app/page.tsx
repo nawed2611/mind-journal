@@ -7,7 +7,6 @@ export default function Page() {
     <div className="min-h-screen flex flex-col justify-evenly items-center sm:px-5">
       <div className="flex w-full justify-between px-12">
         <div>
-
           <h1 className="text-4xl">MindJournal</h1>
           <p>{
             new Date().toLocaleString('en-US', {
