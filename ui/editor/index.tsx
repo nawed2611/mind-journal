@@ -130,6 +130,35 @@ export default function Editor() {
     }
   }, [editor, content, hydrated]);
 
+  const handleSubmit = () => {
+    va.track("Journal Submitted");
+
+    fetch("/api/journal", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        content: editor?.getHTML(),
+        date: new Date().toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+        title: editor?.getHTML().split("<p>")[1].split("</p>")[0],
+      }),
+    }).then((res) => {
+      if (res.status === 200) {
+        toast.success("Journal submitted for " + new Date().toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + "!");
+      } else {
+        toast.error("Error submitting journal");
+      }
+      setTimeout(() => {
+        toast.success("Keep up the good work!")
+      }, 3000);
+    }).catch((err) => {
+      toast.error("Error submitting journal");
+      console.log(err);
+    });
+
+  };
+
   return (
     <div
       onClick={() => {
@@ -142,7 +171,7 @@ export default function Editor() {
       </div>
       {editor && <EditorBubbleMenu editor={editor} />}
       <EditorContent editor={editor} />
-      <button className="absolute right-5 bottom-5 rounded-lg bg-stone-100 px-2 py-1 text-sm text-stone-400 hover:bg-stone-50 hover:scale-105 transition-all" onClick={() => { complete(editor?.getText() || ""); }}>That's it for today!</button>
+      <button className="absolute right-5 bottom-5 rounded-lg bg-stone-100 px-2 py-1 text-sm text-stone-400 hover:bg-stone-50 hover:scale-105 transition-all" onClick={handleSubmit}>That's it for today!</button>
     </div>
   );
 }

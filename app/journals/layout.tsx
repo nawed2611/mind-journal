@@ -1,4 +1,8 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Sidebar from "@/components/sidebar";
+import { toast } from "sonner";
 
 const data = [
   {
@@ -14,6 +18,26 @@ const data = [
 ];
 
 export default function JournalLayout({ children }) {
+  useEffect(() => {
+    fetch("/api/journal", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        res.json().then((data) => {
+          console.log('data', data);
+        });
+      } else {
+        toast.error("Error getting journal");
+      }
+    }).catch((err) => {
+      toast.error("Error getting journal");
+      console.log(err);
+    });
+  }, [])
+
   return (
     <div className="flex h-screen">
       <div className="w-[25%] overflow-y-auto bg-stone-50 shadow-lg">
