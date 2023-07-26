@@ -1,6 +1,14 @@
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
+let BACKEND_URL = "";
+
+if (process.env.ENV !== "production") {
+  BACKEND_URL = "http://localhost:3000/";
+} else {
+  BACKEND_URL = "https://mind-journal-production.up.railway.app/";
+}
+
 export async function POST(request: Request) {
   const { userId } = auth();
   if (!userId) {
@@ -8,9 +16,8 @@ export async function POST(request: Request) {
   }
   const body = await request.json();
   body.userId = userId;
-  console.log(body);
 
-  const response = await fetch("http://localhost:3001/journal/", {
+  const response = await fetch(`${BACKEND_URL}/journal`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -29,7 +36,7 @@ export async function GET(request: Request) {
     return NextResponse.redirect("/sign-in");
   }
 
-  const response = await fetch(`http://localhost:3001/journal/${userId}`, {
+  const response = await fetch(`${BACKEND_URL}/journal/${userId}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
