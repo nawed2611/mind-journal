@@ -4,20 +4,9 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "@/components/sidebar";
 import { toast } from "sonner";
 
-const data = [
-  {
-    id: "1",
-    title: "First post",
-    content: "Hello world!",
-  },
-  {
-    id: "2",
-    title: "Second post",
-    content: "Hello again!",
-  },
-];
-
 export default function JournalLayout({ children }) {
+  const [data, setData] = useState([]);
+
   useEffect(() => {
     fetch("https://mind-journal-production.up.railway.app/journal", {
       method: "GET",
@@ -27,20 +16,20 @@ export default function JournalLayout({ children }) {
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((data) => {
-          console.log('data', data);
+          setData(data);
         });
       } else {
-        toast.error("Error getting journal");
+        toast.error("Error getting journals");
       }
     }).catch((err) => {
-      toast.error("Error getting journal");
+      toast.error("Error getting journals");
       console.log(err);
     });
   }, [])
 
   return (
     <div className="flex h-screen">
-      <div className="w-[25%] overflow-y-auto bg-stone-50 shadow-lg">
+      <div className="w-1/3 overflow-y-auto bg-stone-50 shadow-lg">
         <Sidebar data={data} />
       </div>
       <div className="w-[85%] p-4">{children}</div>
