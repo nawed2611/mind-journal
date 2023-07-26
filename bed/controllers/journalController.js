@@ -5,7 +5,7 @@ const findMultiple = async (req, res) => {
     connection.connect();
     const query = util.promisify(connection.query).bind(connection);
 
-    const rows = await query(`SELECT * FROM journals`);
+    const rows = await query(`SELECT * FROM journals WHERE user_id = '${req.params.id}`);
 
     res.send(rows);
 }
@@ -22,8 +22,6 @@ const findOne = async (req, res) => {
 const createOne = async (req, res) => {
     connection.connect();
     const query = util.promisify(connection.query).bind(connection);
-
-    console.log(req.body);
 
     const rows = await query(`INSERT INTO journals (title, content, date, user_id) VALUES ('${req.body.title}', '${req.body.content}', '${req.body.date}', '${req.body.user_id}')`);
 
