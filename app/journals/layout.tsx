@@ -19,7 +19,7 @@ const data = [
 
 export default function JournalLayout({ children }) {
   useEffect(() => {
-    fetch("/api/journal", {
+    fetch("https://mind-journal-production.up.railway.app/journal", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

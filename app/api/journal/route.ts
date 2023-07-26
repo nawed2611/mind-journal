@@ -35,6 +35,7 @@ export async function POST(request: Request) {
 
 export async function GET(request: Request) {
   const { userId } = auth();
+
   if (!userId) {
     return NextResponse.redirect("/sign-in");
   }
