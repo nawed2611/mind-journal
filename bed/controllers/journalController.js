@@ -5,7 +5,7 @@ const findMultiple = async (req, res) => {
     connection.connect();
     const query = util.promisify(connection.query).bind(connection);
 
-    const rows = await query(`SELECT * FROM journals WHERE user_id = '${req.params.id}`);
+    const rows = await query(`SELECT * FROM journals`);
 
     res.send(rows);
 }
