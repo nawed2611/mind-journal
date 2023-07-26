@@ -40,7 +40,7 @@ export async function GET(request: Request) {
   }
 
   const response = await fetch(
-    `https://mind-journal-production.up.railway.app/journal/${userId}`,
+    `https://mind-journal-production.up.railway.app/journal/`,
     {
       method: "GET",
       headers: {
