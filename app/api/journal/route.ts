@@ -17,13 +17,16 @@ export async function POST(request: Request) {
   const body = await request.json();
   body.userId = userId;
 
-  const response = await fetch(`${BACKEND_URL}/journal`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+  const response = await fetch(
+    `https://mind-journal-production.up.railway.app/journal`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
     },
-    body: JSON.stringify(body),
-  });
+  );
 
   console.log(response);
 
@@ -36,12 +39,15 @@ export async function GET(request: Request) {
     return NextResponse.redirect("/sign-in");
   }
 
-  const response = await fetch(`${BACKEND_URL}/journal/${userId}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
+  const response = await fetch(
+    `https://mind-journal-production.up.railway.app/journal/${userId}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
     },
-  });
+  );
 
   console.log(response);
 
