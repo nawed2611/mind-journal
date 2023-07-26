@@ -38,8 +38,7 @@ const Sidebar = ({ data }) => {
         {data.map((item: any) => (
           <div key={item.id} className="my-4 rounded bg-white p-4 shadow-md">
             <h3 className="text-4xl prose prose-sm font-[cal] mx-auto font-semibold">{item.title}</h3>
-            <div className="ring p-2">
-
+            <div className="pt-4">
               <RenderMarkdown content={item.content} />
             </div>
             <Link href={`/journals/${item.user_id}`}>View</Link>
