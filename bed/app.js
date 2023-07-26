@@ -8,6 +8,7 @@ import userRoutes from "./routes/user.js";
 import journalRoutes from "./routes/journal.js";
 
 const app = express();
+const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.options("*", cors());
@@ -30,6 +31,6 @@ app.get("/", (req, res) => {
 app.use("/user", userRoutes);
 app.use("/journal", journalRoutes);
 
-app.listen(3001, () => {
-  console.log("Server running on port 3001");
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
