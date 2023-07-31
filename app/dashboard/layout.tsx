@@ -12,7 +12,7 @@ export default function JournalLayout({ children }) {
       <Navbar />
       <div className="w-full m-4 min-h-[85vh] flex">
         <Sidebar />
-        <div className="w-3/4">{children}</div>
+        <div className="w-5/6">{children}</div>
       </div>
     </div>
   );

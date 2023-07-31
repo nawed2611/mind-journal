@@ -33,7 +33,7 @@ const data = [
 
 const Sidebar = () => {
   return (
-    <div className="m-4 w-1/5 border-r border-stone-200 rounded-lg">
+    <div className="m-4 w-1/6 rounded-lg">
       <ul>
         {data.map((item: any) => (
           <Link

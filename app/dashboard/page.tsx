@@ -59,10 +59,10 @@ export default function JournalPage() {
         <h1 className="text-4xl ">Your Journals</h1>
       </div>
 
-      <div className="flex mt-4 flex-col p-4 overflow-y-scroll h-[80vh] gap-y-4">
+      <div className="flex mt-4 flex-wrap p-4 overflow-y-scroll h-[80vh] w-full gap-2">
         {data.map((item: any) => (
-          <div className="flex flex-col border border-stone-400 rounded-sm p-4 gap-y-2">
-            <div className="flex justify-between">
+          <div className="flex drop-shadow-lg flex-col border border-stone-400 h-[45vh] w-[25vw] rounded-sm p-4 gap-2">
+            <div className="flex justify-between gap-x-2">
               <h1 className="text-2xl font-semibold">{item.title}</h1>
               <p className="text-sm font-semibold">{item.date}</p>
             </div>
@@ -78,7 +78,8 @@ const RenderMarkdown = ({ content }) => {
   const editor = useEditor({
     extensions: TiptapExtensions,
     editable: false,
-    content,
+    // truncate max length of content
+    content: content.length > 500 ? content.substring(0, 500) + "..." : content,
   });
 
   return <EditorContent editor={editor} />;
