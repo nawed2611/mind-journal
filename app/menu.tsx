@@ -62,7 +62,7 @@ export default function Menu() {
           {menu.map(({ title, icon }) => (
             <Link
               key={title}
-              href="/journals"
+              href="/dashboard"
               className="flex w-full items-center justify-between rounded px-2 py-1 text-sm text-stone-600 hover:bg-stone-100"
             >
               <div className="flex items-center space-x-2">
