@@ -24,9 +24,8 @@ try {
 }
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.json({ message: "Welcome to MindJournal API" });
 });
-
 
 app.use("/user", userRoutes);
 app.use("/journal", journalRoutes);

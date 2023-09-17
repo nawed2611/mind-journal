@@ -45,8 +45,7 @@ const Chatbot = (props: any) => {
       )
       .then((response) => {
         console.log(response);
-        const Answer = response.data;
-
+        const Answer = response.data
         setChats([
           ...chats,
           {
@@ -98,18 +97,14 @@ const Chatbot = (props: any) => {
   }, [chats]);
 
   return (
-    <div className="mb-20 mt-8 h-full">
-      <div className="mb-4 flex items-center justify-center">
-        <h1 className="text-xl font-bold">MindJournal</h1>
-      </div>
+    <div className="mb-20 mt-8 h-[75vh]">
       <div ref={chatContainerRef} className="mx-auto w-[70%]">
         {chats.map((chat, index) => (
           <div key={index}>
             <div className="inline-flex  items-center">
               <span
-                className={`${
-                  chat.author === "user" ? "text-gray-400" : "text-gray-500"
-                } inline-block rounded-lg p-2 text-base
+                className={`${chat.author === "user" ? "text-gray-400" : "text-gray-500"
+                  } inline-block rounded-lg p-2 text-base
                 font-medium`}
               >
                 {chat.message}
@@ -135,7 +130,7 @@ const Chatbot = (props: any) => {
             onChange={(event) =>
               setInput(
                 event.target.value.charAt(0).toUpperCase() +
-                  event.target.value.slice(1),
+                event.target.value.slice(1),
               )
             }
             onKeyDown={handleKeyDown}

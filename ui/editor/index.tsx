@@ -146,12 +146,12 @@ export default function Editor() {
     }).then((res) => {
       if (res.status === 200) {
         toast.success("Journal submitted for " + new Date().toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + "!");
+        setTimeout(() => {
+          toast.success("Keep up the good work!")
+        }, 3000);
       } else {
         toast.error("Error submitting journal");
       }
-      setTimeout(() => {
-        toast.success("Keep up the good work!")
-      }, 3000);
     }).catch((err) => {
       toast.error("Error submitting journal");
       console.log(err);

@@ -4,31 +4,27 @@ import { NextResponse } from "next/server";
 let BACKEND_URL = "";
 
 if (process.env.ENV !== "production") {
-  BACKEND_URL = "http://localhost:3000/";
+  BACKEND_URL = "http://localhost:3001/";
 } else {
   BACKEND_URL = "https://mind-journal-production.up.railway.app/";
 }
 
 export async function POST(request: Request) {
   const { userId } = auth();
+
   if (!userId) {
     return NextResponse.redirect("/sign-in");
   }
   const body = await request.json();
-  body.userId = userId;
+  body.id = userId;
 
-  const response = await fetch(
-    `https://mind-journal-production.up.railway.app/journal`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
+  const response = await fetch(`http://localhost:3001/journal`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
     },
-  );
-
-  console.log(response);
+    body: JSON.stringify(body),
+  });
 
   return NextResponse.json(response);
 }
@@ -40,17 +36,12 @@ export async function GET(request: Request) {
     return NextResponse.redirect("/sign-in");
   }
 
-  const response = await fetch(
-    `https://mind-journal-production.up.railway.app/journal/`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    },
-  );
+  let response = await fetch(`http://localhost:3001/journal/`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
 
-  console.log(response);
+  const responseData = await response.json();
 
-  return NextResponse.json(response);
+  return NextResponse.json(responseData);
 }

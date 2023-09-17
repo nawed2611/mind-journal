@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.get("/", journalController.findMultiple);
 router.get("/:id", journalController.findOne);
-router.post("/", journalController.createOne);
-router.put("/:id", journalController.updateOne);
+router.post("/", journalController.create);
+router.put("/:id", journalController.update);
 router.delete("/:id", journalController.deleteOne);
 
 export default router;

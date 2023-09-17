@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       baseTheme: dark
     }}>
       <html lang="en" suppressHydrationWarning>
-        <body>
+        <body className="font-[inter]">
           <Providers>{children}</Providers>
         </body>
       </html>

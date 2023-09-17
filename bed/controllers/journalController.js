@@ -5,7 +5,8 @@ const findMultiple = async (req, res) => {
     connection.connect();
     const query = util.promisify(connection.query).bind(connection);
 
-    const rows = await query(`SELECT * FROM journals`);
+    const rows = await query(`SELECT * FROM journal`);
+    console.log(rows);
 
     res.send(rows);
 }
@@ -14,21 +15,22 @@ const findOne = async (req, res) => {
     connection.connect();
     const query = util.promisify(connection.query).bind(connection);
 
-    const rows = await query(`SELECT * FROM journals WHERE user_id = '${req.params.id}'`);
+    const rows = await query(`SELECT * FROM journal WHERE id = '${req.params.id}'`);
 
     res.send(rows);
 }
 
-const createOne = async (req, res) => {
+const create = async (req, res) => {
     connection.connect();
+    console.log("req", req.body);
     const query = util.promisify(connection.query).bind(connection);
 
-    const rows = await query(`INSERT INTO journals (title, content, date, user_id) VALUES ('${req.body.title}', '${req.body.content}', '${req.body.date}', '${req.body.user_id}')`);
+    const rows = await query(`INSERT INTO journal (title, content, date, id) VALUES ('${req.body.title}', '${req.body.content}', '${req.body.date}', '${req.body.id}')`);
 
     res.send(rows);
 }
 
-const updateOne = async (req, res) => {
+const update = async (req, res) => {
     connection.connect();
     const query = util.promisify(connection.query).bind(connection);
 
@@ -49,7 +51,7 @@ const deleteOne = async (req, res) => {
 export default {
     findMultiple,
     findOne,
-    createOne,
-    updateOne,
+    create,
+    update,
     deleteOne
 }

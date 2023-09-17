@@ -8,7 +8,7 @@ import {
 import { useContext } from "react";
 import { AppContext } from "./providers";
 import { FontDefault, FontSerif, FontMono } from "@/ui/icons";
-import { Check, Menu as MenuIcon, Monitor, Moon, Pen, SunDim } from "lucide-react";
+import { Check, Menu as MenuIcon, Monitor, Moon, Pen, SunDim, Wallet } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 
@@ -16,6 +16,12 @@ const menu = [
   {
     title: "View My Journals",
     icon: <Pen className="h-4 w-4" />,
+    route: "/dashboard"
+  },
+  {
+    title: "Pricing",
+    icon: <Wallet className="h-4 w-4" />,
+    route: "/pricing"
   }
 ];
 const fonts = [
@@ -59,10 +65,10 @@ export default function Menu() {
       <PopoverContent className="w-52 divide-y divide-stone-200" align="end">
         <div className="p-2">
           <p className="p-2 text-xs font-medium text-stone-500">Journals</p>
-          {menu.map(({ title, icon }) => (
+          {menu.map(({ title, icon, route }) => (
             <Link
               key={title}
-              href="/dashboard"
+              href={route}
               className="flex w-full items-center justify-between rounded px-2 py-1 text-sm text-stone-600 hover:bg-stone-100"
             >
               <div className="flex items-center space-x-2">
@@ -78,6 +84,7 @@ export default function Menu() {
           <p className="p-2 text-xs font-medium text-stone-500">Font</p>
           {fonts.map(({ font, icon }) => (
             <button
+              key={font}
               className="flex w-full items-center justify-between rounded px-2 py-1 text-sm text-stone-600 hover:bg-stone-100"
               onClick={() => {
                 setFont(font);
