@@ -79,42 +79,6 @@ export default function JournalPage() {
 
           </div>
         ))}
-        {data && data.map((item: any) => (
-          <div className="flex font-[inter] drop-shadow-2xl shadow-inner bg-stone-50 flex-col justify-between border-2 border-stone-50 h-[40vh] w-[35vw] rounded-md p-4 gap-2">
-            <div className="flex justify-between gap-x-4 items-center">
-              <h1 className="text-2xl font-semibold">{item.title}</h1>
-              <p className="text-sm font-semibold">{item.date}</p>
-            </div>
-            <div className="h-full pt-4">
-              <RenderMarkdown content={item.content} />
-            </div>
-
-            <div className="flex w-full justify-end text-sm">
-              <button className="w-[35%] hover:scale-105 transition-all rounded-md bg-stone-100 p-2 text-stone-600 hover:bg-stone-200">
-                Continue Reading &rarr;
-              </button>
-            </div>
-
-          </div>
-        ))}
-        {data && data.map((item: any) => (
-          <div className="flex font-[inter] drop-shadow-2xl shadow-inner bg-stone-50 flex-col justify-between border-2 border-stone-50 h-[40vh] w-[35vw] rounded-md p-4 gap-2">
-            <div className="flex justify-between gap-x-4 items-center">
-              <h1 className="text-2xl font-semibold">{item.title}</h1>
-              <p className="text-sm font-semibold">{item.date}</p>
-            </div>
-            <div className="h-full pt-4">
-              <RenderMarkdown content={item.content} />
-            </div>
-
-            <div className="flex w-full justify-end text-sm">
-              <button className="w-[35%] hover:scale-105 transition-all rounded-md bg-stone-100 p-2 text-stone-600 hover:bg-stone-200">
-                Continue Reading &rarr;
-              </button>
-            </div>
-
-          </div>
-        ))}
       </div>
     </div>
   );
