@@ -171,7 +171,7 @@ export default function Editor() {
       </div>
       {editor && <EditorBubbleMenu editor={editor} />}
       <EditorContent editor={editor} />
-      <button className="absolute right-5 bottom-5 rounded-lg bg-stone-100 px-2 py-1 text-sm text-stone-400 hover:bg-stone-50 hover:scale-105 transition-all" onClick={handleSubmit}>That's it for today!</button>
+      <button className="absolute right-5 bottom-5 rounded-lg bg-stone-100 px-2 py-1 text-sm text-stone-400 hover:bg-stone-50 hover:scale-105 transition-all" onClick={handleSubmit}>Click here to submit</button>
     </div>
   );
 }

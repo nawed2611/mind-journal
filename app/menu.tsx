@@ -8,11 +8,16 @@ import {
 import { useContext } from "react";
 import { AppContext } from "./providers";
 import { FontDefault, FontSerif, FontMono } from "@/ui/icons";
-import { Check, Menu as MenuIcon, Monitor, Moon, Pen, SunDim, Wallet } from "lucide-react";
+import { Check, Home, Menu as MenuIcon, Monitor, Moon, Pen, SunDim, Wallet } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 
 const menu = [
+  {
+    title: "Home",
+    icon: <Home className="h-4 w-4" />,
+    route: "/"
+  },
   {
     title: "View My Journals",
     icon: <Pen className="h-4 w-4" />,
@@ -53,7 +58,7 @@ const appearances = [
   },
 ];
 
-export default function Menu() {
+export default function Menu({ isFont }) {
   const { font: currentFont, setFont } = useContext(AppContext);
   const { theme: currentTheme, setTheme } = useTheme();
 
@@ -80,26 +85,31 @@ export default function Menu() {
             </Link>
           ))}
         </div>
-        <div className="p-2">
-          <p className="p-2 text-xs font-medium text-stone-500">Font</p>
-          {fonts.map(({ font, icon }) => (
-            <button
-              key={font}
-              className="flex w-full items-center justify-between rounded px-2 py-1 text-sm text-stone-600 hover:bg-stone-100"
-              onClick={() => {
-                setFont(font);
-              }}
-            >
-              <div className="flex items-center space-x-2">
-                <div className="rounded-sm border border-stone-200 p-1">
-                  {icon}
-                </div>
-                <span>{font}</span>
-              </div>
-              {currentFont === font && <Check className="h-4 w-4" />}
-            </button>
-          ))}
-        </div>
+        {
+          isFont &&
+          (
+            <div className="p-2">
+              <p className="p-2 text-xs font-medium text-stone-500">Font</p>
+              {
+                fonts.map(({ font, icon }) => (
+                  <button
+                    key={font}
+                    className="flex w-full items-center justify-between rounded px-2 py-1 text-sm text-stone-600 hover:bg-stone-100"
+                    onClick={() => {
+                      setFont(font);
+                    }}
+                  >
+                    <div className="flex items-center space-x-2">
+                      <div className="rounded-sm border border-stone-200 p-1">
+                        {icon}
+                      </div>
+                      <span>{font}</span>
+                    </div>
+                    {currentFont === font && <Check className="h-4 w-4" />}
+                  </button>
+                ))}
+            </div>
+          )}
         <div className="p-2">
           <p className="p-2 text-xs font-medium text-stone-500">Appearance</p>
           {appearances.map(({ theme, icon }) => (

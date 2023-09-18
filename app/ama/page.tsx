@@ -97,14 +97,14 @@ const Chatbot = (props: any) => {
   }, [chats]);
 
   return (
-    <div className="mb-20 mt-8 h-[75vh]">
-      <div ref={chatContainerRef} className="mx-auto w-[70%]">
+    <div className="mb-20 overflow-y-scroll rounded-lg mt-8 h-[75vh] w-[80vw]">
+      <div ref={chatContainerRef} className="w-full p-4">
         {chats.map((chat, index) => (
           <div key={index}>
-            <div className="inline-flex  items-center">
+            <div className="inline-flex w-full p-4 mb-2 items-center">
               <span
                 className={`${chat.author === "user" ? "text-gray-400" : "text-gray-500"
-                  } inline-block rounded-lg p-2 text-base
+                  } inline-block rounded-lg text-base w-full
                 font-medium`}
               >
                 {chat.message}
@@ -134,7 +134,7 @@ const Chatbot = (props: any) => {
               )
             }
             onKeyDown={handleKeyDown}
-            className="w-full border-none bg-transparent p-2 text-base font-medium text-gray-400 outline-none placeholder:text-gray-400"
+            className="w-full bg-transparent p-4 mt-2 border text-base rounded-lg font-medium text-gray-400 outline-none placeholder:text-gray-400"
             placeholder="Type your message here..."
           />
         )}

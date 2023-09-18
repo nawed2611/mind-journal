@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import { UserButton } from "@clerk/nextjs";
 import Menu from "../app/menu";
 
-const Navbar = () => {
+const Navbar = ({ isFont }) => {
+
     return (
         <div className="flex w-full items-center justify-between px-12 pb-8 mt-4">
             <div>
@@ -21,7 +22,7 @@ const Navbar = () => {
             </div>
             <div className="flex gap-x-4">
                 <UserButton afterSignOutUrl="/" />
-                <Menu />
+                <Menu isFont={isFont} />
             </div>
         </div>
     );

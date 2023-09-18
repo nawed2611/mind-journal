@@ -62,10 +62,10 @@ export default function JournalPage() {
 
       <div className="flex m-4 flex-wrap overflow-y-scroll h-[77vh] gap-2 pb-4">
         {data && data.map((item: any) => (
-          <div className="flex font-[inter] drop-shadow-2xl shadow-inner bg-stone-50 flex-col justify-between border-2 border-stone-50 h-[40vh] w-[35vw] rounded-md p-4 gap-2">
+          <div className="flex bg-stone-50 flex-col justify-between border-2 border-stone-50 h-[40vh] w-[35vw] rounded-md p-4 gap-2">
             <div className="flex justify-between gap-x-4 items-center">
-              <h1 className="text-2xl font-semibold">{item.title}</h1>
-              <p className="text-sm font-semibold">{item.date}</p>
+              <h1 className="text-2xl font-bold">{item.title}</h1>
+              <p className="text-sm font-normal">{item.date}</p>
             </div>
             <div className="h-full pt-4">
               <RenderMarkdown content={item.content} />

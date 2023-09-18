@@ -9,7 +9,7 @@ export default function JournalLayout({ children }) {
 
   return (
     <div className="flex flex-col items-center h-screen">
-      <Navbar />
+      <Navbar isFont={false} />
       <div className="w-full m-4 flex">
         <Sidebar />
         <div className="w-5/6">{children}</div>

@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Sidebar from "@/ui/sidebar";
-import { toast } from "sonner";
 import Navbar from "@/ui/navbar";
 
 export default function JournalLayout({ children }) {
