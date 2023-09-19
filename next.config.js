@@ -11,7 +11,7 @@ const nextConfig = {
         source: "/feedback",
         destination: "https://github.com/nawed2611/stemist-hacks/issues",
         permanent: true,
-      }
+      },
     ];
   },
 };

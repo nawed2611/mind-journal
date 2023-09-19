@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import "@/styles/prosemirror.css";
-import { dark } from '@clerk/themes';
+import { dark } from "@clerk/themes";
 
 import { Metadata } from "next";
 import { ReactNode } from "react";
@@ -30,15 +30,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <ClerkProvider appearance={{
-      baseTheme: dark
-    }}>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+    >
       <html lang="en" suppressHydrationWarning>
         <body className="font-[inter]">
           <Providers>{children}</Providers>
         </body>
       </html>
     </ClerkProvider>
-
   );
 }

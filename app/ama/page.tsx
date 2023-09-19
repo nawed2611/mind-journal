@@ -45,7 +45,7 @@ const Chatbot = (props: any) => {
       )
       .then((response) => {
         console.log(response);
-        const Answer = response.data
+        const Answer = response.data;
         setChats([
           ...chats,
           {
@@ -97,14 +97,15 @@ const Chatbot = (props: any) => {
   }, [chats]);
 
   return (
-    <div className="mb-20 overflow-y-scroll rounded-lg mt-8 h-[75vh] w-[80vw]">
+    <div className="mb-20 mt-8 h-[75vh] w-[80vw] overflow-y-scroll rounded-lg">
       <div ref={chatContainerRef} className="w-full p-4">
         {chats.map((chat, index) => (
           <div key={index}>
-            <div className="inline-flex w-full p-4 mb-2 items-center">
+            <div className="mb-2 inline-flex w-full items-center p-4">
               <span
-                className={`${chat.author === "user" ? "text-gray-400" : "text-gray-500"
-                  } inline-block rounded-lg text-base w-full
+                className={`${
+                  chat.author === "user" ? "text-gray-400" : "text-gray-500"
+                } inline-block w-full rounded-lg text-base
                 font-medium`}
               >
                 {chat.message}
@@ -130,11 +131,11 @@ const Chatbot = (props: any) => {
             onChange={(event) =>
               setInput(
                 event.target.value.charAt(0).toUpperCase() +
-                event.target.value.slice(1),
+                  event.target.value.slice(1),
               )
             }
             onKeyDown={handleKeyDown}
-            className="w-full bg-transparent p-4 mt-2 border text-base rounded-lg font-medium text-gray-400 outline-none placeholder:text-gray-400"
+            className="mt-2 w-full rounded-lg border bg-transparent p-4 text-base font-medium text-gray-400 outline-none placeholder:text-gray-400"
             placeholder="Type your message here..."
           />
         )}

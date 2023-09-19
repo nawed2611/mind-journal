@@ -140,23 +140,38 @@ export default function Editor() {
       },
       body: JSON.stringify({
         content: editor?.getHTML(),
-        date: new Date().toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+        date: new Date().toLocaleDateString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }),
         title: editor?.getHTML().split("<p>")[1].split("</p>")[0],
       }),
-    }).then((res) => {
-      if (res.status === 200) {
-        toast.success("Journal submitted for " + new Date().toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + "!");
-        setTimeout(() => {
-          toast.success("Keep up the good work!")
-        }, 3000);
-      } else {
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          toast.success(
+            "Journal submitted for " +
+              new Date().toLocaleDateString("en-US", {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }) +
+              "!",
+          );
+          setTimeout(() => {
+            toast.success("Keep up the good work!");
+          }, 3000);
+        } else {
+          toast.error("Error submitting journal");
+        }
+      })
+      .catch((err) => {
         toast.error("Error submitting journal");
-      }
-    }).catch((err) => {
-      toast.error("Error submitting journal");
-      console.log(err);
-    });
-
+        console.log(err);
+      });
   };
 
   return (
@@ -164,14 +179,19 @@ export default function Editor() {
       onClick={() => {
         editor?.chain().focus().run();
       }}
-      className="relative min-h-[500px] mt-12 w-full max-w-screen-lg border-stone-200 bg-white p-12 px-8 sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:px-12 sm:shadow-lg"
+      className="relative mt-12 min-h-[500px] w-full max-w-screen-lg border-stone-200 bg-white p-12 px-8 sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:px-12 sm:shadow-lg"
     >
       <div className="absolute right-5 top-5 mb-5 rounded-lg bg-stone-100 px-2 py-1 text-sm text-stone-400">
         {saveStatus}
       </div>
       {editor && <EditorBubbleMenu editor={editor} />}
       <EditorContent editor={editor} />
-      <button className="absolute right-5 bottom-5 rounded-lg bg-stone-100 px-2 py-1 text-sm text-stone-400 hover:bg-stone-50 hover:scale-105 transition-all" onClick={handleSubmit}>Click here to submit</button>
+      <button
+        className="absolute bottom-5 right-5 rounded-lg bg-stone-100 px-2 py-1 text-sm text-stone-400 transition-all hover:scale-105 hover:bg-stone-50"
+        onClick={handleSubmit}
+      >
+        Click here to submit
+      </button>
     </div>
   );
 }

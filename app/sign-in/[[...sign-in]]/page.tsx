@@ -1,9 +1,11 @@
 import { SignIn } from "@clerk/nextjs";
 
 export default function Page() {
-  return <div className="flex ring min-h-screen flex-col items-center justify-center">
-    <h1 className="text-4xl pb-2">Welcome to Mindjournal</h1>
-    <p className="text-lg pb-2">Be the main character of your story</p>
-    <SignIn />
-  </div>
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center ring">
+      <h1 className="pb-2 text-4xl">Welcome to Mindjournal</h1>
+      <p className="pb-2 text-lg">Be the main character of your story</p>
+      <SignIn />
+    </div>
+  );
 }

@@ -2,7 +2,17 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Book, BookMarkedIcon, Bot, Home, Menu, MenuIcon, Paperclip, ThermometerIcon, TrendingUp } from "lucide-react";
+import {
+  Book,
+  BookMarkedIcon,
+  Bot,
+  Home,
+  Menu,
+  MenuIcon,
+  Paperclip,
+  ThermometerIcon,
+  TrendingUp,
+} from "lucide-react";
 import { useUser } from "@clerk/nextjs";
 
 const data = [
@@ -29,25 +39,25 @@ const data = [
     title: "Write for Today!",
     icon: <Paperclip size={21} />,
     route: "/",
-  }
+  },
 ];
 
 const Sidebar = () => {
   const { user } = useUser();
 
   return (
-    <div className={`flex flex-col justify-between m-4 rounded-lg transition-opacity bg-stone-50 w-1/6 h-[82vh]`}>
+    <div
+      className={`m-4 flex h-[82vh] w-1/6 flex-col justify-between rounded-lg bg-stone-50 transition-opacity`}
+    >
       <ul className={`m-4`}>
         {data.map((item: any) => (
           <Link
             key={item.id}
             href={item.route}
-            className="flex my-4 items-center hover:scale-105 transition-all justify-between rounded-md px-2 py-1 text-sm text-stone-600 hover:bg-stone-200"
+            className="my-4 flex items-center justify-between rounded-md px-2 py-1 text-sm text-stone-600 transition-all hover:scale-105 hover:bg-stone-200"
           >
             <div className="flex items-center space-x-2">
-              <div className="rounded-sm p-1">
-                {item.icon}
-              </div>
+              <div className="rounded-sm p-1">{item.icon}</div>
               <span className="text-md">{item.title}</span>
             </div>
           </Link>

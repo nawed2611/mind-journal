@@ -5,11 +5,10 @@ import Sidebar from "@/ui/sidebar";
 import Navbar from "@/ui/navbar";
 
 export default function JournalLayout({ children }) {
-
   return (
-    <div className="flex flex-col items-center h-screen">
+    <div className="flex h-screen flex-col items-center">
       <Navbar isFont={false} />
-      <div className="w-full m-4 flex">
+      <div className="m-4 flex w-full">
         <Sidebar />
         <div className="w-5/6">{children}</div>
       </div>

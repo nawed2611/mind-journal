@@ -14,7 +14,7 @@ export const AppContext = createContext<{
   setFont: Dispatch<SetStateAction<string>>;
 }>({
   font: "Default",
-  setFont: () => { },
+  setFont: () => {},
 });
 
 const ToasterProvider = () => {

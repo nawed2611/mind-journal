@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from '@tiptap/starter-kit';
+import StarterKit from "@tiptap/starter-kit";
 import { Node } from "@tiptap/core";
 
 const MarkdownExtension = Node.create({
@@ -40,45 +40,47 @@ export default function JournalPage() {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((res) => {
-      if (res.status === 200) {
-        res.json().then((data) => {
-          setData(data);
-        });
-      } else {
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          res.json().then((data) => {
+            setData(data);
+          });
+        } else {
+          toast.error("Error getting journals");
+        }
+      })
+      .catch((err) => {
         toast.error("Error getting journals");
-      }
-    }).catch((err) => {
-      toast.error("Error getting journals");
-      console.log(err);
-    });
+        console.log(err);
+      });
   }, []);
 
   return (
     <div className="h-full font-[inter] ">
-      <div className="flex first-letter:capitalize px-4">
+      <div className="flex px-4 first-letter:capitalize">
         <h1 className="text-4xl">Your Journals</h1>
       </div>
 
-      <div className="flex m-4 flex-wrap overflow-y-scroll h-[77vh] gap-2 pb-4">
-        {data && data.map((item: any) => (
-          <div className="flex bg-stone-50 flex-col justify-between border-2 border-stone-50 h-[40vh] w-[35vw] rounded-md p-4 gap-2">
-            <div className="flex justify-between gap-x-4 items-center">
-              <h1 className="text-2xl font-bold">{item.title}</h1>
-              <p className="text-sm font-normal">{item.date}</p>
-            </div>
-            <div className="h-full pt-4">
-              <RenderMarkdown content={item.content} />
-            </div>
+      <div className="m-4 flex h-[77vh] flex-wrap gap-2 overflow-y-scroll pb-4">
+        {data &&
+          data.map((item: any) => (
+            <div className="flex h-[40vh] w-[35vw] flex-col justify-between gap-2 rounded-md border-2 border-stone-50 bg-stone-50 p-4">
+              <div className="flex items-center justify-between gap-x-4">
+                <h1 className="text-2xl font-bold">{item.title}</h1>
+                <p className="text-sm font-normal">{item.date}</p>
+              </div>
+              <div className="h-full pt-4">
+                <RenderMarkdown content={item.content} />
+              </div>
 
-            <div className="flex w-full justify-end text-sm">
-              <button className="w-[35%] hover:scale-105 transition-all rounded-md bg-stone-100 p-2 text-stone-600 hover:bg-stone-200">
-                Continue Reading &rarr;
-              </button>
+              <div className="flex w-full justify-end text-sm">
+                <button className="w-[35%] rounded-md bg-stone-100 p-2 text-stone-600 transition-all hover:scale-105 hover:bg-stone-200">
+                  Continue Reading &rarr;
+                </button>
+              </div>
             </div>
-
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );
