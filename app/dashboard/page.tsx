@@ -67,8 +67,44 @@ export default function JournalPage() {
           data.map((item: any) => (
             <div className="flex h-[40vh] w-[35vw] flex-col justify-between gap-2 rounded-md border-2 border-stone-50 bg-stone-50 p-4">
               <div className="flex items-center justify-between gap-x-4">
-                <h1 className="text-2xl font-bold">{item.title}</h1>
-                <p className="text-sm font-normal">{item.date}</p>
+                <h1 className="text-2xl">{item.title}</h1>
+                <p className="text-xs italic">{item.date}</p>
+              </div>
+              <div className="h-full pt-4">
+                <RenderMarkdown content={item.content} />
+              </div>
+
+              <div className="flex w-full justify-end text-sm">
+                <button className="w-[35%] rounded-md bg-stone-100 p-2 text-stone-600 transition-all hover:scale-105 hover:bg-stone-200">
+                  Continue Reading &rarr;
+                </button>
+              </div>
+            </div>
+          ))}
+        {data &&
+          data.map((item: any) => (
+            <div className="flex h-[40vh] w-[35vw] flex-col justify-between gap-2 rounded-md border-2 border-stone-50 bg-stone-50 p-4">
+              <div className="flex items-center justify-between gap-x-4">
+                <h1 className="text-2xl">{item.title}</h1>
+                <p className="text-xs italic">{item.date}</p>
+              </div>
+              <div className="h-full pt-4">
+                <RenderMarkdown content={item.content} />
+              </div>
+
+              <div className="flex w-full justify-end text-sm">
+                <button className="w-[35%] rounded-md bg-stone-100 p-2 text-stone-600 transition-all hover:scale-105 hover:bg-stone-200">
+                  Continue Reading &rarr;
+                </button>
+              </div>
+            </div>
+          ))}
+        {data &&
+          data.map((item: any) => (
+            <div className="flex h-[40vh] w-[35vw] flex-col justify-between gap-2 rounded-md border-2 border-stone-50 bg-stone-50 p-4">
+              <div className="flex items-center justify-between gap-x-4">
+                <h1 className="text-2xl">{item.title}</h1>
+                <p className="text-xs italic">{item.date}</p>
               </div>
               <div className="h-full pt-4">
                 <RenderMarkdown content={item.content} />
