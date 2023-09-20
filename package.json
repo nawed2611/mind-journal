@@ -44,6 +44,8 @@
     "eventsource-parser": "^0.1.0",
     "framer-motion": "^10.12.18",
     "lucide-react": "^0.244.0",
+    "@supabase/supabase-js": "^2.32.0",
+    "langchain": "^0.0.131",
     "next": "13.4.12",
     "next-themes": "^0.2.1",
     "openai-edge": "^1.2.0",
