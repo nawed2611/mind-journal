@@ -24,7 +24,6 @@ const findOne = async (req, res) => {
 
 const create = async (req, res) => {
   connection.connect();
-  console.log("req", req.body);
   const query = util.promisify(connection.query).bind(connection);
 
   const rows = await query(
