@@ -1,61 +1,73 @@
 import util from "util";
-import connection from "../db.js";
+import connection from "../db.js"; // Make sure this import is done correctly
 
 const findMultiple = async (req, res) => {
   connection.connect();
   const query = util.promisify(connection.query).bind(connection);
 
-  const rows = await query(`SELECT * FROM journal`);
-  console.log(rows);
-
-  res.send(rows);
+  try {
+    const rows = await query(`SELECT * FROM journal`);
+    console.log(rows);
+    res.send(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 };
 
 const findOne = async (req, res) => {
   connection.connect();
   const query = util.promisify(connection.query).bind(connection);
 
-  const rows = await query(
-    `SELECT * FROM journal WHERE id = '${req.params.id}'`,
-  );
-
-  res.send(rows);
+  try {
+    const rows = await query(
+      `SELECT * FROM journal WHERE id = '${req.params.id}'`,
+    );
+    res.send(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 };
 
 const create = async (req, res) => {
-  const query = `INSERT INTO journal (title, content, date, id) VALUES (?, ?, ?, ?)`;
+  const query = `INSERT INTO journal (title, content, date, user) VALUES (?, ?, ?, ?)`;
+  const date = new Date().toISOString().slice(0, 10);
   const values = [req.body.title, req.body.content, req.body.date, req.body.id];
 
   try {
     connection.connect();
-    const result = await connection.query(query, values);
+    const [result] = await connection.promise().query(query, values);
     res.send(result);
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
-  } finally {
-    connection.end();
   }
 };
 
 const update = async (req, res) => {
-  connection.connect();
-  const query = util.promisify(connection.query).bind(connection);
+  const query = `UPDATE journal SET title = ?, content = ? WHERE user = ?`;
+  const values = [req.body.title, req.body.content, req.params.id];
 
-  const rows = await query(
-    `UPDATE journal SET title = '${req.body.title}', content = '${req.body.content}', date = '${req.body.date}' WHERE id = ${req.params.id} `,
-  );
-
-  res.send(rows);
+  try {
+    const [result] = (await connection).execute(query, values);
+    res.send(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 };
 
 const deleteOne = async (req, res) => {
-  connection.connect();
   const query = util.promisify(connection.query).bind(connection);
 
-  const rows = await query(`DELETE FROM journal WHERE id = ${req.params.id} `);
-
-  res.send(rows);
+  try {
+    const rows = await query(`DELETE FROM journal WHERE id = ${req.params.id} `);
+    res.send(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 };
 
 export default {

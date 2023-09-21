@@ -21,11 +21,15 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
   const text = body.text;
 
+  console.log("body", body);
+
   try {
     const client = createClient(
       process.env.SUPABASE_URL!,
       process.env.SUPABASE_PRIVATE_KEY!,
     );
+
+    console.log("client", client);
 
     const splitter = RecursiveCharacterTextSplitter.fromLanguage("markdown", {
       chunkSize: 256,
@@ -44,8 +48,19 @@ export async function POST(req: NextRequest) {
       },
     );
 
+    console.log("vectorstore", vectorstore);
+
     return NextResponse.json({ ok: true }, { status: 200 });
   } catch (e: any) {
     return NextResponse.json({ error: e.message }, { status: 500 });
   }
+}
+
+export async function GET(req: NextRequest) {
+  const client = createClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_PRIVATE_KEY!,
+  );
+
+  return NextResponse.json({ yoo: "yoo" }, { status: 200 });
 }
