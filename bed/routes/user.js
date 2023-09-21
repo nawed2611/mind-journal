@@ -16,7 +16,6 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   create(req, res)
     .then((result) => {
-      console.log("rere", result);
       res.json(result);
     })
     .catch((err) => {
