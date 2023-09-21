@@ -16,6 +16,7 @@ import {
   Moon,
   Pen,
   SunDim,
+  UserCircle2,
   Wallet,
 } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -36,6 +37,11 @@ const menu = [
     title: "Pricing",
     icon: <Wallet className="h-4 w-4" />,
     route: "/pricing",
+  },
+  {
+    title: "Profile",
+    icon: <UserCircle2 className="h-4 w-4" />,
+    route: "/profile",
   },
 ];
 const fonts = [

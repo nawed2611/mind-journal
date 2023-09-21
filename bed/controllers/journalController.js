@@ -23,14 +23,19 @@ const findOne = async (req, res) => {
 };
 
 const create = async (req, res) => {
-  connection.connect();
-  const query = util.promisify(connection.query).bind(connection);
+  const query = `INSERT INTO journal (title, content, date, id) VALUES (?, ?, ?, ?)`;
+  const values = [req.body.title, req.body.content, req.body.date, req.body.id];
 
-  const rows = await query(
-    `INSERT INTO journal (title, content, date, id) VALUES ('${req.body.title}', '${req.body.content}', '${req.body.date}', '${req.body.id}')`,
-  );
-
-  res.send(rows);
+  try {
+    connection.connect();
+    const result = await connection.query(query, values);
+    res.send(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  } finally {
+    connection.end();
+  }
 };
 
 const update = async (req, res) => {

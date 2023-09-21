@@ -9,3 +9,17 @@ export const findMultiple = async (req, res) => {
 
   res.send(rows);
 };
+
+export const create = async (req, res) => {
+  connection.connect();
+  const query = util.promisify(connection.query).bind(connection);
+
+  console.log(req.body);
+
+  // const { name, email, id } = req.body;
+
+  // const rows = await query(`INSERT INTO user (name, email, id) VALUES ('${name}', '${email}', '${id}')`);
+
+  // res.send(rows);
+  res.send(`{"hello": "check"}`);
+};

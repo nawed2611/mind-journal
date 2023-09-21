@@ -4,12 +4,12 @@ const nextConfig = {
     return [
       {
         source: "/github",
-        destination: "https://github.com/nawed2611/stemist-hacks",
+        destination: "https://github.com/nawed2611/mind-journal",
         permanent: true,
       },
       {
         source: "/feedback",
-        destination: "https://github.com/nawed2611/stemist-hacks/issues",
+        destination: "https://github.com/nawed2611/mind-journal/issues",
         permanent: true,
       },
     ];
