@@ -1,15 +1,19 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
 import Menu from "../app/menu";
+import Link from "next/link";
 
 const Navbar = ({ isFont }) => {
+  const { user } = useUser();
+
+
   return (
-    <div className="mt-4 flex w-full items-center justify-between px-12 pb-8">
-      <div>
-        <h1 className="text-4xl">MindJournal</h1>
-        <p>
+    <div className="mt-4 flex w-[95vw] items-center justify-between p-4 border border-stone-50 dark:bg-zinc-900">
+      <Link href="/">
+        <h1 className="text-2xl">MindJournal</h1>
+        <p className="text-sm">
           {new Date().toLocaleString("en-US", {
             weekday: "long",
             year: "numeric",
@@ -17,8 +21,9 @@ const Navbar = ({ isFont }) => {
             day: "numeric",
           })}
         </p>
-      </div>
-      <div className="flex gap-x-4">
+      </Link>
+      <div className="flex items-center gap-x-4">
+        {user?.firstName}'s Diary
         <UserButton afterSignOutUrl="/" />
         <Menu isFont={isFont} />
       </div>

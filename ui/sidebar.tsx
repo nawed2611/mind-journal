@@ -19,25 +19,25 @@ const data = [
   {
     id: 1,
     title: "Dashboard",
-    icon: <Home size={21} />,
+    icon: <Home size={19} />,
     route: "/dashboard",
   },
   {
     id: 2,
     title: "Ask me anything",
-    icon: <Bot size={21} />,
+    icon: <Bot size={19} />,
     route: "/ama",
   },
   {
     id: 4,
     title: "Your Story",
-    icon: <Book size={21} />,
+    icon: <Book size={19} />,
     route: "/story",
   },
   {
     id: 5,
     title: "Write for Today!",
-    icon: <Paperclip size={21} />,
+    icon: <Paperclip size={19} />,
     route: "/",
   },
 ];
@@ -47,7 +47,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`drop-shadow-3xl m-4 mt-2 flex h-[82vh] w-1/6 flex-col justify-between rounded-lg bg-stone-50 transition-opacity`}
+      className={`drop-shadow-3xl m-4 mt-2 flex h-[82vh] w-1/6 flex-col justify-between rounded-lg dark:bg-zinc-900 transition-opacity`}
     >
       <ul className={`m-4`}>
         {data.map((item: any) => (

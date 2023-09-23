@@ -11,7 +11,16 @@ const DEFAULT_EDITOR_CONTENT = {
       content: [
         {
           type: "text",
-          text: "Be the Main Character of Your Story",
+          text: "Be the Main Character of Your Life Story. Generate a story from your memories and experiences.",
+        },
+      ],
+    },
+    {
+      type: "paragraph",
+      content: [
+        {
+          type: "text",
+          text: "Use `/` for commands and `++` for autocomplete.",
         },
       ],
     },

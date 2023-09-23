@@ -153,13 +153,13 @@ export default function Editor() {
         if (res.status === 200) {
           toast.success(
             "Journal submitted for " +
-              new Date().toLocaleDateString("en-US", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              }) +
-              "!",
+            new Date().toLocaleDateString("en-US", {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            }) +
+            "!",
           );
           setTimeout(() => {
             toast.success("Keep up the good work!");
@@ -179,7 +179,7 @@ export default function Editor() {
       onClick={() => {
         editor?.chain().focus().run();
       }}
-      className="relative mt-12 min-h-[500px] w-full max-w-screen-lg border-stone-200 bg-white p-12 px-8 sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:px-12 sm:shadow-lg"
+      className="relative mt-12 min-h-[500px] w-full max-w-screen-lg border-stone-200 bg-white p-12 px-8 sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:px-12 sm:shadow-lg backdrop-blur-xl"
     >
       <div className="absolute right-5 top-5 mb-5 rounded-lg bg-stone-100 px-2 py-1 text-sm text-stone-400">
         {saveStatus}
@@ -190,7 +190,7 @@ export default function Editor() {
         className="absolute bottom-5 right-5 rounded-lg bg-stone-100 px-2 py-1 text-sm text-stone-400 transition-all hover:scale-105 hover:bg-stone-50"
         onClick={handleSubmit}
       >
-        Click here to submit
+        Finish writing for Today!
       </button>
     </div>
   );

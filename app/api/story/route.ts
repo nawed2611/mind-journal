@@ -20,8 +20,7 @@ export const runtime = "edge";
 export async function POST(req: NextRequest) {
   const body = await req.json();
   const text = body.text;
-
-  console.log("body", body);
+  const userId = body.userId;
 
   try {
     const client = createClient(
@@ -29,14 +28,19 @@ export async function POST(req: NextRequest) {
       process.env.SUPABASE_PRIVATE_KEY!,
     );
 
-    console.log("client", client);
-
     const splitter = RecursiveCharacterTextSplitter.fromLanguage("markdown", {
       chunkSize: 256,
       chunkOverlap: 20,
     });
 
-    const splitDocuments = await splitter.createDocuments([text]);
+    const splitDocuments: any = await splitter.createDocuments([text]);
+
+    // splitDocuments is an array and add userId to each document
+    splitDocuments.forEach((doc) => {
+      doc.userId = userId;
+    });
+
+    console.log("splitDocuments\n\n\n\n", splitDocuments);
 
     const vectorstore = await SupabaseVectorStore.fromDocuments(
       splitDocuments,
@@ -48,9 +52,7 @@ export async function POST(req: NextRequest) {
       },
     );
 
-    console.log("vectorstore", vectorstore);
-
-    return NextResponse.json({ ok: true }, { status: 200 });
+    return NextResponse.json(vectorstore, { status: 200 });
   } catch (e: any) {
     return NextResponse.json({ error: e.message }, { status: 500 });
   }

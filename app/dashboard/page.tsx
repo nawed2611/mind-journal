@@ -62,51 +62,15 @@ export default function JournalPage() {
         <h1 className="text-4xl">Your Journals</h1>
       </div>
 
-      <div className="m-4 flex h-[77vh] flex-wrap gap-2 overflow-y-scroll pb-4">
+      <div className="m-4 flex h-[77vh] flex-wrap gap-4 overflow-y-scroll pb-4">
         {data &&
           data.map((item: any) => (
-            <div className="flex h-[40vh] w-[35vw] flex-col justify-between gap-2 rounded-md border-2 border-stone-50 bg-stone-50 p-4">
-              <div className="flex items-center justify-between gap-x-4">
-                <h1 className="text-2xl">{item.title}</h1>
-                <p className="text-xs italic">{item.date}</p>
+            <div className="flex h-[42vh] w-[39vw] flex-col justify-between gap-4 rounded-md border-2 border-stone-50 bg-stone-50 p-4">
+              <div className="flex flex-col justify-between gap-x-4">
+                <h1 className="text-2xl truncate">{item.title}</h1>
+                <p className="text-sm mt-2">{item.date}</p>
               </div>
-              <div className="h-full pt-4">
-                <RenderMarkdown content={item.content} />
-              </div>
-
-              <div className="flex w-full justify-end text-sm">
-                <button className="w-[35%] rounded-md bg-stone-100 p-2 text-stone-600 transition-all hover:scale-105 hover:bg-stone-200">
-                  Continue Reading &rarr;
-                </button>
-              </div>
-            </div>
-          ))}
-        {data &&
-          data.map((item: any) => (
-            <div className="flex h-[40vh] w-[35vw] flex-col justify-between gap-2 rounded-md border-2 border-stone-50 bg-stone-50 p-4">
-              <div className="flex items-center justify-between gap-x-4">
-                <h1 className="text-2xl">{item.title}</h1>
-                <p className="text-xs italic">{item.date}</p>
-              </div>
-              <div className="h-full pt-4">
-                <RenderMarkdown content={item.content} />
-              </div>
-
-              <div className="flex w-full justify-end text-sm">
-                <button className="w-[35%] rounded-md bg-stone-100 p-2 text-stone-600 transition-all hover:scale-105 hover:bg-stone-200">
-                  Continue Reading &rarr;
-                </button>
-              </div>
-            </div>
-          ))}
-        {data &&
-          data.map((item: any) => (
-            <div className="flex h-[40vh] w-[35vw] flex-col justify-between gap-2 rounded-md border-2 border-stone-50 bg-stone-50 p-4">
-              <div className="flex items-center justify-between gap-x-4">
-                <h1 className="text-2xl">{item.title}</h1>
-                <p className="text-xs italic">{item.date}</p>
-              </div>
-              <div className="h-full pt-4">
+              <div className="h-full pt-4 truncate">
                 <RenderMarkdown content={item.content} />
               </div>
 

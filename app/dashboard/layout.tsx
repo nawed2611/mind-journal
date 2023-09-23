@@ -7,7 +7,7 @@ import Navbar from "@/ui/navbar";
 
 export default function JournalLayout({ children }) {
   return (
-    <div className="flex h-screen flex-col items-center">
+    <div className="flex h-screen flex-col items-center ">
       <Navbar isFont={false} />
       <div className="m-4 flex w-full">
         <Sidebar />

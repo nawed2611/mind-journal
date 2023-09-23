@@ -54,4 +54,5 @@
 
 body {
   background-color: var(--novel-white);
+  background: url("./Texture.png");
 }

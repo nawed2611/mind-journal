@@ -2,15 +2,16 @@
 import Editor from "@/ui/editor";
 import Navbar from "@/ui/navbar";
 import { useAuth, useUser } from "@clerk/nextjs";
+import { initializeApp } from "firebase/app";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Page() {
   const { isLoaded, isSignedIn, user } = useUser();
   const router = useRouter();
-  console.log("user", user);
 
   useEffect(() => {
+
     if (isLoaded && !isSignedIn) {
       router.push("/");
     }
