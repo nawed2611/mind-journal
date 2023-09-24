@@ -16,7 +16,9 @@ export const create = async (req, res) => {
 
   const { name, email, id } = req.body;
 
-  const rows = await query(`INSERT INTO user (name, email, id) VALUES ('${name}', '${email}', '${id}')`);
+  const rows = await query(
+    `INSERT INTO user (name, email, id) VALUES ('${name}', '${email}', '${id}')`,
+  );
 
   res.send(rows);
 };

@@ -47,7 +47,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`drop-shadow-3xl m-4 mt-2 flex h-[82vh] w-1/6 flex-col justify-between rounded-lg dark:bg-zinc-900 transition-opacity`}
+      className={`drop-shadow-3xl m-4 mt-2 flex h-[82vh] w-1/6 flex-col justify-between rounded-lg transition-opacity dark:bg-zinc-900`}
     >
       <ul className={`m-4`}>
         {data.map((item: any) => (

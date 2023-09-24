@@ -8,9 +8,8 @@ import Link from "next/link";
 const Navbar = ({ isFont }) => {
   const { user } = useUser();
 
-
   return (
-    <div className="mt-4 flex w-[95vw] items-center justify-between p-4 border border-stone-50 dark:bg-zinc-900">
+    <div className="mt-4 flex w-[95vw] items-center justify-between border border-stone-50 p-4 dark:bg-zinc-900">
       <Link href="/">
         <h1 className="text-2xl">MindJournal</h1>
         <p className="text-sm">
@@ -23,7 +22,7 @@ const Navbar = ({ isFont }) => {
         </p>
       </Link>
       <div className="flex items-center gap-x-4">
-        {user?.firstName}'s Diary
+        {user && <>{user.firstName}'s Diary</>}
         <UserButton afterSignOutUrl="/" />
         <Menu isFont={isFont} />
       </div>

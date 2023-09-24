@@ -11,7 +11,6 @@ export default function Page() {
   const router = useRouter();
 
   useEffect(() => {
-
     if (isLoaded && !isSignedIn) {
       router.push("/");
     }

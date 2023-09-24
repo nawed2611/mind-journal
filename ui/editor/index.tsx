@@ -130,7 +130,7 @@ export default function Editor() {
     }
   }, [editor, content, hydrated]);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     va.track("Journal Submitted");
 
     fetch("/api/journal", {
@@ -150,9 +150,9 @@ export default function Editor() {
       }),
     })
       .then((res) => {
-        if (res.status === 200) {
-          toast.success(
-            "Journal submitted for " +
+        console.log("Journal submitted with res: ", res);
+        toast.success(
+          "Journal submitted for " +
             new Date().toLocaleDateString("en-US", {
               weekday: "long",
               year: "numeric",
@@ -160,13 +160,10 @@ export default function Editor() {
               day: "numeric",
             }) +
             "!",
-          );
-          setTimeout(() => {
-            toast.success("Keep up the good work!");
-          }, 3000);
-        } else {
-          toast.error("Error submitting journal");
-        }
+        );
+        setTimeout(() => {
+          toast.success("Keep up the good work!");
+        }, 3000);
       })
       .catch((err) => {
         toast.error("Error submitting journal");
@@ -179,7 +176,7 @@ export default function Editor() {
       onClick={() => {
         editor?.chain().focus().run();
       }}
-      className="relative mt-12 min-h-[500px] w-full max-w-screen-lg border-stone-200 bg-white p-12 px-8 sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:px-12 sm:shadow-lg backdrop-blur-xl"
+      className="relative mt-12 min-h-[500px] w-full max-w-screen-lg border-stone-200 bg-white p-12 px-8 backdrop-blur-xl sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:px-12 sm:shadow-lg"
     >
       <div className="absolute right-5 top-5 mb-5 rounded-lg bg-stone-100 px-2 py-1 text-sm text-stone-400">
         {saveStatus}

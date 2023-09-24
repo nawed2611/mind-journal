@@ -67,10 +67,10 @@ export default function JournalPage() {
           data.map((item: any) => (
             <div className="flex h-[42vh] w-[39vw] flex-col justify-between gap-4 rounded-md border-2 border-stone-50 bg-stone-50 p-4">
               <div className="flex flex-col justify-between gap-x-4">
-                <h1 className="text-2xl truncate">{item.title}</h1>
-                <p className="text-sm mt-2">{item.date}</p>
+                <h1 className="truncate text-2xl">{item.title}</h1>
+                <p className="mt-2 text-sm">{item.date}</p>
               </div>
-              <div className="h-full pt-4 truncate">
+              <div className="h-full truncate pt-4">
                 <RenderMarkdown content={item.content} />
               </div>
 

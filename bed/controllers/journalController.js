@@ -62,7 +62,9 @@ const deleteOne = async (req, res) => {
   const query = util.promisify(connection.query).bind(connection);
 
   try {
-    const rows = await query(`DELETE FROM journal WHERE id = ${req.params.id} `);
+    const rows = await query(
+      `DELETE FROM journal WHERE id = ${req.params.id} `,
+    );
     res.send(rows);
   } catch (error) {
     console.error(error);
