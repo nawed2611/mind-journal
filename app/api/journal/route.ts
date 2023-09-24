@@ -53,14 +53,14 @@ export async function POST(request: Request) {
   const body = await request.json();
   body.id = userId;
 
-  // // update the entry on vector db supabase
-  // const vectorResponse = await fetch("http://localhost:3000/api/story", {
-  //   method: "POST",
-  //   body: JSON.stringify({
-  //     text: body.content,
-  //     userId: userId,
-  //   }),
-  // });
+  // update the entry on vector db supabase
+  const vectorResponse = await fetch("http://localhost:3000/api/story", {
+    method: "POST",
+    body: JSON.stringify({
+      text: body.content,
+      userId: userId,
+    }),
+  });
 
   // create the prompt using template
   const imagePrompt = await generatePrompt(body.content);
@@ -79,6 +79,7 @@ export async function POST(request: Request) {
   });
 
   console.log("imageResponse", imageResponse);
+  let downloadURL = "";
 
   if (imageResponse.ok) {
     const contentType = imageResponse.headers.get("content-type");
@@ -87,17 +88,24 @@ export async function POST(request: Request) {
     }
 
     // Convert the response to a Blob
-    const imageBlob = await imageResponse.blob();
+    const imageArrayBuffer = await imageResponse.arrayBuffer();
 
-    console.log("imageBlob", imageBlob);
+    // Now you have the binary image data in the 'imageArrayBuffer' variable
+    // You can convert it to Uint8Array if needed
+    const imageBytes = new Uint8Array(imageArrayBuffer);
+
+    console.log("imageBlob", imageBytes);
 
     // Create a reference to the image
     const storage = getStorage();
-    const imageRef = ref(storage, "images/" + userId);
+    const imageRef = ref(storage, "images/" + userId + ".png");
 
     // Upload the image to Cloud Storage
-    const snapshot = await uploadBytes(imageRef, imageBlob);
-    console.log("Uploaded a blob or file!", snapshot);
+    const snapshot = await uploadBytes(imageRef, imageBytes);
+
+    // Get the download URL
+    downloadURL = await getDownloadURL(imageRef);
+    console.log("downloadURL", downloadURL);
   } else {
     // Handle the error
     console.error(imageResponse.status);
@@ -105,18 +113,22 @@ export async function POST(request: Request) {
     NextResponse.json({ error: "Error" });
   }
 
-  // // create the journal on pscale
-  // const response = await fetch(`http://localhost:3001/journal`, {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify(body),
-  // });
+  body.imageURL = downloadURL;
+
+  // create the journal on pscale
+  const response = await fetch(`http://localhost:3001/journal`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
 
   return NextResponse.json(
     {
       message: "Journal created successfully",
+      imageURL: downloadURL,
+      data: await response.json(),
     },
     { status: 200 },
   );
