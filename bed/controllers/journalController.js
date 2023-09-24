@@ -31,18 +31,14 @@ const findOne = async (req, res) => {
 };
 
 const create = async (req, res) => {
-  const query = `INSERT INTO journal (title, content, date, user) VALUES (?, ?, ?, ?)`;
-  const date = new Date().toISOString().slice(0, 10);
-  const values = [req.body.title, req.body.content, req.body.date, req.body.id];
+  connection.connect();
+  const query = util.promisify(connection.query).bind(connection);
 
-  try {
-    connection.connect();
-    const [result] = await connection.promise().query(query, values);
-    res.send(result);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
-  }
+  const rows = await query(
+    `INSERT INTO journal (title, content, date, user, imageURL) VALUES ('${req.body.title}', '${req.body.content}', '${req.body.date}', '${req.body.id}', '${req.body.imageURL}')`,
+  );
+
+  res.send(rows);
 };
 
 const update = async (req, res) => {

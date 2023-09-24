@@ -153,13 +153,13 @@ export default function Editor() {
         console.log("Journal submitted with res: ", res);
         toast.success(
           "Journal submitted for " +
-            new Date().toLocaleDateString("en-US", {
-              weekday: "long",
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            }) +
-            "!",
+          new Date().toLocaleDateString("en-US", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }) +
+          "!",
         );
         setTimeout(() => {
           toast.success("Keep up the good work!");

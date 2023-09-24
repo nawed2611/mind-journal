@@ -6,6 +6,7 @@ import mysql from "mysql2";
 
 import userRoutes from "./routes/user.js";
 import journalRoutes from "./routes/journal.js";
+import storyRoutes from "./routes/story.js";
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -29,6 +30,7 @@ app.get("/", (req, res) => {
 
 app.use("/user", userRoutes);
 app.use("/journal", journalRoutes);
+app.use("/story", storyRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

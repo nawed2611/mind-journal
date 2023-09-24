@@ -23,7 +23,7 @@ const generatePrompt = async (content: string) => {
   const multipleInputPrompt = new PromptTemplate({
     inputVariables: ["content"],
     template:
-      "Anime art of misato katsuragi from neon genesis evangelion, detailed scene, stunning details, trending on artstation, rainy day, ray-traced environment, vintage 90's anime artwork. In the style of 90's vintage anime, surrealism, akira. anime line art. Misato katsuragi is writing journals everyday and she wrote the following journal entry: {{content}}. Take this content and generate an image of misato katsuragi's day and make it heroic.",
+      "Anime art of misato katsuragi, detailed scene, stunning details, trending on artstation, vintage 90's anime artwork. surrealism, akira. anime comic manga style art. {{content}}, heroic by osamu tezuka, manga style",
   });
 
   const imagePrompt = await multipleInputPrompt.format({
@@ -43,6 +43,7 @@ export async function POST(request: Request) {
     appId: "1:98472360003:web:42953b3f10f4415ebd3cf6",
     measurementId: "G-X0Z1J57004",
   };
+
   initializeApp(firebaseConfig);
 
   const { userId } = auth();
@@ -54,7 +55,7 @@ export async function POST(request: Request) {
   body.id = userId;
 
   // update the entry on vector db supabase
-  const vectorResponse = await fetch("http://localhost:3000/api/story", {
+  await fetch("http://localhost:3000/api/story", {
     method: "POST",
     body: JSON.stringify({
       text: body.content,
@@ -94,11 +95,9 @@ export async function POST(request: Request) {
     // You can convert it to Uint8Array if needed
     const imageBytes = new Uint8Array(imageArrayBuffer);
 
-    console.log("imageBlob", imageBytes);
-
     // Create a reference to the image
     const storage = getStorage();
-    const imageRef = ref(storage, "images/" + userId + ".png");
+    const imageRef = ref(storage, "images/" + userId + Date.now() + ".png");
 
     // Upload the image to Cloud Storage
     const snapshot = await uploadBytes(imageRef, imageBytes);
@@ -109,8 +108,7 @@ export async function POST(request: Request) {
   } else {
     // Handle the error
     console.error(imageResponse.status);
-
-    NextResponse.json({ error: "Error" });
+    NextResponse.json({ error: "Error while uploading image:))" });
   }
 
   body.imageURL = downloadURL;
