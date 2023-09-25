@@ -41,12 +41,12 @@ const Chatbot = (props: any) => {
     setLoading(true);
     setInputEnabled(false);
 
-    const url = "https://stemist-aijournal-production.up.railway.app/ask";
+    console.log({ question: input, chats: chats });
 
     axios
       .post(
-        url,
-        { question: input, user_id: "user_1" },
+        '/api/chat',
+        { question: input, chats: chats },
         { headers: { "Content-Type": "application/json" } },
       )
       .then((response) => {

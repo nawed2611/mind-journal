@@ -40,8 +40,6 @@ export async function POST(req: NextRequest) {
       doc.userId = userId;
     });
 
-    console.log("splitDocuments\n\n\n\n", splitDocuments);
-
     const vectorstore = await SupabaseVectorStore.fromDocuments(
       splitDocuments,
       new OpenAIEmbeddings(),
@@ -56,13 +54,4 @@ export async function POST(req: NextRequest) {
   } catch (e: any) {
     return NextResponse.json({ error: e.message }, { status: 500 });
   }
-}
-
-export async function GET(req: NextRequest) {
-  const client = createClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_PRIVATE_KEY!,
-  );
-
-  return NextResponse.json({ yoo: "yoo" }, { status: 200 });
 }
