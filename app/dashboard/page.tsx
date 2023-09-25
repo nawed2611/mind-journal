@@ -35,7 +35,7 @@ export default function JournalPage() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("/api/journal", {
+    fetch("https://closedbadvirus.nawedali.repl.co/journal", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
