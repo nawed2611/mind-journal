@@ -55,7 +55,7 @@ export async function POST(request: Request) {
   body.id = userId;
 
   // update the entry on vector db supabase
-  await fetch("http://localhost:3000/api/story", {
+  await fetch("/api/story", {
     method: "POST",
     body: JSON.stringify({
       text: body.content,
@@ -114,13 +114,16 @@ export async function POST(request: Request) {
   body.imageURL = downloadURL;
 
   // create the journal on pscale
-  const response = await fetch(`http://localhost:3001/journal`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+  const response = await fetch(
+    `https://closedbadvirus.nawedali.repl.co/journal`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
     },
-    body: JSON.stringify(body),
-  });
+  );
 
   return NextResponse.json(
     {
@@ -139,10 +142,13 @@ export async function GET(request: Request) {
     return NextResponse.redirect("/sign-in");
   }
 
-  let response = await fetch(`http://localhost:3001/journal/`, {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  });
+  let response = await fetch(
+    `https://closedbadvirus.nawedali.repl.co/journal/`,
+    {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    },
+  );
 
   const responseData = await response.json();
 

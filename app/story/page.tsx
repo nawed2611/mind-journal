@@ -14,7 +14,7 @@ const Story = (props: any) => {
   useEffect(() => {
 
     if (userId) {
-      axios.get(`http://localhost:3001/story/${userId}`).then((res) => {
+      axios.get(`https://closedbadvirus.nawedali.repl.co/story/${userId}`).then((res) => {
         console.log(res.data);
         setData(res.data);
       });

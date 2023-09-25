@@ -17,7 +17,7 @@ export async function POST(request: Request) {
   }
   const body = await request.json();
 
-  const response = await fetch("http://localhost:3001/user", {
+  const response = await fetch("https://closedbadvirus.nawedali.repl.co/user", {
     method: "POST",
     body: JSON.stringify({
       name: body.name,
@@ -36,7 +36,7 @@ export async function GET(request: Request) {
     return NextResponse.redirect("/sign-in");
   }
 
-  let response = await fetch(`http://localhost:3001/journal/`, {
+  let response = await fetch(`https://closedbadvirus.nawedali.repl.co/journal/`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
