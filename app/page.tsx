@@ -17,7 +17,7 @@ export default function Page() {
   }, [isLoaded, isSignedIn]);
 
   return (
-    <div className="flex min-h-screen flex-col items-center sm:px-5">
+    <div className="flex min-h-[90vh] flex-col items-center sm:px-5">
       <Navbar isFont={true} />
       <Editor />
     </div>
