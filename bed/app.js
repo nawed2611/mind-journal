@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import cors from "cors";
-import mysql from "mysql2";
+import mysql from "mysql";
 
 import userRoutes from "./routes/user.js";
 import journalRoutes from "./routes/journal.js";
@@ -17,7 +17,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 try {
-  const connection = mysql.createConnection(process.env.DATABASE_URL);
+  const connection = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  });
   connection.connect();
   console.log("Connected to database");
 } catch (err) {
