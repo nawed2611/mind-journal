@@ -17,15 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 try {
-  const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  });
+  const connection = mysql.createConnection(process.env.DATABASE_URL);
   connection.connect();
   console.log("Connected to database");
 } catch (err) {
