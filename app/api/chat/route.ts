@@ -15,14 +15,6 @@ import {
 } from "langchain/schema/output_parser";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 
-let BACKEND_URL = "";
-
-if (process.env.ENV !== "production") {
-  BACKEND_URL = "http://localhost:3001/";
-} else {
-  BACKEND_URL = "https://mind-journal-production.up.railway.app/";
-}
-
 type ConversationalRetrievalQAChainInput = {
   question: string;
   chat_history: VercelChatMessage[];
@@ -76,11 +68,9 @@ export async function POST(request: Request) {
   }
   const body = await request.json();
 
-  console.log("body", body);
-
   const text = body.question;
   const messages = body.chats ?? [];
-  
+
   const previousMessages = messages.slice(0, -1);
   const currentMessageContent = text;
 

@@ -9,15 +9,7 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { initializeApp } from "firebase/app";
-import axios from "axios";
-
-let BACKEND_URL = "";
-
-if (process.env.ENV !== "production") {
-  BACKEND_URL = "http://localhost:3001/";
-} else {
-  BACKEND_URL = "https://mind-journal-production.up.railway.app/";
-}
+import { BACKEND_URL } from "@/lib/api";
 
 const generatePrompt = async (content: string) => {
   const multipleInputPrompt = new PromptTemplate({

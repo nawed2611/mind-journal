@@ -33,11 +33,11 @@ const menu = [
     icon: <Pen className="h-4 w-4" />,
     route: "/dashboard",
   },
-  {
-    title: "Pricing",
-    icon: <Wallet className="h-4 w-4" />,
-    route: "/pricing",
-  },
+  // {
+  //   title: "Pricing",
+  //   icon: <Wallet className="h-4 w-4" />,
+  //   route: "/pricing",
+  // },
   {
     title: "Profile",
     icon: <UserCircle2 className="h-4 w-4" />,

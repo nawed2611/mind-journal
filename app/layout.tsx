@@ -38,10 +38,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <html lang="en" suppressHydrationWarning>
         <body className="font-[inter] ">
           <Providers>{children}</Providers>
-          <div className="flex items-center justify-center">
-            <div className="flex items-center justify-center opacity-50 text-sm text-zinc-300">Built with ❤️ by Nawed. Follow <a href="https://peerlist.io/nawed/project/mindjournal"><img className="h-5 ml-2 w-20" src="https://dqy38fnwh4fqs.cloudfront.net/website/Peerlist.png" /></a>
-            </div>
-          </div>
         </body>
       </html>
     </ClerkProvider>
