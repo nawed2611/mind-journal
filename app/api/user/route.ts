@@ -1,13 +1,15 @@
-import { auth } from "@clerk/nextjs";
+import { getAuth } from "@clerk/nextjs/server";
+import { NextApiRequest } from "next";
 import { NextResponse } from "next/server";
 
-export async function POST(request: Request) {
-  const { userId } = auth();
+export async function POST(request: NextApiRequest) {
+  const { userId } = getAuth(request);
 
   if (!userId) {
     return NextResponse.redirect("/sign-in");
   }
-  const body = await request.json();
+
+  const body = JSON.parse(request.body);
 
   const response = await fetch("http://localhost:3000", {
     method: "POST",
@@ -21,8 +23,8 @@ export async function POST(request: Request) {
   return NextResponse.json(await response.json());
 }
 
-export async function GET(request: Request) {
-  const { userId } = auth();
+export async function GET(request: NextApiRequest) {
+  const { userId } = getAuth(request);
 
   if (!userId) {
     return NextResponse.redirect("/sign-in");

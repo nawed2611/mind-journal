@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs";
+import { getAuth } from "@clerk/nextjs/server";
 import { ImageResponse, NextResponse } from "next/server";
 import { PromptTemplate } from "langchain/prompts";
 import {
@@ -10,6 +10,7 @@ import {
 } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import prisma from "@/lib/prisma";
+import { NextApiRequest } from "next";
 
 const generatePrompt = async (content: string) => {
   const multipleInputPrompt = new PromptTemplate({
@@ -35,13 +36,15 @@ const firebaseConfig = {
   measurementId: "G-X0Z1J57004",
 };
 initializeApp(firebaseConfig);
-const { userId } = auth();
 
-export async function POST(request: Request) {
+export async function POST(request: NextApiRequest) {
+  const userId = getAuth(request).userId;
+
   if (!userId) {
     return NextResponse.redirect("/sign-in");
   }
-  const body = await request.json();
+
+  const body = JSON.parse(request.body);
   body.id = userId;
 
   console.log("body", body);
@@ -131,14 +134,13 @@ export async function POST(request: Request) {
   );
 }
 
-export async function GET(request: Request) {
-  // const { userId } = auth();
+export async function GET(request: NextApiRequest) {
+  const userId = getAuth(request).userId;
   let journals = [];
 
-  // if (!userId) {
-  //   return NextResponse.redirect("/sign-in");
-  // }
-
+  if (!userId) {
+    return NextResponse.redirect("/sign-in");
+  }
   try {
     journals = await prisma.journal.findMany({
       orderBy: { createdAt: "desc" },
