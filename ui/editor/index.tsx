@@ -153,13 +153,13 @@ export default function Editor() {
         console.log("Journal submitted with res: ", res);
         toast.success(
           "Journal submitted for " +
-          new Date().toLocaleDateString("en-US", {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          }) +
-          "!",
+            new Date().toLocaleDateString("en-US", {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            }) +
+            "!",
         );
         setTimeout(() => {
           toast.success("Keep up the good work!");
@@ -187,7 +187,7 @@ export default function Editor() {
         className="absolute bottom-5 right-5 rounded-lg bg-stone-100 px-2 py-1 text-sm text-stone-400 transition-all hover:scale-105 hover:bg-stone-50"
         onClick={handleSubmit}
       >
-        Finish writing for Today!
+        Finish writing for today!
       </button>
     </div>
   );

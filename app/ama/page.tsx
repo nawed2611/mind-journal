@@ -45,7 +45,7 @@ const Chatbot = (props: any) => {
 
     axios
       .post(
-        '/api/chat',
+        "/api/chat",
         { question: input, chats: chats },
         { headers: { "Content-Type": "application/json" } },
       )
@@ -122,8 +122,9 @@ const Chatbot = (props: any) => {
               )}
               <div className="mb-2 inline-flex w-full items-center p-4">
                 <span
-                  className={`${chat.author === "user" ? "text-gray-400" : "text-gray-500"
-                    } inline-block w-full rounded-lg text-base
+                  className={`${
+                    chat.author === "user" ? "text-gray-400" : "text-gray-500"
+                  } inline-block w-full rounded-lg text-base
                 font-medium`}
                 >
                   {chat.message}
@@ -151,7 +152,7 @@ const Chatbot = (props: any) => {
                 onChange={(event) =>
                   setInput(
                     event.target.value.charAt(0).toUpperCase() +
-                    event.target.value.slice(1),
+                      event.target.value.slice(1),
                   )
                 }
                 onKeyDown={handleKeyDown}

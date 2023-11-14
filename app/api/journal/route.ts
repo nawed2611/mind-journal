@@ -10,6 +10,7 @@ import {
 } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { BACKEND_URL } from "@/lib/api";
+import prisma from "@/lib/prisma";
 
 const generatePrompt = async (content: string) => {
   const multipleInputPrompt = new PromptTemplate({
@@ -25,29 +26,29 @@ const generatePrompt = async (content: string) => {
   return imagePrompt;
 };
 
+const firebaseConfig = {
+  apiKey: "AIzaSyBomm_HTJdb18yfBm3oEo9n6S6KT5OHtZ0",
+  authDomain: "mind-jo.firebaseapp.com",
+  projectId: "mind-jo",
+  storageBucket: "mind-jo.appspot.com",
+  messagingSenderId: "98472360003",
+  appId: "1:98472360003:web:42953b3f10f4415ebd3cf6",
+  measurementId: "G-X0Z1J57004",
+};
+initializeApp(firebaseConfig);
+const { userId } = auth();
+
 export async function POST(request: Request) {
-  const firebaseConfig = {
-    apiKey: "AIzaSyBomm_HTJdb18yfBm3oEo9n6S6KT5OHtZ0",
-    authDomain: "mind-jo.firebaseapp.com",
-    projectId: "mind-jo",
-    storageBucket: "mind-jo.appspot.com",
-    messagingSenderId: "98472360003",
-    appId: "1:98472360003:web:42953b3f10f4415ebd3cf6",
-    measurementId: "G-X0Z1J57004",
-  };
-
-  initializeApp(firebaseConfig);
-
-  const { userId } = auth();
-
   if (!userId) {
     return NextResponse.redirect("/sign-in");
   }
   const body = await request.json();
   body.id = userId;
 
+  console.log("body", body);
+
   // update the entry on vector db supabase
-  await fetch("/api/story", {
+  await fetch("http://localhost:3000/api/story", {
     method: "POST",
     body: JSON.stringify({
       text: body.content,
@@ -71,7 +72,6 @@ export async function POST(request: Request) {
     body: bodyContent,
   });
 
-  console.log("imageResponse", imageResponse);
   let downloadURL = "";
 
   if (imageResponse.ok) {
@@ -89,6 +89,7 @@ export async function POST(request: Request) {
 
     // Create a reference to the image
     const storage = getStorage();
+
     const imageRef = ref(storage, "images/" + userId + Date.now() + ".png");
 
     // Upload the image to Cloud Storage
@@ -96,7 +97,6 @@ export async function POST(request: Request) {
 
     // Get the download URL
     downloadURL = await getDownloadURL(imageRef);
-    console.log("downloadURL", downloadURL);
   } else {
     // Handle the error
     console.error(imageResponse.status);
@@ -104,45 +104,53 @@ export async function POST(request: Request) {
   }
 
   body.imageURL = downloadURL;
+  body.date = new Date().toISOString();
+  let journal = null;
 
   // create the journal on pscale
-  const response = await fetch(
-    `https://closedbadvirus.nawedali.repl.co/journal`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+  try {
+    journal = await prisma.journal.create({
+      data: {
+        content: body.content,
+        title: body.title,
+        imageURL: body.imageURL,
+        userId: body.id,
       },
-      body: JSON.stringify(body),
-    },
-  );
+    });
+    console.log("journal", journal);
+  } catch (e) {
+    console.log(e);
+    return NextResponse.json({ error: e });
+  }
 
   return NextResponse.json(
     {
       message: "Journal created successfully",
-      imageURL: downloadURL,
-      data: await response.json(),
+      journal,
     },
     { status: 200 },
   );
 }
 
 export async function GET(request: Request) {
-  const { userId } = auth();
+  // const { userId } = auth();
+  let journals = [];
 
-  if (!userId) {
-    return NextResponse.redirect("/sign-in");
+  // if (!userId) {
+  //   return NextResponse.redirect("/sign-in");
+  // }
+
+  try {
+    journals = await prisma.journal.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (e) {
+    console.log(e);
+    return NextResponse.json({ error: e });
   }
 
-  let response = await fetch(
-    `https://closedbadvirus.nawedali.repl.co/journal/`,
-    {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    },
-  );
-
-  const responseData = await response.json();
-
-  return NextResponse.json(responseData);
+  return NextResponse.json({
+    message: "Journals fetched successfully",
+    journals,
+  });
 }

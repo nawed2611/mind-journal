@@ -35,7 +35,7 @@ export default function JournalPage() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://closedbadvirus.nawedali.repl.co/journal", {
+    fetch("/api/journal", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export default function JournalPage() {
       .then((res) => {
         if (res.status === 200) {
           res.json().then((data) => {
-            setData(data);
+            setData(data.journals);
           });
         } else {
           toast.error("Error getting journals");
@@ -65,7 +65,7 @@ export default function JournalPage() {
       <div className="m-4 flex h-[77vh] flex-wrap gap-4 overflow-y-scroll pb-4">
         {data &&
           data.map((item: any) => (
-            <div className="flex h-[42vh] w-[39vw] flex-col justify-between gap-4 rounded-md border-2 border-stone-50 bg-stone-50 p-4">
+            <div className="flex h-[42vh] w-[39vw] flex-col justify-between gap-4 rounded-md border-2 border-stone-50 p-4">
               <div className="flex flex-col justify-between gap-x-4">
                 <h1 className="truncate text-2xl">{item.title}</h1>
                 <p className="mt-2 text-sm">{item.date}</p>
