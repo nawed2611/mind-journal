@@ -1,5 +1,5 @@
 import { getAuth } from "@clerk/nextjs/server";
-import { ImageResponse, NextResponse } from "next/server";
+import { ImageResponse, NextRequest, NextResponse } from "next/server";
 import { PromptTemplate } from "langchain/prompts";
 import {
   ref,
@@ -10,7 +10,6 @@ import {
 } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import prisma from "@/lib/prisma";
-import { NextApiRequest } from "next";
 
 const generatePrompt = async (content: string) => {
   const multipleInputPrompt = new PromptTemplate({
@@ -37,17 +36,15 @@ const firebaseConfig = {
 };
 initializeApp(firebaseConfig);
 
-export async function POST(request: NextApiRequest) {
+export async function POST(request: NextRequest) {
   const userId = getAuth(request).userId;
 
   if (!userId) {
     return NextResponse.redirect("/sign-in");
   }
 
-  const body = JSON.parse(request.body);
+  const body = await request.json();
   body.id = userId;
-
-  console.log("body", body);
 
   // update the entry on vector db supabase
   await fetch("http://localhost:3000/api/story", {
@@ -134,7 +131,7 @@ export async function POST(request: NextApiRequest) {
   );
 }
 
-export async function GET(request: NextApiRequest) {
+export async function GET(request: NextRequest) {
   const userId = getAuth(request).userId;
   let journals = [];
 
