@@ -1,15 +1,14 @@
 import { getAuth } from "@clerk/nextjs/server";
-import { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(request: NextApiRequest) {
+export async function POST(request: NextRequest) {
   const { userId } = getAuth(request);
 
   if (!userId) {
     return NextResponse.redirect("/sign-in");
   }
 
-  const body = JSON.parse(request.body);
+  const body = await request.json();
 
   const response = await fetch("http://localhost:3000", {
     method: "POST",
@@ -23,7 +22,7 @@ export async function POST(request: NextApiRequest) {
   return NextResponse.json(await response.json());
 }
 
-export async function GET(request: NextApiRequest) {
+export async function GET(request: NextRequest) {
   const { userId } = getAuth(request);
 
   if (!userId) {

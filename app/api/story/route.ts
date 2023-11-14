@@ -11,9 +11,6 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
   const text = body.text;
   const userId = body.userId;
-
-  console.log("text", body);
-
   try {
     const client = createClient(
       process.env.SUPABASE_URL!,
