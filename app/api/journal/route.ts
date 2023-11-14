@@ -9,7 +9,6 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { initializeApp } from "firebase/app";
-import { BACKEND_URL } from "@/lib/api";
 import prisma from "@/lib/prisma";
 
 const generatePrompt = async (content: string) => {

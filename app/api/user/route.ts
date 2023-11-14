@@ -1,6 +1,5 @@
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
-import { BACKEND_URL } from "@/lib/api";
 
 export async function POST(request: Request) {
   const { userId } = auth();
@@ -10,7 +9,7 @@ export async function POST(request: Request) {
   }
   const body = await request.json();
 
-  const response = await fetch(BACKEND_URL, {
+  const response = await fetch("http://localhost:3000", {
     method: "POST",
     body: JSON.stringify({
       name: body.name,
@@ -29,7 +28,7 @@ export async function GET(request: Request) {
     return NextResponse.redirect("/sign-in");
   }
 
-  let response = await fetch(BACKEND_URL, {
+  let response = await fetch("http://localhost:3000", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
