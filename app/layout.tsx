@@ -15,16 +15,6 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  openGraph: {
-    title,
-    description,
-  },
-  twitter: {
-    title,
-    description,
-    card: "summary_large_image",
-    creator: "@nawed2611",
-  },
   themeColor: "#ffffff",
 };
 
