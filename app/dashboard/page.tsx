@@ -62,25 +62,13 @@ export default function JournalPage() {
         <h1 className="text-4xl">Your Journals</h1>
       </div>
 
-      <div className="m-4 flex h-[77vh] flex-wrap gap-4 overflow-y-scroll pb-4">
+      <div className="m-4 w-full flex h-[77vh] flex-wrap gap-4 overflow-y-scroll pb-4">
         {data &&
           data.map((item: any) => (
-            <div className="flex w-[70vw] flex-wrap justify-between gap-4 rounded-md border-2 border-stone-50 p-4">
-              <div className="ring flex flex-wrap">
-                <div className=" ">
-                  <h1 className="truncate text-2xl">{item.title}</h1>
-                  <p className="mt-2 text-sm">{item.date}</p>
-                </div>
-                <div className="h-full truncate pt-4">
-                  <RenderMarkdown content={item.content} />
-                </div>
-
-                <div className="flex w-full justify-end text-sm">
-                  <button className=" rounded-md bg-stone-100 p-2 text-stone-600 transition-all hover:scale-105 hover:bg-stone-200">
-                    Continue Reading &rarr;
-                  </button>
-                </div>
-              </div>
+            <div className="flex w-[39vw] flex-wrap justify-between gap-4 rounded-md border-2 border-stone-50 p-4">
+              <p className="mt-2 text-base">{item.createdAt.split("T")[0].toString()}</p>
+              <RenderMarkdown content={item.content} />
+              <img className="w-full rounded" src={item.imageURL} />
             </div>
           ))}
       </div>

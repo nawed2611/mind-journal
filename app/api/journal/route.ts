@@ -8,8 +8,28 @@ import {
   getStorage,
   uploadBytesResumable,
 } from "firebase/storage";
+import {
+  RetrievalQAChain,
+  ConversationalRetrievalQAChain,
+} from "langchain/chains";
 import { initializeApp } from "firebase/app";
 import prisma from "@/lib/prisma";
+import { SupabaseVectorStore } from "langchain/vectorstores/supabase";
+import { createClient } from "@supabase/supabase-js";
+import { OpenAIEmbeddings } from "langchain/embeddings/openai";
+import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
+import { OpenAI } from "langchain";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBomm_HTJdb18yfBm3oEo9n6S6KT5OHtZ0",
+  authDomain: "mind-jo.firebaseapp.com",
+  projectId: "mind-jo",
+  storageBucket: "mind-jo.appspot.com",
+  messagingSenderId: "98472360003",
+  appId: "1:98472360003:web:42953b3f10f4415ebd3cf6",
+  measurementId: "G-X0Z1J57004",
+};
+initializeApp(firebaseConfig);
 
 const generatePrompt = async (content: string) => {
   const multipleInputPrompt = new PromptTemplate({
@@ -25,19 +45,9 @@ const generatePrompt = async (content: string) => {
   return imagePrompt;
 };
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBomm_HTJdb18yfBm3oEo9n6S6KT5OHtZ0",
-  authDomain: "mind-jo.firebaseapp.com",
-  projectId: "mind-jo",
-  storageBucket: "mind-jo.appspot.com",
-  messagingSenderId: "98472360003",
-  appId: "1:98472360003:web:42953b3f10f4415ebd3cf6",
-  measurementId: "G-X0Z1J57004",
-};
-initializeApp(firebaseConfig);
-
 export async function POST(request: NextRequest) {
   const userId = getAuth(request).userId;
+  const model = new OpenAI({ openAIApiKey: process.env.OPENAI_API_KEY! });
 
   if (!userId) {
     return NextResponse.redirect("/sign-in");
@@ -51,7 +61,7 @@ export async function POST(request: NextRequest) {
     method: "POST",
     body: JSON.stringify({
       text: body.content,
-      userId: userId,
+      userId,
     }),
   });
 
@@ -78,26 +88,14 @@ export async function POST(request: NextRequest) {
     if (contentType !== "image/png") {
       return NextResponse.json({ error: "Error not an image" });
     }
-
-    // Convert the response to a Blob
     const imageArrayBuffer = await imageResponse.arrayBuffer();
-
-    // Now you have the binary image data in the 'imageArrayBuffer' variable
-    // You can convert it to Uint8Array if needed
     const imageBytes = new Uint8Array(imageArrayBuffer);
-
-    // Create a reference to the image
     const storage = getStorage();
-
     const imageRef = ref(storage, "images/" + userId + Date.now() + ".png");
-
-    // Upload the image to Cloud Storage
     const snapshot = await uploadBytes(imageRef, imageBytes);
-
-    // Get the download URL
     downloadURL = await getDownloadURL(imageRef);
+    console.log("File available at", downloadURL);
   } else {
-    // Handle the error
     console.error(imageResponse.status);
     NextResponse.json({ error: "Error while uploading image:))" });
   }
@@ -106,12 +104,43 @@ export async function POST(request: NextRequest) {
   body.date = new Date().toISOString();
   let journal = null;
 
+  // create the journal on supabase vector store
+  try {
+    const client = createClient(
+      process.env.SUPABASE_URL!,
+      process.env.SUPABASE_PRIVATE_KEY!,
+    );
+
+    const textSplitter = new RecursiveCharacterTextSplitter({
+      chunkSize: 200,
+      chunkOverlap: 50,
+    });
+
+    const docs = await textSplitter.createDocuments([body.content]);
+
+    const vectorStore = await SupabaseVectorStore.fromDocuments(
+      docs,
+      new OpenAIEmbeddings(),
+      {
+        client,
+        tableName: "documents",
+        queryName: "match_documents",
+      },
+    );
+  } catch (e) {
+    console.log(e);
+    return NextResponse.json({ error: e });
+  }
+
   // create the journal on pscale
   try {
     journal = await prisma.journal.create({
       data: {
         content: body.content,
-        title: body.title,
+        title:
+          body.content.split("\n")[0].length > 50
+            ? body.content.split("\n")[0].slice(0, 50) + "..."
+            : body.content.split("\n")[0],
         imageURL: body.imageURL,
         userId: body.id,
       },
