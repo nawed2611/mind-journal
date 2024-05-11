@@ -38,11 +38,11 @@ const menu = [
   //   icon: <Wallet className="h-4 w-4" />,
   //   route: "/pricing",
   // },
-  {
-    title: "Profile",
-    icon: <UserCircle2 className="h-4 w-4" />,
-    route: "/profile",
-  },
+  // {
+  //   title: "Profile",
+  //   icon: <UserCircle2 className="h-4 w-4" />,
+  //   route: "/profile",
+  // },
 ];
 const fonts = [
   {

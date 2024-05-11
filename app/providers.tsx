@@ -5,7 +5,6 @@ import { ThemeProvider, useTheme } from "next-themes";
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/react";
 import { displayFontMapper, defaultFontMapper } from "@/styles/fonts";
-import { ClerkProvider } from "@clerk/nextjs";
 import useLocalStorage from "@/lib/hooks/use-local-storage";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +13,7 @@ export const AppContext = createContext<{
   setFont: Dispatch<SetStateAction<string>>;
 }>({
   font: "Default",
-  setFont: () => {},
+  setFont: () => { },
 });
 
 const ToasterProvider = () => {

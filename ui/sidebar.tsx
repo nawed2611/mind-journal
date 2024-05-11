@@ -13,7 +13,6 @@ import {
   ThermometerIcon,
   TrendingUp,
 } from "lucide-react";
-import { useUser } from "@clerk/nextjs";
 
 const data = [
   {
@@ -43,7 +42,6 @@ const data = [
 ];
 
 const Sidebar = () => {
-  const { user } = useUser();
 
   return (
     <div

@@ -7,8 +7,8 @@ It is embedded with all the journals you have written to date, ask anything abou
 I made it for people like me who think that they're leading average lives with barely interesting happening, I've tried to change that with MindJournal!
 
 ## Built with
+
 1. Next.js
-2. PlanetScale
-3. Supabase as Vector Store
-4. StabilityAI for Images
-5. Node.js Backend
+2. Supabase as Vector Store
+3. StabilityAI for Images
+4. Node.js Backend

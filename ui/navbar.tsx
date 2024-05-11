@@ -1,12 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { UserButton, useUser } from "@clerk/nextjs";
 import Menu from "../app/menu";
 import Link from "next/link";
 
 const Navbar = ({ isFont }) => {
-  const { user } = useUser();
 
   return (
     <div className="mt-4 flex w-[95vw] items-center justify-between border border-stone-50 p-4 dark:bg-zinc-900">
@@ -22,8 +20,8 @@ const Navbar = ({ isFont }) => {
         </p>
       </Link>
       <div className="flex items-center gap-x-4">
-        {user && <>{user.firstName}'s Diary</>}
-        <UserButton afterSignOutUrl="/" />
+        {/* {user && <>{user.firstName}'s Diary</>} */}
+        {/* <UserButton afterSignOutUrl="/" /> */}
         <Menu isFont={isFont} />
       </div>
     </div>
