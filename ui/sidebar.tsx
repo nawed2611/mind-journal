@@ -27,12 +27,12 @@ const data = [
     icon: <Bot size={19} />,
     route: "/ama",
   },
-  {
-    id: 4,
-    title: "Your Story",
-    icon: <Book size={19} />,
-    route: "/story",
-  },
+  // {
+  //   id: 4,
+  //   title: "Your Story",
+  //   icon: <Book size={19} />,
+  //   route: "/story",
+  // },
   {
     id: 5,
     title: "Write for Today!",
