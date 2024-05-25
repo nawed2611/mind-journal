@@ -45,6 +45,7 @@ export default function JournalPage() {
         if (res.status === 200) {
           res.json().then((data) => {
             setData(data.journals);
+            console.log(data.journals);
           });
         } else {
           toast.error("Error getting journals");
@@ -59,16 +60,16 @@ export default function JournalPage() {
   return (
     <div className="h-full font-[inter] ">
       <div className="flex px-4 first-letter:capitalize">
-        <h1 className="text-4xl">Your Journals</h1>
+        <h1 className="p-2 text-4xl">Your Journals</h1>
       </div>
 
       <div className="m-4 w-full flex h-[77vh] flex-wrap gap-4 overflow-y-scroll pb-4">
         {data &&
           data.map((item: any) => (
-            <div className="flex w-[39vw] flex-wrap justify-between gap-4 rounded-md border-2 border-stone-50 p-4">
+            <div className="flex w-[39vw] bg-white flex-wrap justify-between gap-4 rounded-md border-2 border-stone-50 p-4">
               <p className="mt-2 text-base">{item.createdAt.split("T")[0].toString()}</p>
               <RenderMarkdown content={item.content} />
-              <img className="w-full rounded" src={item.imageURL} />
+              {/* <img className="w-full rounded" src={item.imageURL} /> */}
             </div>
           ))}
       </div>

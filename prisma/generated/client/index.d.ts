@@ -14,20 +14,20 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model User
+ * Model users
  * 
  */
-export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+export type users = $Result.DefaultSelection<Prisma.$usersPayload>
 /**
- * Model Journal
+ * Model journals
  * 
  */
-export type Journal = $Result.DefaultSelection<Prisma.$JournalPayload>
+export type journals = $Result.DefaultSelection<Prisma.$journalsPayload>
 /**
- * Model Documents
+ * Model documents
  * 
  */
-export type Documents = $Result.DefaultSelection<Prisma.$DocumentsPayload>
+export type documents = $Result.DefaultSelection<Prisma.$documentsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -37,7 +37,7 @@ export type Documents = $Result.DefaultSelection<Prisma.$DocumentsPayload>
  * ```
  * const prisma = new PrismaClient()
  * // Fetch zero or more Users
- * const users = await prisma.user.findMany()
+ * const users = await prisma.users.findMany()
  * ```
  *
  * 
@@ -58,7 +58,7 @@ export class PrismaClient<
    * ```
    * const prisma = new PrismaClient()
    * // Fetch zero or more Users
-   * const users = await prisma.user.findMany()
+   * const users = await prisma.users.findMany()
    * ```
    *
    * 
@@ -152,34 +152,34 @@ export class PrismaClient<
   $extends: $Extensions.ExtendsHook<'extends', Prisma.TypeMapCb, ExtArgs>
 
       /**
-   * `prisma.user`: Exposes CRUD operations for the **User** model.
+   * `prisma.users`: Exposes CRUD operations for the **users** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more Users
-    * const users = await prisma.user.findMany()
+    * const users = await prisma.users.findMany()
     * ```
     */
-  get user(): Prisma.UserDelegate<ExtArgs>;
+  get users(): Prisma.usersDelegate<ExtArgs>;
 
   /**
-   * `prisma.journal`: Exposes CRUD operations for the **Journal** model.
+   * `prisma.journals`: Exposes CRUD operations for the **journals** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more Journals
-    * const journals = await prisma.journal.findMany()
+    * const journals = await prisma.journals.findMany()
     * ```
     */
-  get journal(): Prisma.JournalDelegate<ExtArgs>;
+  get journals(): Prisma.journalsDelegate<ExtArgs>;
 
   /**
-   * `prisma.documents`: Exposes CRUD operations for the **Documents** model.
+   * `prisma.documents`: Exposes CRUD operations for the **documents** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more Documents
     * const documents = await prisma.documents.findMany()
     * ```
     */
-  get documents(): Prisma.DocumentsDelegate<ExtArgs>;
+  get documents(): Prisma.documentsDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -657,9 +657,9 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    User: 'User',
-    Journal: 'Journal',
-    Documents: 'Documents'
+    users: 'users',
+    journals: 'journals',
+    documents: 'documents'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -676,204 +676,204 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'user' | 'journal' | 'documents'
+      modelProps: 'users' | 'journals' | 'documents'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
-      User: {
-        payload: Prisma.$UserPayload<ExtArgs>
-        fields: Prisma.UserFieldRefs
+      users: {
+        payload: Prisma.$usersPayload<ExtArgs>
+        fields: Prisma.usersFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.UserFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+            args: Prisma.usersFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$usersPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.usersFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$usersPayload>
           }
           findFirst: {
-            args: Prisma.UserFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+            args: Prisma.usersFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$usersPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.usersFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$usersPayload>
           }
           findMany: {
-            args: Prisma.UserFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+            args: Prisma.usersFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$usersPayload>[]
           }
           create: {
-            args: Prisma.UserCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.usersCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$usersPayload>
           }
           createMany: {
-            args: Prisma.UserCreateManyArgs<ExtArgs>,
+            args: Prisma.usersCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.UserDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.usersDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$usersPayload>
           }
           update: {
-            args: Prisma.UserUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.usersUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$usersPayload>
           }
           deleteMany: {
-            args: Prisma.UserDeleteManyArgs<ExtArgs>,
+            args: Prisma.usersDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.UserUpdateManyArgs<ExtArgs>,
+            args: Prisma.usersUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.UserUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.usersUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$usersPayload>
           }
           aggregate: {
-            args: Prisma.UserAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateUser>
+            args: Prisma.UsersAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateUsers>
           }
           groupBy: {
-            args: Prisma.UserGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<UserGroupByOutputType>[]
+            args: Prisma.usersGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<UsersGroupByOutputType>[]
           }
           count: {
-            args: Prisma.UserCountArgs<ExtArgs>,
-            result: $Utils.Optional<UserCountAggregateOutputType> | number
+            args: Prisma.usersCountArgs<ExtArgs>,
+            result: $Utils.Optional<UsersCountAggregateOutputType> | number
           }
         }
       }
-      Journal: {
-        payload: Prisma.$JournalPayload<ExtArgs>
-        fields: Prisma.JournalFieldRefs
+      journals: {
+        payload: Prisma.$journalsPayload<ExtArgs>
+        fields: Prisma.journalsFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.JournalFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JournalPayload> | null
+            args: Prisma.journalsFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$journalsPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.JournalFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JournalPayload>
+            args: Prisma.journalsFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$journalsPayload>
           }
           findFirst: {
-            args: Prisma.JournalFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JournalPayload> | null
+            args: Prisma.journalsFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$journalsPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.JournalFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JournalPayload>
+            args: Prisma.journalsFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$journalsPayload>
           }
           findMany: {
-            args: Prisma.JournalFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JournalPayload>[]
+            args: Prisma.journalsFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$journalsPayload>[]
           }
           create: {
-            args: Prisma.JournalCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JournalPayload>
+            args: Prisma.journalsCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$journalsPayload>
           }
           createMany: {
-            args: Prisma.JournalCreateManyArgs<ExtArgs>,
+            args: Prisma.journalsCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.JournalDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JournalPayload>
+            args: Prisma.journalsDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$journalsPayload>
           }
           update: {
-            args: Prisma.JournalUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JournalPayload>
+            args: Prisma.journalsUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$journalsPayload>
           }
           deleteMany: {
-            args: Prisma.JournalDeleteManyArgs<ExtArgs>,
+            args: Prisma.journalsDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.JournalUpdateManyArgs<ExtArgs>,
+            args: Prisma.journalsUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.JournalUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JournalPayload>
+            args: Prisma.journalsUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$journalsPayload>
           }
           aggregate: {
-            args: Prisma.JournalAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateJournal>
+            args: Prisma.JournalsAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateJournals>
           }
           groupBy: {
-            args: Prisma.JournalGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<JournalGroupByOutputType>[]
+            args: Prisma.journalsGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<JournalsGroupByOutputType>[]
           }
           count: {
-            args: Prisma.JournalCountArgs<ExtArgs>,
-            result: $Utils.Optional<JournalCountAggregateOutputType> | number
+            args: Prisma.journalsCountArgs<ExtArgs>,
+            result: $Utils.Optional<JournalsCountAggregateOutputType> | number
           }
         }
       }
-      Documents: {
-        payload: Prisma.$DocumentsPayload<ExtArgs>
-        fields: Prisma.DocumentsFieldRefs
+      documents: {
+        payload: Prisma.$documentsPayload<ExtArgs>
+        fields: Prisma.documentsFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.DocumentsFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload> | null
+            args: Prisma.documentsFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$documentsPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.DocumentsFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>
+            args: Prisma.documentsFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$documentsPayload>
           }
           findFirst: {
-            args: Prisma.DocumentsFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload> | null
+            args: Prisma.documentsFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$documentsPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.DocumentsFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>
+            args: Prisma.documentsFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$documentsPayload>
           }
           findMany: {
-            args: Prisma.DocumentsFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>[]
+            args: Prisma.documentsFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$documentsPayload>[]
           }
           create: {
-            args: Prisma.DocumentsCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>
+            args: Prisma.documentsCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$documentsPayload>
           }
           createMany: {
-            args: Prisma.DocumentsCreateManyArgs<ExtArgs>,
+            args: Prisma.documentsCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.DocumentsDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>
+            args: Prisma.documentsDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$documentsPayload>
           }
           update: {
-            args: Prisma.DocumentsUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>
+            args: Prisma.documentsUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$documentsPayload>
           }
           deleteMany: {
-            args: Prisma.DocumentsDeleteManyArgs<ExtArgs>,
+            args: Prisma.documentsDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.DocumentsUpdateManyArgs<ExtArgs>,
+            args: Prisma.documentsUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.DocumentsUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>
+            args: Prisma.documentsUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$documentsPayload>
           }
           aggregate: {
             args: Prisma.DocumentsAggregateArgs<ExtArgs>,
             result: $Utils.Optional<AggregateDocuments>
           }
           groupBy: {
-            args: Prisma.DocumentsGroupByArgs<ExtArgs>,
+            args: Prisma.documentsGroupByArgs<ExtArgs>,
             result: $Utils.Optional<DocumentsGroupByOutputType>[]
           }
           count: {
-            args: Prisma.DocumentsCountArgs<ExtArgs>,
+            args: Prisma.documentsCountArgs<ExtArgs>,
             result: $Utils.Optional<DocumentsCountAggregateOutputType> | number
           }
         }
@@ -1033,33 +1033,33 @@ export namespace Prisma {
 
 
   /**
-   * Count Type UserCountOutputType
+   * Count Type UsersCountOutputType
    */
 
-  export type UserCountOutputType = {
+  export type UsersCountOutputType = {
     journals: number
   }
 
-  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    journals?: boolean | UserCountOutputTypeCountJournalsArgs
+  export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    journals?: boolean | UsersCountOutputTypeCountJournalsArgs
   }
 
   // Custom InputTypes
   /**
-   * UserCountOutputType without action
+   * UsersCountOutputType without action
    */
-  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UsersCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the UserCountOutputType
+     * Select specific fields to fetch from the UsersCountOutputType
      */
-    select?: UserCountOutputTypeSelect<ExtArgs> | null
+    select?: UsersCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * UserCountOutputType without action
+   * UsersCountOutputType without action
    */
-  export type UserCountOutputTypeCountJournalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: JournalWhereInput
+  export type UsersCountOutputTypeCountJournalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: journalsWhereInput
   }
 
 
@@ -1068,35 +1068,26 @@ export namespace Prisma {
    */
 
   /**
-   * Model User
+   * Model users
    */
 
-  export type AggregateUser = {
-    _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
-    _min: UserMinAggregateOutputType | null
-    _max: UserMaxAggregateOutputType | null
+  export type AggregateUsers = {
+    _count: UsersCountAggregateOutputType | null
+    _avg: UsersAvgAggregateOutputType | null
+    _sum: UsersSumAggregateOutputType | null
+    _min: UsersMinAggregateOutputType | null
+    _max: UsersMaxAggregateOutputType | null
   }
 
-  export type UserAvgAggregateOutputType = {
+  export type UsersAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type UserSumAggregateOutputType = {
+  export type UsersSumAggregateOutputType = {
     id: number | null
   }
 
-  export type UserMinAggregateOutputType = {
-    id: number | null
-    user: string | null
-    email: string | null
-    name: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type UserMaxAggregateOutputType = {
+  export type UsersMinAggregateOutputType = {
     id: number | null
     user: string | null
     email: string | null
@@ -1105,7 +1096,16 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type UserCountAggregateOutputType = {
+  export type UsersMaxAggregateOutputType = {
+    id: number | null
+    user: string | null
+    email: string | null
+    name: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type UsersCountAggregateOutputType = {
     id: number
     user: number
     email: number
@@ -1116,24 +1116,15 @@ export namespace Prisma {
   }
 
 
-  export type UserAvgAggregateInputType = {
+  export type UsersAvgAggregateInputType = {
     id?: true
   }
 
-  export type UserSumAggregateInputType = {
+  export type UsersSumAggregateInputType = {
     id?: true
   }
 
-  export type UserMinAggregateInputType = {
-    id?: true
-    user?: true
-    email?: true
-    name?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type UserMaxAggregateInputType = {
+  export type UsersMinAggregateInputType = {
     id?: true
     user?: true
     email?: true
@@ -1142,7 +1133,16 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type UserCountAggregateInputType = {
+  export type UsersMaxAggregateInputType = {
+    id?: true
+    user?: true
+    email?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type UsersCountAggregateInputType = {
     id?: true
     user?: true
     email?: true
@@ -1152,132 +1152,132 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type UserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UsersAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which User to aggregate.
+     * Filter which users to aggregate.
      */
-    where?: UserWhereInput
+    where?: usersWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of users to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: usersOrderByWithRelationInput | usersOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: usersWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Users
+     * Count returned users
     **/
-    _count?: true | UserCountAggregateInputType
+    _count?: true | UsersCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: UserAvgAggregateInputType
+    _avg?: UsersAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: UserSumAggregateInputType
+    _sum?: UsersSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: UserMinAggregateInputType
+    _min?: UsersMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: UserMaxAggregateInputType
+    _max?: UsersMaxAggregateInputType
   }
 
-  export type GetUserAggregateType<T extends UserAggregateArgs> = {
-        [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
+  export type GetUsersAggregateType<T extends UsersAggregateArgs> = {
+        [P in keyof T & keyof AggregateUsers]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateUser[P]>
-      : GetScalarType<T[P], AggregateUser[P]>
+        : GetScalarType<T[P], AggregateUsers[P]>
+      : GetScalarType<T[P], AggregateUsers[P]>
   }
 
 
 
 
-  export type UserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithAggregationInput | UserOrderByWithAggregationInput[]
-    by: UserScalarFieldEnum[] | UserScalarFieldEnum
-    having?: UserScalarWhereWithAggregatesInput
+  export type usersGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: usersWhereInput
+    orderBy?: usersOrderByWithAggregationInput | usersOrderByWithAggregationInput[]
+    by: UsersScalarFieldEnum[] | UsersScalarFieldEnum
+    having?: usersScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: UserCountAggregateInputType | true
-    _avg?: UserAvgAggregateInputType
-    _sum?: UserSumAggregateInputType
-    _min?: UserMinAggregateInputType
-    _max?: UserMaxAggregateInputType
+    _count?: UsersCountAggregateInputType | true
+    _avg?: UsersAvgAggregateInputType
+    _sum?: UsersSumAggregateInputType
+    _min?: UsersMinAggregateInputType
+    _max?: UsersMaxAggregateInputType
   }
 
-  export type UserGroupByOutputType = {
+  export type UsersGroupByOutputType = {
     id: number
     user: string
     email: string
     name: string | null
     createdAt: Date
     updatedAt: Date
-    _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
-    _min: UserMinAggregateOutputType | null
-    _max: UserMaxAggregateOutputType | null
+    _count: UsersCountAggregateOutputType | null
+    _avg: UsersAvgAggregateOutputType | null
+    _sum: UsersSumAggregateOutputType | null
+    _min: UsersMinAggregateOutputType | null
+    _max: UsersMaxAggregateOutputType | null
   }
 
-  type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
+  type GetUsersGroupByPayload<T extends usersGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<UserGroupByOutputType, T['by']> &
+      PickEnumerable<UsersGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof UsersGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], UserGroupByOutputType[P]>
-            : GetScalarType<T[P], UserGroupByOutputType[P]>
+              : GetScalarType<T[P], UsersGroupByOutputType[P]>
+            : GetScalarType<T[P], UsersGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type usersSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     user?: boolean
     email?: boolean
     name?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    journals?: boolean | User$journalsArgs<ExtArgs>
-    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["user"]>
+    journals?: boolean | users$journalsArgs<ExtArgs>
+    _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["users"]>
 
-  export type UserSelectScalar = {
+  export type usersSelectScalar = {
     id?: boolean
     user?: boolean
     email?: boolean
@@ -1287,16 +1287,16 @@ export namespace Prisma {
   }
 
 
-  export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    journals?: boolean | User$journalsArgs<ExtArgs>
-    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  export type usersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    journals?: boolean | users$journalsArgs<ExtArgs>
+    _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }
 
 
-  export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "User"
+  export type $usersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "users"
     objects: {
-      journals: Prisma.$JournalPayload<ExtArgs>[]
+      journals: Prisma.$journalsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -1305,160 +1305,160 @@ export namespace Prisma {
       name: string | null
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["user"]>
+    }, ExtArgs["result"]["users"]>
     composites: {}
   }
 
 
-  type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = $Result.GetResult<Prisma.$UserPayload, S>
+  type usersGetPayload<S extends boolean | null | undefined | usersDefaultArgs> = $Result.GetResult<Prisma.$usersPayload, S>
 
-  type UserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<UserFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: UserCountAggregateInputType | true
+  type usersCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<usersFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: UsersCountAggregateInputType | true
     }
 
-  export interface UserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['User'], meta: { name: 'User' } }
+  export interface usersDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['users'], meta: { name: 'users' } }
     /**
-     * Find zero or one User that matches the filter.
-     * @param {UserFindUniqueArgs} args - Arguments to find a User
+     * Find zero or one Users that matches the filter.
+     * @param {usersFindUniqueArgs} args - Arguments to find a Users
      * @example
-     * // Get one User
-     * const user = await prisma.user.findUnique({
+     * // Get one Users
+     * const users = await prisma.users.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends UserFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, UserFindUniqueArgs<ExtArgs>>
-    ): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends usersFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, usersFindUniqueArgs<ExtArgs>>
+    ): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one User that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one Users that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
+     * @param {usersFindUniqueOrThrowArgs} args - Arguments to find a Users
      * @example
-     * // Get one User
-     * const user = await prisma.user.findUniqueOrThrow({
+     * // Get one Users
+     * const users = await prisma.users.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends UserFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, UserFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends usersFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, usersFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first User that matches the filter.
+     * Find the first Users that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindFirstArgs} args - Arguments to find a User
+     * @param {usersFindFirstArgs} args - Arguments to find a Users
      * @example
-     * // Get one User
-     * const user = await prisma.user.findFirst({
+     * // Get one Users
+     * const users = await prisma.users.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends UserFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, UserFindFirstArgs<ExtArgs>>
-    ): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends usersFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, usersFindFirstArgs<ExtArgs>>
+    ): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first User that matches the filter or
+     * Find the first Users that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindFirstOrThrowArgs} args - Arguments to find a User
+     * @param {usersFindFirstOrThrowArgs} args - Arguments to find a Users
      * @example
-     * // Get one User
-     * const user = await prisma.user.findFirstOrThrow({
+     * // Get one Users
+     * const users = await prisma.users.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends UserFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, UserFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends usersFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, usersFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
      * Find zero or more Users that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {usersFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all Users
-     * const users = await prisma.user.findMany()
+     * const users = await prisma.users.findMany()
      * 
      * // Get first 10 Users
-     * const users = await prisma.user.findMany({ take: 10 })
+     * const users = await prisma.users.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
+     * const usersWithIdOnly = await prisma.users.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends UserFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, UserFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends usersFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, usersFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a User.
-     * @param {UserCreateArgs} args - Arguments to create a User.
+     * Create a Users.
+     * @param {usersCreateArgs} args - Arguments to create a Users.
      * @example
-     * // Create one User
-     * const User = await prisma.user.create({
+     * // Create one Users
+     * const Users = await prisma.users.create({
      *   data: {
-     *     // ... data to create a User
+     *     // ... data to create a Users
      *   }
      * })
      * 
     **/
-    create<T extends UserCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, UserCreateArgs<ExtArgs>>
-    ): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends usersCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, usersCreateArgs<ExtArgs>>
+    ): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
      * Create many Users.
-     *     @param {UserCreateManyArgs} args - Arguments to create many Users.
+     *     @param {usersCreateManyArgs} args - Arguments to create many Users.
      *     @example
      *     // Create many Users
-     *     const user = await prisma.user.createMany({
+     *     const users = await prisma.users.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends UserCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>
+    createMany<T extends usersCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, usersCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a User.
-     * @param {UserDeleteArgs} args - Arguments to delete one User.
+     * Delete a Users.
+     * @param {usersDeleteArgs} args - Arguments to delete one Users.
      * @example
-     * // Delete one User
-     * const User = await prisma.user.delete({
+     * // Delete one Users
+     * const Users = await prisma.users.delete({
      *   where: {
-     *     // ... filter to delete one User
+     *     // ... filter to delete one Users
      *   }
      * })
      * 
     **/
-    delete<T extends UserDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, UserDeleteArgs<ExtArgs>>
-    ): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends usersDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, usersDeleteArgs<ExtArgs>>
+    ): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one User.
-     * @param {UserUpdateArgs} args - Arguments to update one User.
+     * Update one Users.
+     * @param {usersUpdateArgs} args - Arguments to update one Users.
      * @example
-     * // Update one User
-     * const user = await prisma.user.update({
+     * // Update one Users
+     * const users = await prisma.users.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1468,34 +1468,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends UserUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, UserUpdateArgs<ExtArgs>>
-    ): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends usersUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, usersUpdateArgs<ExtArgs>>
+    ): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
      * Delete zero or more Users.
-     * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
+     * @param {usersDeleteManyArgs} args - Arguments to filter Users to delete.
      * @example
      * // Delete a few Users
-     * const { count } = await prisma.user.deleteMany({
+     * const { count } = await prisma.users.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends UserDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, UserDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends usersDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, usersDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more Users.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {usersUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
      * // Update many Users
-     * const user = await prisma.user.updateMany({
+     * const users = await prisma.users.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1505,59 +1505,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends UserUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, UserUpdateManyArgs<ExtArgs>>
+    updateMany<T extends usersUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, usersUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one User.
-     * @param {UserUpsertArgs} args - Arguments to update or create a User.
+     * Create or update one Users.
+     * @param {usersUpsertArgs} args - Arguments to update or create a Users.
      * @example
-     * // Update or create a User
-     * const user = await prisma.user.upsert({
+     * // Update or create a Users
+     * const users = await prisma.users.upsert({
      *   create: {
-     *     // ... data to create a User
+     *     // ... data to create a Users
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the User we want to update
+     *     // ... the filter for the Users we want to update
      *   }
      * })
     **/
-    upsert<T extends UserUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, UserUpsertArgs<ExtArgs>>
-    ): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends usersUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, usersUpsertArgs<ExtArgs>>
+    ): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
      * Count the number of Users.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserCountArgs} args - Arguments to filter Users to count.
+     * @param {usersCountArgs} args - Arguments to filter Users to count.
      * @example
      * // Count the number of Users
-     * const count = await prisma.user.count({
+     * const count = await prisma.users.count({
      *   where: {
      *     // ... the filter for the Users we want to count
      *   }
      * })
     **/
-    count<T extends UserCountArgs>(
-      args?: Subset<T, UserCountArgs>,
+    count<T extends usersCountArgs>(
+      args?: Subset<T, usersCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], UserCountAggregateOutputType>
+          : GetScalarType<T['select'], UsersCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a User.
+     * Allows you to perform aggregations operations on a Users.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {UsersAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1577,13 +1577,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends UserAggregateArgs>(args: Subset<T, UserAggregateArgs>): Prisma.PrismaPromise<GetUserAggregateType<T>>
+    aggregate<T extends UsersAggregateArgs>(args: Subset<T, UsersAggregateArgs>): Prisma.PrismaPromise<GetUsersAggregateType<T>>
 
     /**
-     * Group by User.
+     * Group by Users.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserGroupByArgs} args - Group by arguments.
+     * @param {usersGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1598,14 +1598,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends UserGroupByArgs,
+      T extends usersGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: UserGroupByArgs['orderBy'] }
-        : { orderBy?: UserGroupByArgs['orderBy'] },
+        ? { orderBy: usersGroupByArgs['orderBy'] }
+        : { orderBy?: usersGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1654,23 +1654,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, usersGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUsersGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the User model
+   * Fields of the users model
    */
-  readonly fields: UserFieldRefs;
+  readonly fields: usersFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for User.
+   * The delegate class that acts as a "Promise-like" for users.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__usersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    journals<T extends User$journalsArgs<ExtArgs> = {}>(args?: Subset<T, User$journalsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JournalPayload<ExtArgs>, T, 'findMany'> | Null>;
+    journals<T extends users$journalsArgs<ExtArgs> = {}>(args?: Subset<T, users$journalsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$journalsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1697,378 +1697,369 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the User model
+   * Fields of the users model
    */ 
-  interface UserFieldRefs {
-    readonly id: FieldRef<"User", 'Int'>
-    readonly user: FieldRef<"User", 'String'>
-    readonly email: FieldRef<"User", 'String'>
-    readonly name: FieldRef<"User", 'String'>
-    readonly createdAt: FieldRef<"User", 'DateTime'>
-    readonly updatedAt: FieldRef<"User", 'DateTime'>
+  interface usersFieldRefs {
+    readonly id: FieldRef<"users", 'Int'>
+    readonly user: FieldRef<"users", 'String'>
+    readonly email: FieldRef<"users", 'String'>
+    readonly name: FieldRef<"users", 'String'>
+    readonly createdAt: FieldRef<"users", 'DateTime'>
+    readonly updatedAt: FieldRef<"users", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * User findUnique
+   * users findUnique
    */
-  export type UserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type usersFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the users
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: usersSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: usersInclude<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which users to fetch.
      */
-    where: UserWhereUniqueInput
+    where: usersWhereUniqueInput
   }
 
   /**
-   * User findUniqueOrThrow
+   * users findUniqueOrThrow
    */
-  export type UserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type usersFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the users
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: usersSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: usersInclude<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which users to fetch.
      */
-    where: UserWhereUniqueInput
+    where: usersWhereUniqueInput
   }
 
   /**
-   * User findFirst
+   * users findFirst
    */
-  export type UserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type usersFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the users
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: usersSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: usersInclude<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which users to fetch.
      */
-    where?: UserWhereInput
+    where?: usersWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of users to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: usersOrderByWithRelationInput | usersOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Users.
+     * Sets the position for searching for users.
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: usersWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Users.
+     * Filter by unique combinations of users.
      */
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: UsersScalarFieldEnum | UsersScalarFieldEnum[]
   }
 
   /**
-   * User findFirstOrThrow
+   * users findFirstOrThrow
    */
-  export type UserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type usersFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the users
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: usersSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: usersInclude<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which users to fetch.
      */
-    where?: UserWhereInput
+    where?: usersWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of users to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: usersOrderByWithRelationInput | usersOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Users.
+     * Sets the position for searching for users.
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: usersWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Users.
+     * Filter by unique combinations of users.
      */
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: UsersScalarFieldEnum | UsersScalarFieldEnum[]
   }
 
   /**
-   * User findMany
+   * users findMany
    */
-  export type UserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type usersFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the users
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: usersSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: usersInclude<ExtArgs> | null
     /**
-     * Filter, which Users to fetch.
+     * Filter, which users to fetch.
      */
-    where?: UserWhereInput
+    where?: usersWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of users to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: usersOrderByWithRelationInput | usersOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Users.
+     * Sets the position for listing users.
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: usersWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` users.
      */
     skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: UsersScalarFieldEnum | UsersScalarFieldEnum[]
   }
 
   /**
-   * User create
+   * users create
    */
-  export type UserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type usersCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the users
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: usersSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: usersInclude<ExtArgs> | null
     /**
-     * The data needed to create a User.
+     * The data needed to create a users.
      */
-    data: XOR<UserCreateInput, UserUncheckedCreateInput>
+    data: XOR<usersCreateInput, usersUncheckedCreateInput>
   }
 
   /**
-   * User createMany
+   * users createMany
    */
-  export type UserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type usersCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Users.
+     * The data used to create many users.
      */
-    data: UserCreateManyInput | UserCreateManyInput[]
+    data: usersCreateManyInput | usersCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * User update
+   * users update
    */
-  export type UserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type usersUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the users
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: usersSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: usersInclude<ExtArgs> | null
     /**
-     * The data needed to update a User.
+     * The data needed to update a users.
      */
-    data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    data: XOR<usersUpdateInput, usersUncheckedUpdateInput>
     /**
-     * Choose, which User to update.
+     * Choose, which users to update.
      */
-    where: UserWhereUniqueInput
+    where: usersWhereUniqueInput
   }
 
   /**
-   * User updateMany
+   * users updateMany
    */
-  export type UserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type usersUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Users.
+     * The data used to update users.
      */
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    data: XOR<usersUpdateManyMutationInput, usersUncheckedUpdateManyInput>
     /**
-     * Filter which Users to update
+     * Filter which users to update
      */
-    where?: UserWhereInput
+    where?: usersWhereInput
   }
 
   /**
-   * User upsert
+   * users upsert
    */
-  export type UserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type usersUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the users
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: usersSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: usersInclude<ExtArgs> | null
     /**
-     * The filter to search for the User to update in case it exists.
+     * The filter to search for the users to update in case it exists.
      */
-    where: UserWhereUniqueInput
+    where: usersWhereUniqueInput
     /**
-     * In case the User found by the `where` argument doesn't exist, create a new User with this data.
+     * In case the users found by the `where` argument doesn't exist, create a new users with this data.
      */
-    create: XOR<UserCreateInput, UserUncheckedCreateInput>
+    create: XOR<usersCreateInput, usersUncheckedCreateInput>
     /**
-     * In case the User was found with the provided `where` argument, update it with this data.
+     * In case the users was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    update: XOR<usersUpdateInput, usersUncheckedUpdateInput>
   }
 
   /**
-   * User delete
+   * users delete
    */
-  export type UserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type usersDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the users
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: usersSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: usersInclude<ExtArgs> | null
     /**
-     * Filter which User to delete.
+     * Filter which users to delete.
      */
-    where: UserWhereUniqueInput
+    where: usersWhereUniqueInput
   }
 
   /**
-   * User deleteMany
+   * users deleteMany
    */
-  export type UserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type usersDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Users to delete
+     * Filter which users to delete
      */
-    where?: UserWhereInput
+    where?: usersWhereInput
   }
 
   /**
-   * User.journals
+   * users.journals
    */
-  export type User$journalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users$journalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Journal
+     * Select specific fields to fetch from the journals
      */
-    select?: JournalSelect<ExtArgs> | null
+    select?: journalsSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JournalInclude<ExtArgs> | null
-    where?: JournalWhereInput
-    orderBy?: JournalOrderByWithRelationInput | JournalOrderByWithRelationInput[]
-    cursor?: JournalWhereUniqueInput
+    include?: journalsInclude<ExtArgs> | null
+    where?: journalsWhereInput
+    orderBy?: journalsOrderByWithRelationInput | journalsOrderByWithRelationInput[]
+    cursor?: journalsWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: JournalScalarFieldEnum | JournalScalarFieldEnum[]
+    distinct?: JournalsScalarFieldEnum | JournalsScalarFieldEnum[]
   }
 
   /**
-   * User without action
+   * users without action
    */
-  export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type usersDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the users
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: usersSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: usersInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model Journal
+   * Model journals
    */
 
-  export type AggregateJournal = {
-    _count: JournalCountAggregateOutputType | null
-    _avg: JournalAvgAggregateOutputType | null
-    _sum: JournalSumAggregateOutputType | null
-    _min: JournalMinAggregateOutputType | null
-    _max: JournalMaxAggregateOutputType | null
+  export type AggregateJournals = {
+    _count: JournalsCountAggregateOutputType | null
+    _avg: JournalsAvgAggregateOutputType | null
+    _sum: JournalsSumAggregateOutputType | null
+    _min: JournalsMinAggregateOutputType | null
+    _max: JournalsMaxAggregateOutputType | null
   }
 
-  export type JournalAvgAggregateOutputType = {
+  export type JournalsAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type JournalSumAggregateOutputType = {
+  export type JournalsSumAggregateOutputType = {
     id: number | null
   }
 
-  export type JournalMinAggregateOutputType = {
-    id: number | null
-    title: string | null
-    content: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
-    userId: string | null
-  }
-
-  export type JournalMaxAggregateOutputType = {
+  export type JournalsMinAggregateOutputType = {
     id: number | null
     title: string | null
     content: string | null
@@ -2077,7 +2068,16 @@ export namespace Prisma {
     userId: string | null
   }
 
-  export type JournalCountAggregateOutputType = {
+  export type JournalsMaxAggregateOutputType = {
+    id: number | null
+    title: string | null
+    content: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    userId: string | null
+  }
+
+  export type JournalsCountAggregateOutputType = {
     id: number
     title: number
     content: number
@@ -2088,24 +2088,15 @@ export namespace Prisma {
   }
 
 
-  export type JournalAvgAggregateInputType = {
+  export type JournalsAvgAggregateInputType = {
     id?: true
   }
 
-  export type JournalSumAggregateInputType = {
+  export type JournalsSumAggregateInputType = {
     id?: true
   }
 
-  export type JournalMinAggregateInputType = {
-    id?: true
-    title?: true
-    content?: true
-    createdAt?: true
-    updatedAt?: true
-    userId?: true
-  }
-
-  export type JournalMaxAggregateInputType = {
+  export type JournalsMinAggregateInputType = {
     id?: true
     title?: true
     content?: true
@@ -2114,7 +2105,16 @@ export namespace Prisma {
     userId?: true
   }
 
-  export type JournalCountAggregateInputType = {
+  export type JournalsMaxAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+  }
+
+  export type JournalsCountAggregateInputType = {
     id?: true
     title?: true
     content?: true
@@ -2124,131 +2124,131 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type JournalAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type JournalsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Journal to aggregate.
+     * Filter which journals to aggregate.
      */
-    where?: JournalWhereInput
+    where?: journalsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Journals to fetch.
+     * Determine the order of journals to fetch.
      */
-    orderBy?: JournalOrderByWithRelationInput | JournalOrderByWithRelationInput[]
+    orderBy?: journalsOrderByWithRelationInput | journalsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: JournalWhereUniqueInput
+    cursor?: journalsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Journals from the position of the cursor.
+     * Take `±n` journals from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Journals.
+     * Skip the first `n` journals.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Journals
+     * Count returned journals
     **/
-    _count?: true | JournalCountAggregateInputType
+    _count?: true | JournalsCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: JournalAvgAggregateInputType
+    _avg?: JournalsAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: JournalSumAggregateInputType
+    _sum?: JournalsSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: JournalMinAggregateInputType
+    _min?: JournalsMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: JournalMaxAggregateInputType
+    _max?: JournalsMaxAggregateInputType
   }
 
-  export type GetJournalAggregateType<T extends JournalAggregateArgs> = {
-        [P in keyof T & keyof AggregateJournal]: P extends '_count' | 'count'
+  export type GetJournalsAggregateType<T extends JournalsAggregateArgs> = {
+        [P in keyof T & keyof AggregateJournals]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateJournal[P]>
-      : GetScalarType<T[P], AggregateJournal[P]>
+        : GetScalarType<T[P], AggregateJournals[P]>
+      : GetScalarType<T[P], AggregateJournals[P]>
   }
 
 
 
 
-  export type JournalGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: JournalWhereInput
-    orderBy?: JournalOrderByWithAggregationInput | JournalOrderByWithAggregationInput[]
-    by: JournalScalarFieldEnum[] | JournalScalarFieldEnum
-    having?: JournalScalarWhereWithAggregatesInput
+  export type journalsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: journalsWhereInput
+    orderBy?: journalsOrderByWithAggregationInput | journalsOrderByWithAggregationInput[]
+    by: JournalsScalarFieldEnum[] | JournalsScalarFieldEnum
+    having?: journalsScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: JournalCountAggregateInputType | true
-    _avg?: JournalAvgAggregateInputType
-    _sum?: JournalSumAggregateInputType
-    _min?: JournalMinAggregateInputType
-    _max?: JournalMaxAggregateInputType
+    _count?: JournalsCountAggregateInputType | true
+    _avg?: JournalsAvgAggregateInputType
+    _sum?: JournalsSumAggregateInputType
+    _min?: JournalsMinAggregateInputType
+    _max?: JournalsMaxAggregateInputType
   }
 
-  export type JournalGroupByOutputType = {
+  export type JournalsGroupByOutputType = {
     id: number
     title: string
     content: string
     createdAt: Date
     updatedAt: Date
     userId: string | null
-    _count: JournalCountAggregateOutputType | null
-    _avg: JournalAvgAggregateOutputType | null
-    _sum: JournalSumAggregateOutputType | null
-    _min: JournalMinAggregateOutputType | null
-    _max: JournalMaxAggregateOutputType | null
+    _count: JournalsCountAggregateOutputType | null
+    _avg: JournalsAvgAggregateOutputType | null
+    _sum: JournalsSumAggregateOutputType | null
+    _min: JournalsMinAggregateOutputType | null
+    _max: JournalsMaxAggregateOutputType | null
   }
 
-  type GetJournalGroupByPayload<T extends JournalGroupByArgs> = Prisma.PrismaPromise<
+  type GetJournalsGroupByPayload<T extends journalsGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<JournalGroupByOutputType, T['by']> &
+      PickEnumerable<JournalsGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof JournalGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof JournalsGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], JournalGroupByOutputType[P]>
-            : GetScalarType<T[P], JournalGroupByOutputType[P]>
+              : GetScalarType<T[P], JournalsGroupByOutputType[P]>
+            : GetScalarType<T[P], JournalsGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type JournalSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type journalsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     content?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     userId?: boolean
-    User?: boolean | Journal$UserArgs<ExtArgs>
-  }, ExtArgs["result"]["journal"]>
+    User?: boolean | journals$UserArgs<ExtArgs>
+  }, ExtArgs["result"]["journals"]>
 
-  export type JournalSelectScalar = {
+  export type journalsSelectScalar = {
     id?: boolean
     title?: boolean
     content?: boolean
@@ -2258,15 +2258,15 @@ export namespace Prisma {
   }
 
 
-  export type JournalInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | Journal$UserArgs<ExtArgs>
+  export type journalsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | journals$UserArgs<ExtArgs>
   }
 
 
-  export type $JournalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Journal"
+  export type $journalsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "journals"
     objects: {
-      User: Prisma.$UserPayload<ExtArgs> | null
+      User: Prisma.$usersPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2275,160 +2275,160 @@ export namespace Prisma {
       createdAt: Date
       updatedAt: Date
       userId: string | null
-    }, ExtArgs["result"]["journal"]>
+    }, ExtArgs["result"]["journals"]>
     composites: {}
   }
 
 
-  type JournalGetPayload<S extends boolean | null | undefined | JournalDefaultArgs> = $Result.GetResult<Prisma.$JournalPayload, S>
+  type journalsGetPayload<S extends boolean | null | undefined | journalsDefaultArgs> = $Result.GetResult<Prisma.$journalsPayload, S>
 
-  type JournalCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<JournalFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: JournalCountAggregateInputType | true
+  type journalsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<journalsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: JournalsCountAggregateInputType | true
     }
 
-  export interface JournalDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Journal'], meta: { name: 'Journal' } }
+  export interface journalsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['journals'], meta: { name: 'journals' } }
     /**
-     * Find zero or one Journal that matches the filter.
-     * @param {JournalFindUniqueArgs} args - Arguments to find a Journal
+     * Find zero or one Journals that matches the filter.
+     * @param {journalsFindUniqueArgs} args - Arguments to find a Journals
      * @example
-     * // Get one Journal
-     * const journal = await prisma.journal.findUnique({
+     * // Get one Journals
+     * const journals = await prisma.journals.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends JournalFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, JournalFindUniqueArgs<ExtArgs>>
-    ): Prisma__JournalClient<$Result.GetResult<Prisma.$JournalPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends journalsFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, journalsFindUniqueArgs<ExtArgs>>
+    ): Prisma__journalsClient<$Result.GetResult<Prisma.$journalsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one Journal that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one Journals that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {JournalFindUniqueOrThrowArgs} args - Arguments to find a Journal
+     * @param {journalsFindUniqueOrThrowArgs} args - Arguments to find a Journals
      * @example
-     * // Get one Journal
-     * const journal = await prisma.journal.findUniqueOrThrow({
+     * // Get one Journals
+     * const journals = await prisma.journals.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends JournalFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, JournalFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__JournalClient<$Result.GetResult<Prisma.$JournalPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends journalsFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, journalsFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__journalsClient<$Result.GetResult<Prisma.$journalsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first Journal that matches the filter.
+     * Find the first Journals that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JournalFindFirstArgs} args - Arguments to find a Journal
+     * @param {journalsFindFirstArgs} args - Arguments to find a Journals
      * @example
-     * // Get one Journal
-     * const journal = await prisma.journal.findFirst({
+     * // Get one Journals
+     * const journals = await prisma.journals.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends JournalFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, JournalFindFirstArgs<ExtArgs>>
-    ): Prisma__JournalClient<$Result.GetResult<Prisma.$JournalPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends journalsFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, journalsFindFirstArgs<ExtArgs>>
+    ): Prisma__journalsClient<$Result.GetResult<Prisma.$journalsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first Journal that matches the filter or
+     * Find the first Journals that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JournalFindFirstOrThrowArgs} args - Arguments to find a Journal
+     * @param {journalsFindFirstOrThrowArgs} args - Arguments to find a Journals
      * @example
-     * // Get one Journal
-     * const journal = await prisma.journal.findFirstOrThrow({
+     * // Get one Journals
+     * const journals = await prisma.journals.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends JournalFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, JournalFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__JournalClient<$Result.GetResult<Prisma.$JournalPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends journalsFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, journalsFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__journalsClient<$Result.GetResult<Prisma.$journalsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
      * Find zero or more Journals that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JournalFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {journalsFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all Journals
-     * const journals = await prisma.journal.findMany()
+     * const journals = await prisma.journals.findMany()
      * 
      * // Get first 10 Journals
-     * const journals = await prisma.journal.findMany({ take: 10 })
+     * const journals = await prisma.journals.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const journalWithIdOnly = await prisma.journal.findMany({ select: { id: true } })
+     * const journalsWithIdOnly = await prisma.journals.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends JournalFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, JournalFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JournalPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends journalsFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, journalsFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$journalsPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a Journal.
-     * @param {JournalCreateArgs} args - Arguments to create a Journal.
+     * Create a Journals.
+     * @param {journalsCreateArgs} args - Arguments to create a Journals.
      * @example
-     * // Create one Journal
-     * const Journal = await prisma.journal.create({
+     * // Create one Journals
+     * const Journals = await prisma.journals.create({
      *   data: {
-     *     // ... data to create a Journal
+     *     // ... data to create a Journals
      *   }
      * })
      * 
     **/
-    create<T extends JournalCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, JournalCreateArgs<ExtArgs>>
-    ): Prisma__JournalClient<$Result.GetResult<Prisma.$JournalPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends journalsCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, journalsCreateArgs<ExtArgs>>
+    ): Prisma__journalsClient<$Result.GetResult<Prisma.$journalsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
      * Create many Journals.
-     *     @param {JournalCreateManyArgs} args - Arguments to create many Journals.
+     *     @param {journalsCreateManyArgs} args - Arguments to create many Journals.
      *     @example
      *     // Create many Journals
-     *     const journal = await prisma.journal.createMany({
+     *     const journals = await prisma.journals.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends JournalCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, JournalCreateManyArgs<ExtArgs>>
+    createMany<T extends journalsCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, journalsCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Journal.
-     * @param {JournalDeleteArgs} args - Arguments to delete one Journal.
+     * Delete a Journals.
+     * @param {journalsDeleteArgs} args - Arguments to delete one Journals.
      * @example
-     * // Delete one Journal
-     * const Journal = await prisma.journal.delete({
+     * // Delete one Journals
+     * const Journals = await prisma.journals.delete({
      *   where: {
-     *     // ... filter to delete one Journal
+     *     // ... filter to delete one Journals
      *   }
      * })
      * 
     **/
-    delete<T extends JournalDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, JournalDeleteArgs<ExtArgs>>
-    ): Prisma__JournalClient<$Result.GetResult<Prisma.$JournalPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends journalsDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, journalsDeleteArgs<ExtArgs>>
+    ): Prisma__journalsClient<$Result.GetResult<Prisma.$journalsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one Journal.
-     * @param {JournalUpdateArgs} args - Arguments to update one Journal.
+     * Update one Journals.
+     * @param {journalsUpdateArgs} args - Arguments to update one Journals.
      * @example
-     * // Update one Journal
-     * const journal = await prisma.journal.update({
+     * // Update one Journals
+     * const journals = await prisma.journals.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2438,34 +2438,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends JournalUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, JournalUpdateArgs<ExtArgs>>
-    ): Prisma__JournalClient<$Result.GetResult<Prisma.$JournalPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends journalsUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, journalsUpdateArgs<ExtArgs>>
+    ): Prisma__journalsClient<$Result.GetResult<Prisma.$journalsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
      * Delete zero or more Journals.
-     * @param {JournalDeleteManyArgs} args - Arguments to filter Journals to delete.
+     * @param {journalsDeleteManyArgs} args - Arguments to filter Journals to delete.
      * @example
      * // Delete a few Journals
-     * const { count } = await prisma.journal.deleteMany({
+     * const { count } = await prisma.journals.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends JournalDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, JournalDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends journalsDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, journalsDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more Journals.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JournalUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {journalsUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
      * // Update many Journals
-     * const journal = await prisma.journal.updateMany({
+     * const journals = await prisma.journals.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2475,59 +2475,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends JournalUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, JournalUpdateManyArgs<ExtArgs>>
+    updateMany<T extends journalsUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, journalsUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Journal.
-     * @param {JournalUpsertArgs} args - Arguments to update or create a Journal.
+     * Create or update one Journals.
+     * @param {journalsUpsertArgs} args - Arguments to update or create a Journals.
      * @example
-     * // Update or create a Journal
-     * const journal = await prisma.journal.upsert({
+     * // Update or create a Journals
+     * const journals = await prisma.journals.upsert({
      *   create: {
-     *     // ... data to create a Journal
+     *     // ... data to create a Journals
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Journal we want to update
+     *     // ... the filter for the Journals we want to update
      *   }
      * })
     **/
-    upsert<T extends JournalUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, JournalUpsertArgs<ExtArgs>>
-    ): Prisma__JournalClient<$Result.GetResult<Prisma.$JournalPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends journalsUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, journalsUpsertArgs<ExtArgs>>
+    ): Prisma__journalsClient<$Result.GetResult<Prisma.$journalsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
      * Count the number of Journals.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JournalCountArgs} args - Arguments to filter Journals to count.
+     * @param {journalsCountArgs} args - Arguments to filter Journals to count.
      * @example
      * // Count the number of Journals
-     * const count = await prisma.journal.count({
+     * const count = await prisma.journals.count({
      *   where: {
      *     // ... the filter for the Journals we want to count
      *   }
      * })
     **/
-    count<T extends JournalCountArgs>(
-      args?: Subset<T, JournalCountArgs>,
+    count<T extends journalsCountArgs>(
+      args?: Subset<T, journalsCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], JournalCountAggregateOutputType>
+          : GetScalarType<T['select'], JournalsCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Journal.
+     * Allows you to perform aggregations operations on a Journals.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JournalAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {JournalsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2547,13 +2547,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends JournalAggregateArgs>(args: Subset<T, JournalAggregateArgs>): Prisma.PrismaPromise<GetJournalAggregateType<T>>
+    aggregate<T extends JournalsAggregateArgs>(args: Subset<T, JournalsAggregateArgs>): Prisma.PrismaPromise<GetJournalsAggregateType<T>>
 
     /**
-     * Group by Journal.
+     * Group by Journals.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JournalGroupByArgs} args - Group by arguments.
+     * @param {journalsGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2568,14 +2568,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends JournalGroupByArgs,
+      T extends journalsGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: JournalGroupByArgs['orderBy'] }
-        : { orderBy?: JournalGroupByArgs['orderBy'] },
+        ? { orderBy: journalsGroupByArgs['orderBy'] }
+        : { orderBy?: journalsGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2624,23 +2624,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, JournalGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJournalGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, journalsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJournalsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Journal model
+   * Fields of the journals model
    */
-  readonly fields: JournalFieldRefs;
+  readonly fields: journalsFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Journal.
+   * The delegate class that acts as a "Promise-like" for journals.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__JournalClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__journalsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    User<T extends Journal$UserArgs<ExtArgs> = {}>(args?: Subset<T, Journal$UserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+    User<T extends journals$UserArgs<ExtArgs> = {}>(args?: Subset<T, journals$UserArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2667,345 +2667,345 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Journal model
+   * Fields of the journals model
    */ 
-  interface JournalFieldRefs {
-    readonly id: FieldRef<"Journal", 'Int'>
-    readonly title: FieldRef<"Journal", 'String'>
-    readonly content: FieldRef<"Journal", 'String'>
-    readonly createdAt: FieldRef<"Journal", 'DateTime'>
-    readonly updatedAt: FieldRef<"Journal", 'DateTime'>
-    readonly userId: FieldRef<"Journal", 'String'>
+  interface journalsFieldRefs {
+    readonly id: FieldRef<"journals", 'Int'>
+    readonly title: FieldRef<"journals", 'String'>
+    readonly content: FieldRef<"journals", 'String'>
+    readonly createdAt: FieldRef<"journals", 'DateTime'>
+    readonly updatedAt: FieldRef<"journals", 'DateTime'>
+    readonly userId: FieldRef<"journals", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * Journal findUnique
+   * journals findUnique
    */
-  export type JournalFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type journalsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Journal
+     * Select specific fields to fetch from the journals
      */
-    select?: JournalSelect<ExtArgs> | null
+    select?: journalsSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JournalInclude<ExtArgs> | null
+    include?: journalsInclude<ExtArgs> | null
     /**
-     * Filter, which Journal to fetch.
+     * Filter, which journals to fetch.
      */
-    where: JournalWhereUniqueInput
+    where: journalsWhereUniqueInput
   }
 
   /**
-   * Journal findUniqueOrThrow
+   * journals findUniqueOrThrow
    */
-  export type JournalFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type journalsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Journal
+     * Select specific fields to fetch from the journals
      */
-    select?: JournalSelect<ExtArgs> | null
+    select?: journalsSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JournalInclude<ExtArgs> | null
+    include?: journalsInclude<ExtArgs> | null
     /**
-     * Filter, which Journal to fetch.
+     * Filter, which journals to fetch.
      */
-    where: JournalWhereUniqueInput
+    where: journalsWhereUniqueInput
   }
 
   /**
-   * Journal findFirst
+   * journals findFirst
    */
-  export type JournalFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type journalsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Journal
+     * Select specific fields to fetch from the journals
      */
-    select?: JournalSelect<ExtArgs> | null
+    select?: journalsSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JournalInclude<ExtArgs> | null
+    include?: journalsInclude<ExtArgs> | null
     /**
-     * Filter, which Journal to fetch.
+     * Filter, which journals to fetch.
      */
-    where?: JournalWhereInput
+    where?: journalsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Journals to fetch.
+     * Determine the order of journals to fetch.
      */
-    orderBy?: JournalOrderByWithRelationInput | JournalOrderByWithRelationInput[]
+    orderBy?: journalsOrderByWithRelationInput | journalsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Journals.
+     * Sets the position for searching for journals.
      */
-    cursor?: JournalWhereUniqueInput
+    cursor?: journalsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Journals from the position of the cursor.
+     * Take `±n` journals from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Journals.
+     * Skip the first `n` journals.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Journals.
+     * Filter by unique combinations of journals.
      */
-    distinct?: JournalScalarFieldEnum | JournalScalarFieldEnum[]
+    distinct?: JournalsScalarFieldEnum | JournalsScalarFieldEnum[]
   }
 
   /**
-   * Journal findFirstOrThrow
+   * journals findFirstOrThrow
    */
-  export type JournalFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type journalsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Journal
+     * Select specific fields to fetch from the journals
      */
-    select?: JournalSelect<ExtArgs> | null
+    select?: journalsSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JournalInclude<ExtArgs> | null
+    include?: journalsInclude<ExtArgs> | null
     /**
-     * Filter, which Journal to fetch.
+     * Filter, which journals to fetch.
      */
-    where?: JournalWhereInput
+    where?: journalsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Journals to fetch.
+     * Determine the order of journals to fetch.
      */
-    orderBy?: JournalOrderByWithRelationInput | JournalOrderByWithRelationInput[]
+    orderBy?: journalsOrderByWithRelationInput | journalsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Journals.
+     * Sets the position for searching for journals.
      */
-    cursor?: JournalWhereUniqueInput
+    cursor?: journalsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Journals from the position of the cursor.
+     * Take `±n` journals from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Journals.
+     * Skip the first `n` journals.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Journals.
+     * Filter by unique combinations of journals.
      */
-    distinct?: JournalScalarFieldEnum | JournalScalarFieldEnum[]
+    distinct?: JournalsScalarFieldEnum | JournalsScalarFieldEnum[]
   }
 
   /**
-   * Journal findMany
+   * journals findMany
    */
-  export type JournalFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type journalsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Journal
+     * Select specific fields to fetch from the journals
      */
-    select?: JournalSelect<ExtArgs> | null
+    select?: journalsSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JournalInclude<ExtArgs> | null
+    include?: journalsInclude<ExtArgs> | null
     /**
-     * Filter, which Journals to fetch.
+     * Filter, which journals to fetch.
      */
-    where?: JournalWhereInput
+    where?: journalsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Journals to fetch.
+     * Determine the order of journals to fetch.
      */
-    orderBy?: JournalOrderByWithRelationInput | JournalOrderByWithRelationInput[]
+    orderBy?: journalsOrderByWithRelationInput | journalsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Journals.
+     * Sets the position for listing journals.
      */
-    cursor?: JournalWhereUniqueInput
+    cursor?: journalsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Journals from the position of the cursor.
+     * Take `±n` journals from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Journals.
+     * Skip the first `n` journals.
      */
     skip?: number
-    distinct?: JournalScalarFieldEnum | JournalScalarFieldEnum[]
+    distinct?: JournalsScalarFieldEnum | JournalsScalarFieldEnum[]
   }
 
   /**
-   * Journal create
+   * journals create
    */
-  export type JournalCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type journalsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Journal
+     * Select specific fields to fetch from the journals
      */
-    select?: JournalSelect<ExtArgs> | null
+    select?: journalsSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JournalInclude<ExtArgs> | null
+    include?: journalsInclude<ExtArgs> | null
     /**
-     * The data needed to create a Journal.
+     * The data needed to create a journals.
      */
-    data: XOR<JournalCreateInput, JournalUncheckedCreateInput>
+    data: XOR<journalsCreateInput, journalsUncheckedCreateInput>
   }
 
   /**
-   * Journal createMany
+   * journals createMany
    */
-  export type JournalCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type journalsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Journals.
+     * The data used to create many journals.
      */
-    data: JournalCreateManyInput | JournalCreateManyInput[]
+    data: journalsCreateManyInput | journalsCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Journal update
+   * journals update
    */
-  export type JournalUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type journalsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Journal
+     * Select specific fields to fetch from the journals
      */
-    select?: JournalSelect<ExtArgs> | null
+    select?: journalsSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JournalInclude<ExtArgs> | null
+    include?: journalsInclude<ExtArgs> | null
     /**
-     * The data needed to update a Journal.
+     * The data needed to update a journals.
      */
-    data: XOR<JournalUpdateInput, JournalUncheckedUpdateInput>
+    data: XOR<journalsUpdateInput, journalsUncheckedUpdateInput>
     /**
-     * Choose, which Journal to update.
+     * Choose, which journals to update.
      */
-    where: JournalWhereUniqueInput
+    where: journalsWhereUniqueInput
   }
 
   /**
-   * Journal updateMany
+   * journals updateMany
    */
-  export type JournalUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type journalsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Journals.
+     * The data used to update journals.
      */
-    data: XOR<JournalUpdateManyMutationInput, JournalUncheckedUpdateManyInput>
+    data: XOR<journalsUpdateManyMutationInput, journalsUncheckedUpdateManyInput>
     /**
-     * Filter which Journals to update
+     * Filter which journals to update
      */
-    where?: JournalWhereInput
+    where?: journalsWhereInput
   }
 
   /**
-   * Journal upsert
+   * journals upsert
    */
-  export type JournalUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type journalsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Journal
+     * Select specific fields to fetch from the journals
      */
-    select?: JournalSelect<ExtArgs> | null
+    select?: journalsSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JournalInclude<ExtArgs> | null
+    include?: journalsInclude<ExtArgs> | null
     /**
-     * The filter to search for the Journal to update in case it exists.
+     * The filter to search for the journals to update in case it exists.
      */
-    where: JournalWhereUniqueInput
+    where: journalsWhereUniqueInput
     /**
-     * In case the Journal found by the `where` argument doesn't exist, create a new Journal with this data.
+     * In case the journals found by the `where` argument doesn't exist, create a new journals with this data.
      */
-    create: XOR<JournalCreateInput, JournalUncheckedCreateInput>
+    create: XOR<journalsCreateInput, journalsUncheckedCreateInput>
     /**
-     * In case the Journal was found with the provided `where` argument, update it with this data.
+     * In case the journals was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<JournalUpdateInput, JournalUncheckedUpdateInput>
+    update: XOR<journalsUpdateInput, journalsUncheckedUpdateInput>
   }
 
   /**
-   * Journal delete
+   * journals delete
    */
-  export type JournalDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type journalsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Journal
+     * Select specific fields to fetch from the journals
      */
-    select?: JournalSelect<ExtArgs> | null
+    select?: journalsSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JournalInclude<ExtArgs> | null
+    include?: journalsInclude<ExtArgs> | null
     /**
-     * Filter which Journal to delete.
+     * Filter which journals to delete.
      */
-    where: JournalWhereUniqueInput
+    where: journalsWhereUniqueInput
   }
 
   /**
-   * Journal deleteMany
+   * journals deleteMany
    */
-  export type JournalDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type journalsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Journals to delete
+     * Filter which journals to delete
      */
-    where?: JournalWhereInput
+    where?: journalsWhereInput
   }
 
   /**
-   * Journal.User
+   * journals.User
    */
-  export type Journal$UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type journals$UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the users
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: usersSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
+    include?: usersInclude<ExtArgs> | null
+    where?: usersWhereInput
   }
 
   /**
-   * Journal without action
+   * journals without action
    */
-  export type JournalDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type journalsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Journal
+     * Select specific fields to fetch from the journals
      */
-    select?: JournalSelect<ExtArgs> | null
+    select?: journalsSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JournalInclude<ExtArgs> | null
+    include?: journalsInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model Documents
+   * Model documents
    */
 
   export type AggregateDocuments = {
@@ -3018,12 +3018,10 @@ export namespace Prisma {
 
   export type DocumentsAvgAggregateOutputType = {
     id: number | null
-    embedding: number | null
   }
 
   export type DocumentsSumAggregateOutputType = {
     id: bigint | null
-    embedding: number[]
   }
 
   export type DocumentsMinAggregateOutputType = {
@@ -3040,19 +3038,16 @@ export namespace Prisma {
     id: number
     content: number
     metadata: number
-    embedding: number
     _all: number
   }
 
 
   export type DocumentsAvgAggregateInputType = {
     id?: true
-    embedding?: true
   }
 
   export type DocumentsSumAggregateInputType = {
     id?: true
-    embedding?: true
   }
 
   export type DocumentsMinAggregateInputType = {
@@ -3069,43 +3064,42 @@ export namespace Prisma {
     id?: true
     content?: true
     metadata?: true
-    embedding?: true
     _all?: true
   }
 
   export type DocumentsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Documents to aggregate.
+     * Filter which documents to aggregate.
      */
-    where?: DocumentsWhereInput
+    where?: documentsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Documents to fetch.
+     * Determine the order of documents to fetch.
      */
-    orderBy?: DocumentsOrderByWithRelationInput | DocumentsOrderByWithRelationInput[]
+    orderBy?: documentsOrderByWithRelationInput | documentsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: DocumentsWhereUniqueInput
+    cursor?: documentsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Documents from the position of the cursor.
+     * Take `±n` documents from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Documents.
+     * Skip the first `n` documents.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Documents
+     * Count returned documents
     **/
     _count?: true | DocumentsCountAggregateInputType
     /**
@@ -3145,11 +3139,11 @@ export namespace Prisma {
 
 
 
-  export type DocumentsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DocumentsWhereInput
-    orderBy?: DocumentsOrderByWithAggregationInput | DocumentsOrderByWithAggregationInput[]
+  export type documentsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: documentsWhereInput
+    orderBy?: documentsOrderByWithAggregationInput | documentsOrderByWithAggregationInput[]
     by: DocumentsScalarFieldEnum[] | DocumentsScalarFieldEnum
-    having?: DocumentsScalarWhereWithAggregatesInput
+    having?: documentsScalarWhereWithAggregatesInput
     take?: number
     skip?: number
     _count?: DocumentsCountAggregateInputType | true
@@ -3163,7 +3157,6 @@ export namespace Prisma {
     id: bigint
     content: string | null
     metadata: JsonValue | null
-    embedding: number[]
     _count: DocumentsCountAggregateOutputType | null
     _avg: DocumentsAvgAggregateOutputType | null
     _sum: DocumentsSumAggregateOutputType | null
@@ -3171,7 +3164,7 @@ export namespace Prisma {
     _max: DocumentsMaxAggregateOutputType | null
   }
 
-  type GetDocumentsGroupByPayload<T extends DocumentsGroupByArgs> = Prisma.PrismaPromise<
+  type GetDocumentsGroupByPayload<T extends documentsGroupByArgs> = Prisma.PrismaPromise<
     Array<
       PickEnumerable<DocumentsGroupByOutputType, T['by']> &
         {
@@ -3185,47 +3178,44 @@ export namespace Prisma {
     >
 
 
-  export type DocumentsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type documentsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     content?: boolean
     metadata?: boolean
-    embedding?: boolean
   }, ExtArgs["result"]["documents"]>
 
-  export type DocumentsSelectScalar = {
+  export type documentsSelectScalar = {
     id?: boolean
     content?: boolean
     metadata?: boolean
-    embedding?: boolean
   }
 
 
 
-  export type $DocumentsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Documents"
+  export type $documentsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "documents"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: bigint
       content: string | null
       metadata: Prisma.JsonValue | null
-      embedding: number[]
     }, ExtArgs["result"]["documents"]>
     composites: {}
   }
 
 
-  type DocumentsGetPayload<S extends boolean | null | undefined | DocumentsDefaultArgs> = $Result.GetResult<Prisma.$DocumentsPayload, S>
+  type documentsGetPayload<S extends boolean | null | undefined | documentsDefaultArgs> = $Result.GetResult<Prisma.$documentsPayload, S>
 
-  type DocumentsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<DocumentsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+  type documentsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<documentsFindManyArgs, 'select' | 'include' | 'distinct'> & {
       select?: DocumentsCountAggregateInputType | true
     }
 
-  export interface DocumentsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Documents'], meta: { name: 'Documents' } }
+  export interface documentsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['documents'], meta: { name: 'documents' } }
     /**
      * Find zero or one Documents that matches the filter.
-     * @param {DocumentsFindUniqueArgs} args - Arguments to find a Documents
+     * @param {documentsFindUniqueArgs} args - Arguments to find a Documents
      * @example
      * // Get one Documents
      * const documents = await prisma.documents.findUnique({
@@ -3234,14 +3224,14 @@ export namespace Prisma {
      *   }
      * })
     **/
-    findUnique<T extends DocumentsFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, DocumentsFindUniqueArgs<ExtArgs>>
-    ): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends documentsFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, documentsFindUniqueArgs<ExtArgs>>
+    ): Prisma__documentsClient<$Result.GetResult<Prisma.$documentsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
      * Find one Documents that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {DocumentsFindUniqueOrThrowArgs} args - Arguments to find a Documents
+     * @param {documentsFindUniqueOrThrowArgs} args - Arguments to find a Documents
      * @example
      * // Get one Documents
      * const documents = await prisma.documents.findUniqueOrThrow({
@@ -3250,15 +3240,15 @@ export namespace Prisma {
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends DocumentsFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, DocumentsFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends documentsFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, documentsFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__documentsClient<$Result.GetResult<Prisma.$documentsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
      * Find the first Documents that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentsFindFirstArgs} args - Arguments to find a Documents
+     * @param {documentsFindFirstArgs} args - Arguments to find a Documents
      * @example
      * // Get one Documents
      * const documents = await prisma.documents.findFirst({
@@ -3267,16 +3257,16 @@ export namespace Prisma {
      *   }
      * })
     **/
-    findFirst<T extends DocumentsFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, DocumentsFindFirstArgs<ExtArgs>>
-    ): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends documentsFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, documentsFindFirstArgs<ExtArgs>>
+    ): Prisma__documentsClient<$Result.GetResult<Prisma.$documentsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
      * Find the first Documents that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentsFindFirstOrThrowArgs} args - Arguments to find a Documents
+     * @param {documentsFindFirstOrThrowArgs} args - Arguments to find a Documents
      * @example
      * // Get one Documents
      * const documents = await prisma.documents.findFirstOrThrow({
@@ -3285,15 +3275,15 @@ export namespace Prisma {
      *   }
      * })
     **/
-    findFirstOrThrow<T extends DocumentsFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, DocumentsFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends documentsFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, documentsFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__documentsClient<$Result.GetResult<Prisma.$documentsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
      * Find zero or more Documents that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentsFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {documentsFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all Documents
      * const documents = await prisma.documents.findMany()
@@ -3305,13 +3295,13 @@ export namespace Prisma {
      * const documentsWithIdOnly = await prisma.documents.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends DocumentsFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, DocumentsFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends documentsFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, documentsFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$documentsPayload<ExtArgs>, T, 'findMany'>>
 
     /**
      * Create a Documents.
-     * @param {DocumentsCreateArgs} args - Arguments to create a Documents.
+     * @param {documentsCreateArgs} args - Arguments to create a Documents.
      * @example
      * // Create one Documents
      * const Documents = await prisma.documents.create({
@@ -3321,13 +3311,13 @@ export namespace Prisma {
      * })
      * 
     **/
-    create<T extends DocumentsCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, DocumentsCreateArgs<ExtArgs>>
-    ): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends documentsCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, documentsCreateArgs<ExtArgs>>
+    ): Prisma__documentsClient<$Result.GetResult<Prisma.$documentsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
      * Create many Documents.
-     *     @param {DocumentsCreateManyArgs} args - Arguments to create many Documents.
+     *     @param {documentsCreateManyArgs} args - Arguments to create many Documents.
      *     @example
      *     // Create many Documents
      *     const documents = await prisma.documents.createMany({
@@ -3337,13 +3327,13 @@ export namespace Prisma {
      *     })
      *     
     **/
-    createMany<T extends DocumentsCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, DocumentsCreateManyArgs<ExtArgs>>
+    createMany<T extends documentsCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, documentsCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Delete a Documents.
-     * @param {DocumentsDeleteArgs} args - Arguments to delete one Documents.
+     * @param {documentsDeleteArgs} args - Arguments to delete one Documents.
      * @example
      * // Delete one Documents
      * const Documents = await prisma.documents.delete({
@@ -3353,13 +3343,13 @@ export namespace Prisma {
      * })
      * 
     **/
-    delete<T extends DocumentsDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, DocumentsDeleteArgs<ExtArgs>>
-    ): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends documentsDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, documentsDeleteArgs<ExtArgs>>
+    ): Prisma__documentsClient<$Result.GetResult<Prisma.$documentsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
      * Update one Documents.
-     * @param {DocumentsUpdateArgs} args - Arguments to update one Documents.
+     * @param {documentsUpdateArgs} args - Arguments to update one Documents.
      * @example
      * // Update one Documents
      * const documents = await prisma.documents.update({
@@ -3372,13 +3362,13 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends DocumentsUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, DocumentsUpdateArgs<ExtArgs>>
-    ): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends documentsUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, documentsUpdateArgs<ExtArgs>>
+    ): Prisma__documentsClient<$Result.GetResult<Prisma.$documentsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
      * Delete zero or more Documents.
-     * @param {DocumentsDeleteManyArgs} args - Arguments to filter Documents to delete.
+     * @param {documentsDeleteManyArgs} args - Arguments to filter Documents to delete.
      * @example
      * // Delete a few Documents
      * const { count } = await prisma.documents.deleteMany({
@@ -3388,15 +3378,15 @@ export namespace Prisma {
      * })
      * 
     **/
-    deleteMany<T extends DocumentsDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, DocumentsDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends documentsDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, documentsDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more Documents.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {documentsUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
      * // Update many Documents
      * const documents = await prisma.documents.updateMany({
@@ -3409,13 +3399,13 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends DocumentsUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, DocumentsUpdateManyArgs<ExtArgs>>
+    updateMany<T extends documentsUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, documentsUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Create or update one Documents.
-     * @param {DocumentsUpsertArgs} args - Arguments to update or create a Documents.
+     * @param {documentsUpsertArgs} args - Arguments to update or create a Documents.
      * @example
      * // Update or create a Documents
      * const documents = await prisma.documents.upsert({
@@ -3430,15 +3420,15 @@ export namespace Prisma {
      *   }
      * })
     **/
-    upsert<T extends DocumentsUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, DocumentsUpsertArgs<ExtArgs>>
-    ): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends documentsUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, documentsUpsertArgs<ExtArgs>>
+    ): Prisma__documentsClient<$Result.GetResult<Prisma.$documentsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
      * Count the number of Documents.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentsCountArgs} args - Arguments to filter Documents to count.
+     * @param {documentsCountArgs} args - Arguments to filter Documents to count.
      * @example
      * // Count the number of Documents
      * const count = await prisma.documents.count({
@@ -3447,8 +3437,8 @@ export namespace Prisma {
      *   }
      * })
     **/
-    count<T extends DocumentsCountArgs>(
-      args?: Subset<T, DocumentsCountArgs>,
+    count<T extends documentsCountArgs>(
+      args?: Subset<T, documentsCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
@@ -3487,7 +3477,7 @@ export namespace Prisma {
      * Group by Documents.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentsGroupByArgs} args - Group by arguments.
+     * @param {documentsGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -3502,14 +3492,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends DocumentsGroupByArgs,
+      T extends documentsGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: DocumentsGroupByArgs['orderBy'] }
-        : { orderBy?: DocumentsGroupByArgs['orderBy'] },
+        ? { orderBy: documentsGroupByArgs['orderBy'] }
+        : { orderBy?: documentsGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3558,20 +3548,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, DocumentsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDocumentsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, documentsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDocumentsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Documents model
+   * Fields of the documents model
    */
-  readonly fields: DocumentsFieldRefs;
+  readonly fields: documentsFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Documents.
+   * The delegate class that acts as a "Promise-like" for documents.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__DocumentsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__documentsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
 
@@ -3600,283 +3590,282 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Documents model
+   * Fields of the documents model
    */ 
-  interface DocumentsFieldRefs {
-    readonly id: FieldRef<"Documents", 'BigInt'>
-    readonly content: FieldRef<"Documents", 'String'>
-    readonly metadata: FieldRef<"Documents", 'Json'>
-    readonly embedding: FieldRef<"Documents", 'Float[]'>
+  interface documentsFieldRefs {
+    readonly id: FieldRef<"documents", 'BigInt'>
+    readonly content: FieldRef<"documents", 'String'>
+    readonly metadata: FieldRef<"documents", 'Json'>
   }
     
 
   // Custom InputTypes
   /**
-   * Documents findUnique
+   * documents findUnique
    */
-  export type DocumentsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type documentsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Documents
+     * Select specific fields to fetch from the documents
      */
-    select?: DocumentsSelect<ExtArgs> | null
+    select?: documentsSelect<ExtArgs> | null
     /**
-     * Filter, which Documents to fetch.
+     * Filter, which documents to fetch.
      */
-    where: DocumentsWhereUniqueInput
+    where: documentsWhereUniqueInput
   }
 
   /**
-   * Documents findUniqueOrThrow
+   * documents findUniqueOrThrow
    */
-  export type DocumentsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type documentsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Documents
+     * Select specific fields to fetch from the documents
      */
-    select?: DocumentsSelect<ExtArgs> | null
+    select?: documentsSelect<ExtArgs> | null
     /**
-     * Filter, which Documents to fetch.
+     * Filter, which documents to fetch.
      */
-    where: DocumentsWhereUniqueInput
+    where: documentsWhereUniqueInput
   }
 
   /**
-   * Documents findFirst
+   * documents findFirst
    */
-  export type DocumentsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type documentsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Documents
+     * Select specific fields to fetch from the documents
      */
-    select?: DocumentsSelect<ExtArgs> | null
+    select?: documentsSelect<ExtArgs> | null
     /**
-     * Filter, which Documents to fetch.
+     * Filter, which documents to fetch.
      */
-    where?: DocumentsWhereInput
+    where?: documentsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Documents to fetch.
+     * Determine the order of documents to fetch.
      */
-    orderBy?: DocumentsOrderByWithRelationInput | DocumentsOrderByWithRelationInput[]
+    orderBy?: documentsOrderByWithRelationInput | documentsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Documents.
+     * Sets the position for searching for documents.
      */
-    cursor?: DocumentsWhereUniqueInput
+    cursor?: documentsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Documents from the position of the cursor.
+     * Take `±n` documents from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Documents.
+     * Skip the first `n` documents.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Documents.
+     * Filter by unique combinations of documents.
      */
     distinct?: DocumentsScalarFieldEnum | DocumentsScalarFieldEnum[]
   }
 
   /**
-   * Documents findFirstOrThrow
+   * documents findFirstOrThrow
    */
-  export type DocumentsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type documentsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Documents
+     * Select specific fields to fetch from the documents
      */
-    select?: DocumentsSelect<ExtArgs> | null
+    select?: documentsSelect<ExtArgs> | null
     /**
-     * Filter, which Documents to fetch.
+     * Filter, which documents to fetch.
      */
-    where?: DocumentsWhereInput
+    where?: documentsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Documents to fetch.
+     * Determine the order of documents to fetch.
      */
-    orderBy?: DocumentsOrderByWithRelationInput | DocumentsOrderByWithRelationInput[]
+    orderBy?: documentsOrderByWithRelationInput | documentsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Documents.
+     * Sets the position for searching for documents.
      */
-    cursor?: DocumentsWhereUniqueInput
+    cursor?: documentsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Documents from the position of the cursor.
+     * Take `±n` documents from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Documents.
+     * Skip the first `n` documents.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Documents.
+     * Filter by unique combinations of documents.
      */
     distinct?: DocumentsScalarFieldEnum | DocumentsScalarFieldEnum[]
   }
 
   /**
-   * Documents findMany
+   * documents findMany
    */
-  export type DocumentsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type documentsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Documents
+     * Select specific fields to fetch from the documents
      */
-    select?: DocumentsSelect<ExtArgs> | null
+    select?: documentsSelect<ExtArgs> | null
     /**
-     * Filter, which Documents to fetch.
+     * Filter, which documents to fetch.
      */
-    where?: DocumentsWhereInput
+    where?: documentsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Documents to fetch.
+     * Determine the order of documents to fetch.
      */
-    orderBy?: DocumentsOrderByWithRelationInput | DocumentsOrderByWithRelationInput[]
+    orderBy?: documentsOrderByWithRelationInput | documentsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Documents.
+     * Sets the position for listing documents.
      */
-    cursor?: DocumentsWhereUniqueInput
+    cursor?: documentsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Documents from the position of the cursor.
+     * Take `±n` documents from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Documents.
+     * Skip the first `n` documents.
      */
     skip?: number
     distinct?: DocumentsScalarFieldEnum | DocumentsScalarFieldEnum[]
   }
 
   /**
-   * Documents create
+   * documents create
    */
-  export type DocumentsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type documentsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Documents
+     * Select specific fields to fetch from the documents
      */
-    select?: DocumentsSelect<ExtArgs> | null
+    select?: documentsSelect<ExtArgs> | null
     /**
-     * The data needed to create a Documents.
+     * The data needed to create a documents.
      */
-    data?: XOR<DocumentsCreateInput, DocumentsUncheckedCreateInput>
+    data?: XOR<documentsCreateInput, documentsUncheckedCreateInput>
   }
 
   /**
-   * Documents createMany
+   * documents createMany
    */
-  export type DocumentsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type documentsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Documents.
+     * The data used to create many documents.
      */
-    data: DocumentsCreateManyInput | DocumentsCreateManyInput[]
+    data: documentsCreateManyInput | documentsCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Documents update
+   * documents update
    */
-  export type DocumentsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type documentsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Documents
+     * Select specific fields to fetch from the documents
      */
-    select?: DocumentsSelect<ExtArgs> | null
+    select?: documentsSelect<ExtArgs> | null
     /**
-     * The data needed to update a Documents.
+     * The data needed to update a documents.
      */
-    data: XOR<DocumentsUpdateInput, DocumentsUncheckedUpdateInput>
+    data: XOR<documentsUpdateInput, documentsUncheckedUpdateInput>
     /**
-     * Choose, which Documents to update.
+     * Choose, which documents to update.
      */
-    where: DocumentsWhereUniqueInput
+    where: documentsWhereUniqueInput
   }
 
   /**
-   * Documents updateMany
+   * documents updateMany
    */
-  export type DocumentsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type documentsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Documents.
+     * The data used to update documents.
      */
-    data: XOR<DocumentsUpdateManyMutationInput, DocumentsUncheckedUpdateManyInput>
+    data: XOR<documentsUpdateManyMutationInput, documentsUncheckedUpdateManyInput>
     /**
-     * Filter which Documents to update
+     * Filter which documents to update
      */
-    where?: DocumentsWhereInput
+    where?: documentsWhereInput
   }
 
   /**
-   * Documents upsert
+   * documents upsert
    */
-  export type DocumentsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type documentsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Documents
+     * Select specific fields to fetch from the documents
      */
-    select?: DocumentsSelect<ExtArgs> | null
+    select?: documentsSelect<ExtArgs> | null
     /**
-     * The filter to search for the Documents to update in case it exists.
+     * The filter to search for the documents to update in case it exists.
      */
-    where: DocumentsWhereUniqueInput
+    where: documentsWhereUniqueInput
     /**
-     * In case the Documents found by the `where` argument doesn't exist, create a new Documents with this data.
+     * In case the documents found by the `where` argument doesn't exist, create a new documents with this data.
      */
-    create: XOR<DocumentsCreateInput, DocumentsUncheckedCreateInput>
+    create: XOR<documentsCreateInput, documentsUncheckedCreateInput>
     /**
-     * In case the Documents was found with the provided `where` argument, update it with this data.
+     * In case the documents was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<DocumentsUpdateInput, DocumentsUncheckedUpdateInput>
+    update: XOR<documentsUpdateInput, documentsUncheckedUpdateInput>
   }
 
   /**
-   * Documents delete
+   * documents delete
    */
-  export type DocumentsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type documentsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Documents
+     * Select specific fields to fetch from the documents
      */
-    select?: DocumentsSelect<ExtArgs> | null
+    select?: documentsSelect<ExtArgs> | null
     /**
-     * Filter which Documents to delete.
+     * Filter which documents to delete.
      */
-    where: DocumentsWhereUniqueInput
+    where: documentsWhereUniqueInput
   }
 
   /**
-   * Documents deleteMany
+   * documents deleteMany
    */
-  export type DocumentsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type documentsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Documents to delete
+     * Filter which documents to delete
      */
-    where?: DocumentsWhereInput
+    where?: documentsWhereInput
   }
 
   /**
-   * Documents without action
+   * documents without action
    */
-  export type DocumentsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type documentsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Documents
+     * Select specific fields to fetch from the documents
      */
-    select?: DocumentsSelect<ExtArgs> | null
+    select?: documentsSelect<ExtArgs> | null
   }
 
 
@@ -3894,7 +3883,7 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const UserScalarFieldEnum: {
+  export const UsersScalarFieldEnum: {
     id: 'id',
     user: 'user',
     email: 'email',
@@ -3903,10 +3892,10 @@ export namespace Prisma {
     updatedAt: 'updatedAt'
   };
 
-  export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+  export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
 
 
-  export const JournalScalarFieldEnum: {
+  export const JournalsScalarFieldEnum: {
     id: 'id',
     title: 'title',
     content: 'content',
@@ -3915,14 +3904,13 @@ export namespace Prisma {
     userId: 'userId'
   };
 
-  export type JournalScalarFieldEnum = (typeof JournalScalarFieldEnum)[keyof typeof JournalScalarFieldEnum]
+  export type JournalsScalarFieldEnum = (typeof JournalsScalarFieldEnum)[keyof typeof JournalsScalarFieldEnum]
 
 
   export const DocumentsScalarFieldEnum: {
     id: 'id',
     content: 'content',
-    metadata: 'metadata',
-    embedding: 'embedding'
+    metadata: 'metadata'
   };
 
   export type DocumentsScalarFieldEnum = (typeof DocumentsScalarFieldEnum)[keyof typeof DocumentsScalarFieldEnum]
@@ -4038,234 +4026,229 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Float[]'
+   * Reference to a field of type 'Float'
    */
-  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
     
 
 
   /**
-   * Reference to a field of type 'Float'
+   * Reference to a field of type 'Float[]'
    */
-  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
   /**
    * Deep Input Types
    */
 
 
-  export type UserWhereInput = {
-    AND?: UserWhereInput | UserWhereInput[]
-    OR?: UserWhereInput[]
-    NOT?: UserWhereInput | UserWhereInput[]
-    id?: IntFilter<"User"> | number
-    user?: StringFilter<"User"> | string
-    email?: StringFilter<"User"> | string
-    name?: StringNullableFilter<"User"> | string | null
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updatedAt?: DateTimeFilter<"User"> | Date | string
-    journals?: JournalListRelationFilter
+  export type usersWhereInput = {
+    AND?: usersWhereInput | usersWhereInput[]
+    OR?: usersWhereInput[]
+    NOT?: usersWhereInput | usersWhereInput[]
+    id?: IntFilter<"users"> | number
+    user?: StringFilter<"users"> | string
+    email?: StringFilter<"users"> | string
+    name?: StringNullableFilter<"users"> | string | null
+    createdAt?: DateTimeFilter<"users"> | Date | string
+    updatedAt?: DateTimeFilter<"users"> | Date | string
+    journals?: JournalsListRelationFilter
   }
 
-  export type UserOrderByWithRelationInput = {
+  export type usersOrderByWithRelationInput = {
     id?: SortOrder
     user?: SortOrder
     email?: SortOrder
     name?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    journals?: JournalOrderByRelationAggregateInput
+    journals?: journalsOrderByRelationAggregateInput
   }
 
-  export type UserWhereUniqueInput = Prisma.AtLeast<{
+  export type usersWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     user?: string
     email?: string
-    AND?: UserWhereInput | UserWhereInput[]
-    OR?: UserWhereInput[]
-    NOT?: UserWhereInput | UserWhereInput[]
-    name?: StringNullableFilter<"User"> | string | null
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updatedAt?: DateTimeFilter<"User"> | Date | string
-    journals?: JournalListRelationFilter
+    AND?: usersWhereInput | usersWhereInput[]
+    OR?: usersWhereInput[]
+    NOT?: usersWhereInput | usersWhereInput[]
+    name?: StringNullableFilter<"users"> | string | null
+    createdAt?: DateTimeFilter<"users"> | Date | string
+    updatedAt?: DateTimeFilter<"users"> | Date | string
+    journals?: JournalsListRelationFilter
   }, "id" | "user" | "email">
 
-  export type UserOrderByWithAggregationInput = {
+  export type usersOrderByWithAggregationInput = {
     id?: SortOrder
     user?: SortOrder
     email?: SortOrder
     name?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: UserCountOrderByAggregateInput
-    _avg?: UserAvgOrderByAggregateInput
-    _max?: UserMaxOrderByAggregateInput
-    _min?: UserMinOrderByAggregateInput
-    _sum?: UserSumOrderByAggregateInput
+    _count?: usersCountOrderByAggregateInput
+    _avg?: usersAvgOrderByAggregateInput
+    _max?: usersMaxOrderByAggregateInput
+    _min?: usersMinOrderByAggregateInput
+    _sum?: usersSumOrderByAggregateInput
   }
 
-  export type UserScalarWhereWithAggregatesInput = {
-    AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
-    OR?: UserScalarWhereWithAggregatesInput[]
-    NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"User"> | number
-    user?: StringWithAggregatesFilter<"User"> | string
-    email?: StringWithAggregatesFilter<"User"> | string
-    name?: StringNullableWithAggregatesFilter<"User"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+  export type usersScalarWhereWithAggregatesInput = {
+    AND?: usersScalarWhereWithAggregatesInput | usersScalarWhereWithAggregatesInput[]
+    OR?: usersScalarWhereWithAggregatesInput[]
+    NOT?: usersScalarWhereWithAggregatesInput | usersScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"users"> | number
+    user?: StringWithAggregatesFilter<"users"> | string
+    email?: StringWithAggregatesFilter<"users"> | string
+    name?: StringNullableWithAggregatesFilter<"users"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"users"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"users"> | Date | string
   }
 
-  export type JournalWhereInput = {
-    AND?: JournalWhereInput | JournalWhereInput[]
-    OR?: JournalWhereInput[]
-    NOT?: JournalWhereInput | JournalWhereInput[]
-    id?: IntFilter<"Journal"> | number
-    title?: StringFilter<"Journal"> | string
-    content?: StringFilter<"Journal"> | string
-    createdAt?: DateTimeFilter<"Journal"> | Date | string
-    updatedAt?: DateTimeFilter<"Journal"> | Date | string
-    userId?: StringNullableFilter<"Journal"> | string | null
-    User?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+  export type journalsWhereInput = {
+    AND?: journalsWhereInput | journalsWhereInput[]
+    OR?: journalsWhereInput[]
+    NOT?: journalsWhereInput | journalsWhereInput[]
+    id?: IntFilter<"journals"> | number
+    title?: StringFilter<"journals"> | string
+    content?: StringFilter<"journals"> | string
+    createdAt?: DateTimeFilter<"journals"> | Date | string
+    updatedAt?: DateTimeFilter<"journals"> | Date | string
+    userId?: StringNullableFilter<"journals"> | string | null
+    User?: XOR<UsersNullableRelationFilter, usersWhereInput> | null
   }
 
-  export type JournalOrderByWithRelationInput = {
+  export type journalsOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
     content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userId?: SortOrderInput | SortOrder
-    User?: UserOrderByWithRelationInput
+    User?: usersOrderByWithRelationInput
   }
 
-  export type JournalWhereUniqueInput = Prisma.AtLeast<{
+  export type journalsWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: JournalWhereInput | JournalWhereInput[]
-    OR?: JournalWhereInput[]
-    NOT?: JournalWhereInput | JournalWhereInput[]
-    title?: StringFilter<"Journal"> | string
-    content?: StringFilter<"Journal"> | string
-    createdAt?: DateTimeFilter<"Journal"> | Date | string
-    updatedAt?: DateTimeFilter<"Journal"> | Date | string
-    userId?: StringNullableFilter<"Journal"> | string | null
-    User?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    AND?: journalsWhereInput | journalsWhereInput[]
+    OR?: journalsWhereInput[]
+    NOT?: journalsWhereInput | journalsWhereInput[]
+    title?: StringFilter<"journals"> | string
+    content?: StringFilter<"journals"> | string
+    createdAt?: DateTimeFilter<"journals"> | Date | string
+    updatedAt?: DateTimeFilter<"journals"> | Date | string
+    userId?: StringNullableFilter<"journals"> | string | null
+    User?: XOR<UsersNullableRelationFilter, usersWhereInput> | null
   }, "id">
 
-  export type JournalOrderByWithAggregationInput = {
+  export type journalsOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
     content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userId?: SortOrderInput | SortOrder
-    _count?: JournalCountOrderByAggregateInput
-    _avg?: JournalAvgOrderByAggregateInput
-    _max?: JournalMaxOrderByAggregateInput
-    _min?: JournalMinOrderByAggregateInput
-    _sum?: JournalSumOrderByAggregateInput
+    _count?: journalsCountOrderByAggregateInput
+    _avg?: journalsAvgOrderByAggregateInput
+    _max?: journalsMaxOrderByAggregateInput
+    _min?: journalsMinOrderByAggregateInput
+    _sum?: journalsSumOrderByAggregateInput
   }
 
-  export type JournalScalarWhereWithAggregatesInput = {
-    AND?: JournalScalarWhereWithAggregatesInput | JournalScalarWhereWithAggregatesInput[]
-    OR?: JournalScalarWhereWithAggregatesInput[]
-    NOT?: JournalScalarWhereWithAggregatesInput | JournalScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Journal"> | number
-    title?: StringWithAggregatesFilter<"Journal"> | string
-    content?: StringWithAggregatesFilter<"Journal"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"Journal"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Journal"> | Date | string
-    userId?: StringNullableWithAggregatesFilter<"Journal"> | string | null
+  export type journalsScalarWhereWithAggregatesInput = {
+    AND?: journalsScalarWhereWithAggregatesInput | journalsScalarWhereWithAggregatesInput[]
+    OR?: journalsScalarWhereWithAggregatesInput[]
+    NOT?: journalsScalarWhereWithAggregatesInput | journalsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"journals"> | number
+    title?: StringWithAggregatesFilter<"journals"> | string
+    content?: StringWithAggregatesFilter<"journals"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"journals"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"journals"> | Date | string
+    userId?: StringNullableWithAggregatesFilter<"journals"> | string | null
   }
 
-  export type DocumentsWhereInput = {
-    AND?: DocumentsWhereInput | DocumentsWhereInput[]
-    OR?: DocumentsWhereInput[]
-    NOT?: DocumentsWhereInput | DocumentsWhereInput[]
-    id?: BigIntFilter<"Documents"> | bigint | number
-    content?: StringNullableFilter<"Documents"> | string | null
-    metadata?: JsonNullableFilter<"Documents">
-    embedding?: FloatNullableListFilter<"Documents">
+  export type documentsWhereInput = {
+    AND?: documentsWhereInput | documentsWhereInput[]
+    OR?: documentsWhereInput[]
+    NOT?: documentsWhereInput | documentsWhereInput[]
+    id?: BigIntFilter<"documents"> | bigint | number
+    content?: StringNullableFilter<"documents"> | string | null
+    metadata?: JsonNullableFilter<"documents">
   }
 
-  export type DocumentsOrderByWithRelationInput = {
+  export type documentsOrderByWithRelationInput = {
     id?: SortOrder
     content?: SortOrderInput | SortOrder
     metadata?: SortOrderInput | SortOrder
-    embedding?: SortOrder
   }
 
-  export type DocumentsWhereUniqueInput = Prisma.AtLeast<{
+  export type documentsWhereUniqueInput = Prisma.AtLeast<{
     id?: bigint | number
-    AND?: DocumentsWhereInput | DocumentsWhereInput[]
-    OR?: DocumentsWhereInput[]
-    NOT?: DocumentsWhereInput | DocumentsWhereInput[]
-    content?: StringNullableFilter<"Documents"> | string | null
-    metadata?: JsonNullableFilter<"Documents">
-    embedding?: FloatNullableListFilter<"Documents">
+    AND?: documentsWhereInput | documentsWhereInput[]
+    OR?: documentsWhereInput[]
+    NOT?: documentsWhereInput | documentsWhereInput[]
+    content?: StringNullableFilter<"documents"> | string | null
+    metadata?: JsonNullableFilter<"documents">
   }, "id">
 
-  export type DocumentsOrderByWithAggregationInput = {
+  export type documentsOrderByWithAggregationInput = {
     id?: SortOrder
     content?: SortOrderInput | SortOrder
     metadata?: SortOrderInput | SortOrder
-    embedding?: SortOrder
-    _count?: DocumentsCountOrderByAggregateInput
-    _avg?: DocumentsAvgOrderByAggregateInput
-    _max?: DocumentsMaxOrderByAggregateInput
-    _min?: DocumentsMinOrderByAggregateInput
-    _sum?: DocumentsSumOrderByAggregateInput
+    _count?: documentsCountOrderByAggregateInput
+    _avg?: documentsAvgOrderByAggregateInput
+    _max?: documentsMaxOrderByAggregateInput
+    _min?: documentsMinOrderByAggregateInput
+    _sum?: documentsSumOrderByAggregateInput
   }
 
-  export type DocumentsScalarWhereWithAggregatesInput = {
-    AND?: DocumentsScalarWhereWithAggregatesInput | DocumentsScalarWhereWithAggregatesInput[]
-    OR?: DocumentsScalarWhereWithAggregatesInput[]
-    NOT?: DocumentsScalarWhereWithAggregatesInput | DocumentsScalarWhereWithAggregatesInput[]
-    id?: BigIntWithAggregatesFilter<"Documents"> | bigint | number
-    content?: StringNullableWithAggregatesFilter<"Documents"> | string | null
-    metadata?: JsonNullableWithAggregatesFilter<"Documents">
-    embedding?: FloatNullableListFilter<"Documents">
+  export type documentsScalarWhereWithAggregatesInput = {
+    AND?: documentsScalarWhereWithAggregatesInput | documentsScalarWhereWithAggregatesInput[]
+    OR?: documentsScalarWhereWithAggregatesInput[]
+    NOT?: documentsScalarWhereWithAggregatesInput | documentsScalarWhereWithAggregatesInput[]
+    id?: BigIntWithAggregatesFilter<"documents"> | bigint | number
+    content?: StringNullableWithAggregatesFilter<"documents"> | string | null
+    metadata?: JsonNullableWithAggregatesFilter<"documents">
   }
 
-  export type UserCreateInput = {
+  export type usersCreateInput = {
     user: string
     email: string
     name?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    journals?: JournalCreateNestedManyWithoutUserInput
+    journals?: journalsCreateNestedManyWithoutUserInput
   }
 
-  export type UserUncheckedCreateInput = {
+  export type usersUncheckedCreateInput = {
     id?: number
     user: string
     email: string
     name?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    journals?: JournalUncheckedCreateNestedManyWithoutUserInput
+    journals?: journalsUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserUpdateInput = {
+  export type usersUpdateInput = {
     user?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    journals?: JournalUpdateManyWithoutUserNestedInput
+    journals?: journalsUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateInput = {
+  export type usersUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     user?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    journals?: JournalUncheckedUpdateManyWithoutUserNestedInput
+    journals?: journalsUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type UserCreateManyInput = {
+  export type usersCreateManyInput = {
     id?: number
     user: string
     email: string
@@ -4274,7 +4257,7 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type UserUpdateManyMutationInput = {
+  export type usersUpdateManyMutationInput = {
     user?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4282,7 +4265,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type UserUncheckedUpdateManyInput = {
+  export type usersUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     user?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -4291,15 +4274,15 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type JournalCreateInput = {
+  export type journalsCreateInput = {
     title: string
     content: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    User?: UserCreateNestedOneWithoutJournalsInput
+    User?: usersCreateNestedOneWithoutJournalsInput
   }
 
-  export type JournalUncheckedCreateInput = {
+  export type journalsUncheckedCreateInput = {
     id?: number
     title: string
     content: string
@@ -4308,15 +4291,15 @@ export namespace Prisma {
     userId?: string | null
   }
 
-  export type JournalUpdateInput = {
+  export type journalsUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    User?: UserUpdateOneWithoutJournalsNestedInput
+    User?: usersUpdateOneWithoutJournalsNestedInput
   }
 
-  export type JournalUncheckedUpdateInput = {
+  export type journalsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
@@ -4325,7 +4308,7 @@ export namespace Prisma {
     userId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type JournalCreateManyInput = {
+  export type journalsCreateManyInput = {
     id?: number
     title: string
     content: string
@@ -4334,14 +4317,14 @@ export namespace Prisma {
     userId?: string | null
   }
 
-  export type JournalUpdateManyMutationInput = {
+  export type journalsUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type JournalUncheckedUpdateManyInput = {
+  export type journalsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
@@ -4350,53 +4333,46 @@ export namespace Prisma {
     userId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type DocumentsCreateInput = {
+  export type documentsCreateInput = {
     id?: bigint | number
     content?: string | null
     metadata?: NullableJsonNullValueInput | InputJsonValue
-    embedding?: DocumentsCreateembeddingInput | number[]
   }
 
-  export type DocumentsUncheckedCreateInput = {
+  export type documentsUncheckedCreateInput = {
     id?: bigint | number
     content?: string | null
     metadata?: NullableJsonNullValueInput | InputJsonValue
-    embedding?: DocumentsCreateembeddingInput | number[]
   }
 
-  export type DocumentsUpdateInput = {
+  export type documentsUpdateInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     content?: NullableStringFieldUpdateOperationsInput | string | null
     metadata?: NullableJsonNullValueInput | InputJsonValue
-    embedding?: DocumentsUpdateembeddingInput | number[]
   }
 
-  export type DocumentsUncheckedUpdateInput = {
+  export type documentsUncheckedUpdateInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     content?: NullableStringFieldUpdateOperationsInput | string | null
     metadata?: NullableJsonNullValueInput | InputJsonValue
-    embedding?: DocumentsUpdateembeddingInput | number[]
   }
 
-  export type DocumentsCreateManyInput = {
+  export type documentsCreateManyInput = {
     id?: bigint | number
     content?: string | null
     metadata?: NullableJsonNullValueInput | InputJsonValue
-    embedding?: DocumentsCreateembeddingInput | number[]
   }
 
-  export type DocumentsUpdateManyMutationInput = {
+  export type documentsUpdateManyMutationInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     content?: NullableStringFieldUpdateOperationsInput | string | null
     metadata?: NullableJsonNullValueInput | InputJsonValue
-    embedding?: DocumentsUpdateembeddingInput | number[]
   }
 
-  export type DocumentsUncheckedUpdateManyInput = {
+  export type documentsUncheckedUpdateManyInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     content?: NullableStringFieldUpdateOperationsInput | string | null
     metadata?: NullableJsonNullValueInput | InputJsonValue
-    embedding?: DocumentsUpdateembeddingInput | number[]
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -4451,10 +4427,10 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type JournalListRelationFilter = {
-    every?: JournalWhereInput
-    some?: JournalWhereInput
-    none?: JournalWhereInput
+  export type JournalsListRelationFilter = {
+    every?: journalsWhereInput
+    some?: journalsWhereInput
+    none?: journalsWhereInput
   }
 
   export type SortOrderInput = {
@@ -4462,11 +4438,11 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type JournalOrderByRelationAggregateInput = {
+  export type journalsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type UserCountOrderByAggregateInput = {
+  export type usersCountOrderByAggregateInput = {
     id?: SortOrder
     user?: SortOrder
     email?: SortOrder
@@ -4475,20 +4451,11 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type UserAvgOrderByAggregateInput = {
+  export type usersAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type UserMaxOrderByAggregateInput = {
-    id?: SortOrder
-    user?: SortOrder
-    email?: SortOrder
-    name?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type UserMinOrderByAggregateInput = {
+  export type usersMaxOrderByAggregateInput = {
     id?: SortOrder
     user?: SortOrder
     email?: SortOrder
@@ -4497,7 +4464,16 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type UserSumOrderByAggregateInput = {
+  export type usersMinOrderByAggregateInput = {
+    id?: SortOrder
+    user?: SortOrder
+    email?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type usersSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -4567,12 +4543,12 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type UserNullableRelationFilter = {
-    is?: UserWhereInput | null
-    isNot?: UserWhereInput | null
+  export type UsersNullableRelationFilter = {
+    is?: usersWhereInput | null
+    isNot?: usersWhereInput | null
   }
 
-  export type JournalCountOrderByAggregateInput = {
+  export type journalsCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     content?: SortOrder
@@ -4581,20 +4557,11 @@ export namespace Prisma {
     userId?: SortOrder
   }
 
-  export type JournalAvgOrderByAggregateInput = {
+  export type journalsAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type JournalMaxOrderByAggregateInput = {
-    id?: SortOrder
-    title?: SortOrder
-    content?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    userId?: SortOrder
-  }
-
-  export type JournalMinOrderByAggregateInput = {
+  export type journalsMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     content?: SortOrder
@@ -4603,7 +4570,16 @@ export namespace Prisma {
     userId?: SortOrder
   }
 
-  export type JournalSumOrderByAggregateInput = {
+  export type journalsMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type journalsSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -4640,39 +4616,28 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type FloatNullableListFilter<$PrismaModel = never> = {
-    equals?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    has?: number | FloatFieldRefInput<$PrismaModel> | null
-    hasEvery?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    hasSome?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    isEmpty?: boolean
-  }
-
-  export type DocumentsCountOrderByAggregateInput = {
+  export type documentsCountOrderByAggregateInput = {
     id?: SortOrder
     content?: SortOrder
     metadata?: SortOrder
-    embedding?: SortOrder
   }
 
-  export type DocumentsAvgOrderByAggregateInput = {
+  export type documentsAvgOrderByAggregateInput = {
     id?: SortOrder
-    embedding?: SortOrder
   }
 
-  export type DocumentsMaxOrderByAggregateInput = {
+  export type documentsMaxOrderByAggregateInput = {
     id?: SortOrder
     content?: SortOrder
   }
 
-  export type DocumentsMinOrderByAggregateInput = {
+  export type documentsMinOrderByAggregateInput = {
     id?: SortOrder
     content?: SortOrder
   }
 
-  export type DocumentsSumOrderByAggregateInput = {
+  export type documentsSumOrderByAggregateInput = {
     id?: SortOrder
-    embedding?: SortOrder
   }
 
   export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -4716,18 +4681,18 @@ export namespace Prisma {
     _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
-  export type JournalCreateNestedManyWithoutUserInput = {
-    create?: XOR<JournalCreateWithoutUserInput, JournalUncheckedCreateWithoutUserInput> | JournalCreateWithoutUserInput[] | JournalUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: JournalCreateOrConnectWithoutUserInput | JournalCreateOrConnectWithoutUserInput[]
-    createMany?: JournalCreateManyUserInputEnvelope
-    connect?: JournalWhereUniqueInput | JournalWhereUniqueInput[]
+  export type journalsCreateNestedManyWithoutUserInput = {
+    create?: XOR<journalsCreateWithoutUserInput, journalsUncheckedCreateWithoutUserInput> | journalsCreateWithoutUserInput[] | journalsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: journalsCreateOrConnectWithoutUserInput | journalsCreateOrConnectWithoutUserInput[]
+    createMany?: journalsCreateManyUserInputEnvelope
+    connect?: journalsWhereUniqueInput | journalsWhereUniqueInput[]
   }
 
-  export type JournalUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<JournalCreateWithoutUserInput, JournalUncheckedCreateWithoutUserInput> | JournalCreateWithoutUserInput[] | JournalUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: JournalCreateOrConnectWithoutUserInput | JournalCreateOrConnectWithoutUserInput[]
-    createMany?: JournalCreateManyUserInputEnvelope
-    connect?: JournalWhereUniqueInput | JournalWhereUniqueInput[]
+  export type journalsUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<journalsCreateWithoutUserInput, journalsUncheckedCreateWithoutUserInput> | journalsCreateWithoutUserInput[] | journalsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: journalsCreateOrConnectWithoutUserInput | journalsCreateOrConnectWithoutUserInput[]
+    createMany?: journalsCreateManyUserInputEnvelope
+    connect?: journalsWhereUniqueInput | journalsWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -4742,18 +4707,18 @@ export namespace Prisma {
     set?: Date | string
   }
 
-  export type JournalUpdateManyWithoutUserNestedInput = {
-    create?: XOR<JournalCreateWithoutUserInput, JournalUncheckedCreateWithoutUserInput> | JournalCreateWithoutUserInput[] | JournalUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: JournalCreateOrConnectWithoutUserInput | JournalCreateOrConnectWithoutUserInput[]
-    upsert?: JournalUpsertWithWhereUniqueWithoutUserInput | JournalUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: JournalCreateManyUserInputEnvelope
-    set?: JournalWhereUniqueInput | JournalWhereUniqueInput[]
-    disconnect?: JournalWhereUniqueInput | JournalWhereUniqueInput[]
-    delete?: JournalWhereUniqueInput | JournalWhereUniqueInput[]
-    connect?: JournalWhereUniqueInput | JournalWhereUniqueInput[]
-    update?: JournalUpdateWithWhereUniqueWithoutUserInput | JournalUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: JournalUpdateManyWithWhereWithoutUserInput | JournalUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: JournalScalarWhereInput | JournalScalarWhereInput[]
+  export type journalsUpdateManyWithoutUserNestedInput = {
+    create?: XOR<journalsCreateWithoutUserInput, journalsUncheckedCreateWithoutUserInput> | journalsCreateWithoutUserInput[] | journalsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: journalsCreateOrConnectWithoutUserInput | journalsCreateOrConnectWithoutUserInput[]
+    upsert?: journalsUpsertWithWhereUniqueWithoutUserInput | journalsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: journalsCreateManyUserInputEnvelope
+    set?: journalsWhereUniqueInput | journalsWhereUniqueInput[]
+    disconnect?: journalsWhereUniqueInput | journalsWhereUniqueInput[]
+    delete?: journalsWhereUniqueInput | journalsWhereUniqueInput[]
+    connect?: journalsWhereUniqueInput | journalsWhereUniqueInput[]
+    update?: journalsUpdateWithWhereUniqueWithoutUserInput | journalsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: journalsUpdateManyWithWhereWithoutUserInput | journalsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: journalsScalarWhereInput | journalsScalarWhereInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -4764,38 +4729,34 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type JournalUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<JournalCreateWithoutUserInput, JournalUncheckedCreateWithoutUserInput> | JournalCreateWithoutUserInput[] | JournalUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: JournalCreateOrConnectWithoutUserInput | JournalCreateOrConnectWithoutUserInput[]
-    upsert?: JournalUpsertWithWhereUniqueWithoutUserInput | JournalUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: JournalCreateManyUserInputEnvelope
-    set?: JournalWhereUniqueInput | JournalWhereUniqueInput[]
-    disconnect?: JournalWhereUniqueInput | JournalWhereUniqueInput[]
-    delete?: JournalWhereUniqueInput | JournalWhereUniqueInput[]
-    connect?: JournalWhereUniqueInput | JournalWhereUniqueInput[]
-    update?: JournalUpdateWithWhereUniqueWithoutUserInput | JournalUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: JournalUpdateManyWithWhereWithoutUserInput | JournalUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: JournalScalarWhereInput | JournalScalarWhereInput[]
+  export type journalsUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<journalsCreateWithoutUserInput, journalsUncheckedCreateWithoutUserInput> | journalsCreateWithoutUserInput[] | journalsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: journalsCreateOrConnectWithoutUserInput | journalsCreateOrConnectWithoutUserInput[]
+    upsert?: journalsUpsertWithWhereUniqueWithoutUserInput | journalsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: journalsCreateManyUserInputEnvelope
+    set?: journalsWhereUniqueInput | journalsWhereUniqueInput[]
+    disconnect?: journalsWhereUniqueInput | journalsWhereUniqueInput[]
+    delete?: journalsWhereUniqueInput | journalsWhereUniqueInput[]
+    connect?: journalsWhereUniqueInput | journalsWhereUniqueInput[]
+    update?: journalsUpdateWithWhereUniqueWithoutUserInput | journalsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: journalsUpdateManyWithWhereWithoutUserInput | journalsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: journalsScalarWhereInput | journalsScalarWhereInput[]
   }
 
-  export type UserCreateNestedOneWithoutJournalsInput = {
-    create?: XOR<UserCreateWithoutJournalsInput, UserUncheckedCreateWithoutJournalsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutJournalsInput
-    connect?: UserWhereUniqueInput
+  export type usersCreateNestedOneWithoutJournalsInput = {
+    create?: XOR<usersCreateWithoutJournalsInput, usersUncheckedCreateWithoutJournalsInput>
+    connectOrCreate?: usersCreateOrConnectWithoutJournalsInput
+    connect?: usersWhereUniqueInput
   }
 
-  export type UserUpdateOneWithoutJournalsNestedInput = {
-    create?: XOR<UserCreateWithoutJournalsInput, UserUncheckedCreateWithoutJournalsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutJournalsInput
-    upsert?: UserUpsertWithoutJournalsInput
-    disconnect?: UserWhereInput | boolean
-    delete?: UserWhereInput | boolean
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutJournalsInput, UserUpdateWithoutJournalsInput>, UserUncheckedUpdateWithoutJournalsInput>
-  }
-
-  export type DocumentsCreateembeddingInput = {
-    set: number[]
+  export type usersUpdateOneWithoutJournalsNestedInput = {
+    create?: XOR<usersCreateWithoutJournalsInput, usersUncheckedCreateWithoutJournalsInput>
+    connectOrCreate?: usersCreateOrConnectWithoutJournalsInput
+    upsert?: usersUpsertWithoutJournalsInput
+    disconnect?: usersWhereInput | boolean
+    delete?: usersWhereInput | boolean
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutJournalsInput, usersUpdateWithoutJournalsInput>, usersUncheckedUpdateWithoutJournalsInput>
   }
 
   export type BigIntFieldUpdateOperationsInput = {
@@ -4804,11 +4765,6 @@ export namespace Prisma {
     decrement?: bigint | number
     multiply?: bigint | number
     divide?: bigint | number
-  }
-
-  export type DocumentsUpdateembeddingInput = {
-    set?: number[]
-    push?: number | number[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -4996,14 +4952,14 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type JournalCreateWithoutUserInput = {
+  export type journalsCreateWithoutUserInput = {
     title: string
     content: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type JournalUncheckedCreateWithoutUserInput = {
+  export type journalsUncheckedCreateWithoutUserInput = {
     id?: number
     title: string
     content: string
@@ -5011,45 +4967,45 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type JournalCreateOrConnectWithoutUserInput = {
-    where: JournalWhereUniqueInput
-    create: XOR<JournalCreateWithoutUserInput, JournalUncheckedCreateWithoutUserInput>
+  export type journalsCreateOrConnectWithoutUserInput = {
+    where: journalsWhereUniqueInput
+    create: XOR<journalsCreateWithoutUserInput, journalsUncheckedCreateWithoutUserInput>
   }
 
-  export type JournalCreateManyUserInputEnvelope = {
-    data: JournalCreateManyUserInput | JournalCreateManyUserInput[]
+  export type journalsCreateManyUserInputEnvelope = {
+    data: journalsCreateManyUserInput | journalsCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
-  export type JournalUpsertWithWhereUniqueWithoutUserInput = {
-    where: JournalWhereUniqueInput
-    update: XOR<JournalUpdateWithoutUserInput, JournalUncheckedUpdateWithoutUserInput>
-    create: XOR<JournalCreateWithoutUserInput, JournalUncheckedCreateWithoutUserInput>
+  export type journalsUpsertWithWhereUniqueWithoutUserInput = {
+    where: journalsWhereUniqueInput
+    update: XOR<journalsUpdateWithoutUserInput, journalsUncheckedUpdateWithoutUserInput>
+    create: XOR<journalsCreateWithoutUserInput, journalsUncheckedCreateWithoutUserInput>
   }
 
-  export type JournalUpdateWithWhereUniqueWithoutUserInput = {
-    where: JournalWhereUniqueInput
-    data: XOR<JournalUpdateWithoutUserInput, JournalUncheckedUpdateWithoutUserInput>
+  export type journalsUpdateWithWhereUniqueWithoutUserInput = {
+    where: journalsWhereUniqueInput
+    data: XOR<journalsUpdateWithoutUserInput, journalsUncheckedUpdateWithoutUserInput>
   }
 
-  export type JournalUpdateManyWithWhereWithoutUserInput = {
-    where: JournalScalarWhereInput
-    data: XOR<JournalUpdateManyMutationInput, JournalUncheckedUpdateManyWithoutUserInput>
+  export type journalsUpdateManyWithWhereWithoutUserInput = {
+    where: journalsScalarWhereInput
+    data: XOR<journalsUpdateManyMutationInput, journalsUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type JournalScalarWhereInput = {
-    AND?: JournalScalarWhereInput | JournalScalarWhereInput[]
-    OR?: JournalScalarWhereInput[]
-    NOT?: JournalScalarWhereInput | JournalScalarWhereInput[]
-    id?: IntFilter<"Journal"> | number
-    title?: StringFilter<"Journal"> | string
-    content?: StringFilter<"Journal"> | string
-    createdAt?: DateTimeFilter<"Journal"> | Date | string
-    updatedAt?: DateTimeFilter<"Journal"> | Date | string
-    userId?: StringNullableFilter<"Journal"> | string | null
+  export type journalsScalarWhereInput = {
+    AND?: journalsScalarWhereInput | journalsScalarWhereInput[]
+    OR?: journalsScalarWhereInput[]
+    NOT?: journalsScalarWhereInput | journalsScalarWhereInput[]
+    id?: IntFilter<"journals"> | number
+    title?: StringFilter<"journals"> | string
+    content?: StringFilter<"journals"> | string
+    createdAt?: DateTimeFilter<"journals"> | Date | string
+    updatedAt?: DateTimeFilter<"journals"> | Date | string
+    userId?: StringNullableFilter<"journals"> | string | null
   }
 
-  export type UserCreateWithoutJournalsInput = {
+  export type usersCreateWithoutJournalsInput = {
     user: string
     email: string
     name?: string | null
@@ -5057,7 +5013,7 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type UserUncheckedCreateWithoutJournalsInput = {
+  export type usersUncheckedCreateWithoutJournalsInput = {
     id?: number
     user: string
     email: string
@@ -5066,23 +5022,23 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type UserCreateOrConnectWithoutJournalsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutJournalsInput, UserUncheckedCreateWithoutJournalsInput>
+  export type usersCreateOrConnectWithoutJournalsInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutJournalsInput, usersUncheckedCreateWithoutJournalsInput>
   }
 
-  export type UserUpsertWithoutJournalsInput = {
-    update: XOR<UserUpdateWithoutJournalsInput, UserUncheckedUpdateWithoutJournalsInput>
-    create: XOR<UserCreateWithoutJournalsInput, UserUncheckedCreateWithoutJournalsInput>
-    where?: UserWhereInput
+  export type usersUpsertWithoutJournalsInput = {
+    update: XOR<usersUpdateWithoutJournalsInput, usersUncheckedUpdateWithoutJournalsInput>
+    create: XOR<usersCreateWithoutJournalsInput, usersUncheckedCreateWithoutJournalsInput>
+    where?: usersWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutJournalsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutJournalsInput, UserUncheckedUpdateWithoutJournalsInput>
+  export type usersUpdateToOneWithWhereWithoutJournalsInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutJournalsInput, usersUncheckedUpdateWithoutJournalsInput>
   }
 
-  export type UserUpdateWithoutJournalsInput = {
+  export type usersUpdateWithoutJournalsInput = {
     user?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5090,7 +5046,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type UserUncheckedUpdateWithoutJournalsInput = {
+  export type usersUncheckedUpdateWithoutJournalsInput = {
     id?: IntFieldUpdateOperationsInput | number
     user?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -5099,7 +5055,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type JournalCreateManyUserInput = {
+  export type journalsCreateManyUserInput = {
     id?: number
     title: string
     content: string
@@ -5107,14 +5063,14 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type JournalUpdateWithoutUserInput = {
+  export type journalsUpdateWithoutUserInput = {
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type JournalUncheckedUpdateWithoutUserInput = {
+  export type journalsUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
@@ -5122,7 +5078,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type JournalUncheckedUpdateManyWithoutUserInput = {
+  export type journalsUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
@@ -5136,21 +5092,21 @@ export namespace Prisma {
    * Aliases for legacy arg types
    */
     /**
-     * @deprecated Use UserCountOutputTypeDefaultArgs instead
+     * @deprecated Use UsersCountOutputTypeDefaultArgs instead
      */
-    export type UserCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserCountOutputTypeDefaultArgs<ExtArgs>
+    export type UsersCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UsersCountOutputTypeDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use UserDefaultArgs instead
+     * @deprecated Use usersDefaultArgs instead
      */
-    export type UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserDefaultArgs<ExtArgs>
+    export type usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = usersDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use JournalDefaultArgs instead
+     * @deprecated Use journalsDefaultArgs instead
      */
-    export type JournalArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = JournalDefaultArgs<ExtArgs>
+    export type journalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = journalsDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use DocumentsDefaultArgs instead
+     * @deprecated Use documentsDefaultArgs instead
      */
-    export type DocumentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DocumentsDefaultArgs<ExtArgs>
+    export type documentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = documentsDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

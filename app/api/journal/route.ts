@@ -35,8 +35,9 @@ export async function POST(request: NextRequest) {
     const docs = await textSplitter.createDocuments([body.content]);
 
     for (const document of docs) {
-      const newMetadata = { id: "user id here" }; // TODO: get user id from Auth
+      const newMetadata = { id: "user id here" };
       document.metadata = { ...document.metadata, ...newMetadata };
+
       const embeddingResponse = await openaiClient.createEmbedding({
         model: "text-embedding-ada-002",
         input: document.pageContent,
@@ -51,16 +52,17 @@ export async function POST(request: NextRequest) {
           metadata: document.metadata,
         },
       });
+
+      console.log("documentResponse", documentResponse);
     }
 
-    journal = await prisma.journal.create({
+    journal = await prisma.journals.create({
       data: {
         content: body.content,
         title:
           body.content.split("\n")[0].length > 50
             ? body.content.split("\n")[0].slice(0, 50) + "..."
             : body.content.split("\n")[0],
-        userId: body.userId,
       },
     });
 
@@ -80,7 +82,7 @@ export async function POST(request: NextRequest) {
 export async function GET(request: NextRequest) {
   let journals = [];
   try {
-    journals = await prisma.journal.findMany({
+    journals = await prisma.journals.findMany({
       orderBy: { createdAt: "desc" },
     });
   } catch (e) {

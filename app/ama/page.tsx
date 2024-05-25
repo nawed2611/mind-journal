@@ -104,7 +104,7 @@ const Chatbot = (props: any) => {
 
   return (
     <div>
-      <h1 className="p-4 italic text-stone-400">
+      <h1 className="h-full font-[inter] p-4 italic text-stone-400">
         Try asking prompts about your journals like - When did I go to Goa?
       </h1>
       <div className="mb-20 mt-8 h-[75vh] w-[80vw] overflow-y-scroll rounded-lg">

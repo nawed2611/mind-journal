@@ -16,28 +16,22 @@ import {
 
 const data = [
   {
+    id: 5,
+    title: "Jot!",
+    icon: <Paperclip size={18} />,
+    route: "/write",
+  },
+  {
     id: 1,
-    title: "Dashboard",
-    icon: <Home size={19} />,
+    title: "Your Journals",
+    icon: <Home size={18} />,
     route: "/dashboard",
   },
   {
     id: 2,
-    title: "Ask me anything",
-    icon: <Bot size={19} />,
+    title: "Chat",
+    icon: <Bot size={18} />,
     route: "/ama",
-  },
-  // {
-  //   id: 4,
-  //   title: "Your Story",
-  //   icon: <Book size={19} />,
-  //   route: "/story",
-  // },
-  {
-    id: 5,
-    title: "Write for Today!",
-    icon: <Paperclip size={19} />,
-    route: "/",
   },
 ];
 
@@ -52,7 +46,7 @@ const Sidebar = () => {
           <Link
             key={item.id}
             href={item.route}
-            className="my-4 flex items-center justify-between rounded-md px-2 py-1 text-sm text-stone-600 transition-all hover:scale-105 hover:bg-stone-200"
+            className="my-4 flex items-center justify-between rounded-md px-2 py-1 text-sm text-stone-600 transition-all hover:bg-stone-200"
           >
             <div className="flex items-center space-x-2">
               <div className="rounded-sm p-1">{item.icon}</div>
@@ -63,12 +57,12 @@ const Sidebar = () => {
       </ul>
       <ul className="m-4">
         <Link href="/dashboard">
-          {/* <li className="flex my-4 items-center hover:scale-105 transition-all justify-between rounded-md px-2 py-1 text-sm text-stone-600 hover:bg-stone-200">
+          <li className="flex my-4 items-center transition-all justify-between rounded-md px-2 py-1 text-sm text-stone-600 hover:bg-stone-200">
             <div className="flex items-center space-x-2">
               <div className="rounded-sm p-1"> <BookMarkedIcon size={21} /> </div>
               <span className="text-md">Archived</span>
             </div>
-          </li> */}
+          </li>
         </Link>
       </ul>
     </div>

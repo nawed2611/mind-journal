@@ -2,10 +2,7 @@ import { PromptTemplate } from "langchain/prompts";
 import { createClient } from "@supabase/supabase-js";
 import { Message as VercelChatMessage, StreamingTextResponse } from "ai";
 import { ChatOpenAI } from "langchain/chat_models/openai";
-import {
-  SupabaseFilterRPCCall,
-  SupabaseVectorStore,
-} from "langchain/vectorstores/supabase";
+import { SupabaseVectorStore } from "langchain/vectorstores/supabase";
 import {
   RunnableSequence,
   RunnablePassthrough,
@@ -41,7 +38,7 @@ const formatVercelMessages = (chatHistory: VercelChatMessage[]) => {
 };
 
 const model = new ChatOpenAI({
-  modelName: "gpt-4o",
+  modelName: "gpt-3.5-turbo",
 });
 
 const CONDENSE_QUESTION_TEMPLATE = `Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question, in its original language.
@@ -60,12 +57,6 @@ Answer the question based only on the following context:
 
 Question: {question}
 `;
-
-const client = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_PRIVATE_KEY!,
-);
-
 const answerPrompt = PromptTemplate.fromTemplate(ANSWER_TEMPLATE);
 
 export async function POST(request: Request) {
@@ -77,16 +68,21 @@ export async function POST(request: Request) {
   const previousMessages = messages.slice(0, -1);
   const currentMessageContent = text;
 
-  console.log("previousMessages", previousMessages);
-  console.log("currentMessageContent", currentMessageContent);
+  const client = createClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_PRIVATE_KEY!,
+  );
 
   const vectorStore = new SupabaseVectorStore(new OpenAIEmbeddings(), {
     client,
-    tableName: "documents",
-    queryName: "match_documents",
+    tableName: "Documents",
   });
 
+  console.log("vectorStore", vectorStore);
+
   const retriever = vectorStore.asRetriever();
+
+  console.log("retriever", retriever);
 
   const standaloneQuestionChain = RunnableSequence.from([
     {
@@ -99,6 +95,8 @@ export async function POST(request: Request) {
     new StringOutputParser(),
   ]);
 
+  console.log("standaloneQuestionChain", standaloneQuestionChain);
+
   const answerChain = RunnableSequence.from([
     {
       context: retriever.pipe(combineDocumentsFn as any),
@@ -109,13 +107,19 @@ export async function POST(request: Request) {
     new BytesOutputParser(),
   ]);
 
+  console.log("answerChain", answerChain);
+
   const conversationalRetrievalQAChain =
     standaloneQuestionChain.pipe(answerChain);
+
+  console.log("conversationalRetrievalQAChain", conversationalRetrievalQAChain);
 
   const stream = await conversationalRetrievalQAChain.stream({
     question: currentMessageContent,
     chat_history: previousMessages,
   });
+
+  console.log("stream", stream);
 
   return new StreamingTextResponse(stream);
 }
