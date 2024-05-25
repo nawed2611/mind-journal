@@ -48,9 +48,9 @@ export async function POST(request: NextRequest) {
       let documentResponse = await prisma.documents.create({
         data: {
           content: document.pageContent,
-          embedding,
+          embedding: embedding,
           metadata: document.metadata,
-        },
+        } as any,
       });
 
       console.log("documentResponse", documentResponse);
